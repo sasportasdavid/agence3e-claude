@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//private/tmp/design-extract/capiwise/**)",
+      "Bash(npm --version)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(cp \"/Users/sasportasdavid/.claude/projects/-Users-sasportasdavid-agence3e-claude/70e00ec6-0622-475d-8345-188816a5d25a/tool-results/webfetch-1778177376803-j1ms2o.bin\" /tmp/design.gz)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(mkdir -p design_extract)",
+      "Bash(tar -xzf design.gz -C design_extract)",
+      "Read(//Users/sasportasdavid/**)",
+      "Bash(npx --yes create-next-app@latest agence3e-claude --typescript --tailwind --app --no-eslint --no-src-dir --turbopack --import-alias \"@/*\" --use-npm --skip-install --yes)"
+    ]
+  }
+}
