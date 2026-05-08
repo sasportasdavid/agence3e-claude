@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LogoContractuel } from "@/brand/components/LogoContractuel";
 
@@ -203,6 +204,7 @@ const ENTRIES: Entry[] = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const pathname = usePathname();
 
   /* lock body scroll when mobile drawer open */
   useEffect(() => {
@@ -216,8 +218,25 @@ export function SiteHeader() {
     };
   }, [mobileOpen]);
 
+  /* fermeture auto au changement de route (taps sur les liens du drawer) */
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenAccordion(null);
+  }, [pathname]);
+
+  /* fermeture sur touche Escape (a11y) */
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   return (
-    <header className="bg-white/[0.92] backdrop-blur-md border-b border-[var(--color-border-2)] sticky top-0 z-50">
+    <>
+      <header className="bg-white/[0.92] backdrop-blur-md border-b border-[var(--color-border-2)] sticky top-0 z-50">
       <div className="flex justify-between items-center py-[14px] px-8 max-w-[1440px] mx-auto gap-6 max-lg:py-3 max-lg:px-5">
         <Link
           href="/"
@@ -286,10 +305,17 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+      </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — rendu en sibling du <header> et non en enfant.
+          Le header utilise `backdrop-blur-md` qui ajoute `backdrop-filter`,
+          ce qui crée un containing block pour les descendants `position: fixed`
+          (gotcha CSS standard). Si le drawer était à l'intérieur de <header>,
+          son `fixed inset-0` se calculerait relativement au header (~68 px de
+          haut), pas au viewport — c'est exactement le bug observé.
+          En sortant le drawer, son `fixed` retombe correctement sur le viewport. */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-[59px] bg-white overflow-y-auto z-40">
+        <div className="lg:hidden fixed inset-0 top-[69px] bg-white overflow-y-auto z-40">
           <nav className="flex flex-col px-5 py-6 gap-1">
             {ENTRIES.map((entry) => {
               if (entry.href) {
@@ -352,7 +378,7 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
 
