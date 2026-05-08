@@ -417,10 +417,180 @@ export const CASES: CaseStudy[] = [
   },
 ];
 
+/* ──────────────────────────────────────────────────────────────────────
+ * v3 (Phase 3) — Cas indicatifs sectoriels.
+ *
+ * Ces 5 cas couvrent les 5 nouveaux secteurs ajoutés en Phase 3
+ * (Métallurgie, Chimie/cosmétique Provence, Imprimerie, Bois-papier,
+ * Verre-céramique). Verbatim issus de SECTEURS_INDUSTRIE_V2.md §4-8.
+ *
+ * IMPORTANT : ce sont des illustrations indicatives, pas de vrais cas
+ * client. Le verbatim porte la mention "indicatif" et le ROI est
+ * détaillé d'après les hypothèses du livrable.
+ * ────────────────────────────────────────────────────────────────────── */
+
+CASES.push(
+  {
+    slug: "case-014",
+    ref: "CASE-014",
+    title: "Fonderie d'aluminium Grand Est — récupération chaleur fumées + calorifugeage poches.",
+    region: "Grand Est",
+    tag: "Métallurgie · Grand Est",
+    segments: ["industrie-autre"],
+    activity: "Fonderie d'aluminium, 145 GWh/an",
+    travaux:
+      "Récupération chaleur fumées four à induction (IND-UT-118) + calorifugeage 800 m réseau eau de refroidissement (IND-UT-114) + opération spécifique chaleur fatale (IND-SE-01)",
+    fiches: ["IND-UT-118", "IND-UT-114", "IND-SE-01"],
+    stats: {
+      conso: "145 GWh/an",
+      invest: "580 000 €",
+      prime: "345 000 €",
+      reste: "235 000 €",
+      gain: "2 850 MWh/an",
+      roi: "4,2 ans",
+    },
+    narrative:
+      "Cas indicatif sectoriel — fonderie d'aluminium 145 GWh/an. Audit DDADUE conforme NF EN 16247-3 identifiant 6 gisements (fumées four, calorifugeage poches, compresseurs, ventilation). Combinaison de fiches standardisées et d'une opération spécifique IND-SE-01 portant 220 k€ sur les 345 k€ de prime CEE négociée.",
+    verbatim: {
+      quote:
+        "Illustration indicative — Sur les fonderies, l'opération spécifique IND-SE-01 portant la chaleur fatale est souvent le gisement le plus rentable, mais nécessite un dossier dédié argumenté techniquement.",
+      author: "Cas type",
+      role: "Métallurgie & fonderie",
+      region: "Grand Est",
+    },
+    tone: "orange",
+    date: "Cas indicatif sectoriel",
+  },
+  {
+    slug: "case-015",
+    ref: "CASE-015",
+    title: "Site cosmétique Provence — optimisation CTA + variation vitesse + récupération condenseurs.",
+    region: "Provence-Alpes-Côte d'Azur",
+    tag: "Cosmétique · Provence",
+    segments: ["industrie-autre"],
+    activity: "Production cosmétique, 62 GWh/an",
+    travaux:
+      "Optimisation 4 CTA (IND-UT-131) + variation vitesse moteur (IND-UT-102) + récupération chaleur condenseurs (IND-UT-117)",
+    fiches: ["IND-UT-131", "IND-UT-102", "IND-UT-117"],
+    stats: {
+      conso: "62 GWh/an",
+      invest: "268 000 €",
+      prime: "152 000 €",
+      reste: "116 000 €",
+      gain: "1 380 MWh/an",
+      roi: "3,1 ans",
+    },
+    narrative:
+      "Cas indicatif sectoriel — site cosmétique Provence 62 GWh/an. Audit DDADUE identifiant 5 gisements (CTA, chaudière, calorifugeage, compresseurs, eau glacée). Les Centrales de Traitement d'Air, qui fonctionnent en marche permanente pour les zones contrôlées, représentent 25 à 40 % de la consommation totale et sont le levier principal du plan d'action.",
+    verbatim: {
+      quote:
+        "Illustration indicative — En cosmétique et pharma, l'optimisation des CTA combinée à la récupération de chaleur sur les condenseurs offre 20 à 35 % d'économies sur les utilités.",
+      author: "Cas type",
+      role: "Chimie, pharmacie & cosmétique",
+      region: "Provence-Alpes-Côte d'Azur",
+    },
+    tone: "blue",
+    date: "Cas indicatif sectoriel",
+  },
+  {
+    slug: "case-016",
+    ref: "CASE-016",
+    title: "Imprimerie offset Hauts-de-France — récupération compresseurs + déstratification atelier.",
+    region: "Hauts-de-France",
+    tag: "Imprimerie · Hauts-de-France",
+    segments: ["industrie-autre"],
+    activity: "Imprimerie offset, 28 GWh/an",
+    travaux:
+      "Récupération chaleur sur 2 compresseurs (IND-UT-103) + déstratification atelier 4 200 m² (IND-BA-110) + variateurs (IND-UT-102) + calorifugeage (IND-UT-114)",
+    fiches: ["IND-UT-103", "IND-BA-110", "IND-UT-102", "IND-UT-114"],
+    stats: {
+      conso: "28 GWh/an",
+      invest: "138 000 €",
+      prime: "78 000 €",
+      reste: "60 000 €",
+      gain: "760 MWh/an",
+      roi: "3,4 ans",
+    },
+    narrative:
+      "Cas indicatif sectoriel — imprimerie offset Hauts-de-France 28 GWh/an. Audit DDADUE identifiant 4 gisements (compresseurs, calorifugeage, déstratification, variateurs). La déstratification d'air dans les ateliers à grande hauteur sous plafond (typique de l'imprimerie) est un quick win souvent sous-estimé.",
+    verbatim: {
+      quote:
+        "Illustration indicative — En imprimerie, sécheurs et compresseurs concentrent 35 à 50 % de la facture combinée. Le passage UV-LED et la récupération sur compresseurs débloquent l'essentiel des économies.",
+      author: "Cas type",
+      role: "Imprimerie & industries graphiques",
+      region: "Hauts-de-France",
+    },
+    tone: "violet",
+    date: "Cas indicatif sectoriel",
+  },
+  {
+    slug: "case-017",
+    ref: "CASE-017",
+    title: "Papeterie Auvergne-Rhône-Alpes — récupération vapeur sécheur + calorifugeage 1 800 m.",
+    region: "Auvergne-Rhône-Alpes",
+    tag: "Bois-papier · ARA",
+    segments: ["industrie-autre"],
+    activity: "Papeterie, 220 GWh/an",
+    travaux:
+      "Récupération vapeur sécheur (IND-SE-01, opération spécifique) + calorifugeage 1 800 m réseau (IND-UT-114) + récupération fumées chaudière (IND-UT-139)",
+    fiches: ["IND-SE-01", "IND-UT-114", "IND-UT-139"],
+    stats: {
+      conso: "220 GWh/an",
+      invest: "920 000 €",
+      prime: "540 000 €",
+      reste: "380 000 €",
+      gain: "4 200 MWh/an",
+      roi: "3,8 ans",
+    },
+    narrative:
+      "Cas indicatif sectoriel — papeterie Auvergne-Rhône-Alpes 220 GWh/an. Audit DDADUE identifiant 6 gisements (sécheur principal, fumées chaudière, calorifugeage, ventilateurs). L'opération spécifique IND-SE-01 sur la récupération vapeur sécheur porte 380 k€ sur les 540 k€ de prime CEE — gisement le plus rentable du secteur bois-papier.",
+    verbatim: {
+      quote:
+        "Illustration indicative — Les papeteries et panneaux dérivés disposent presque tous de chaudières biomasse alimentées par leurs propres déchets, candidates idéales pour des opérations spécifiques de récupération de chaleur fatale.",
+      author: "Cas type",
+      role: "Bois, papier & carton",
+      region: "Auvergne-Rhône-Alpes",
+    },
+    tone: "rose",
+    date: "Cas indicatif sectoriel",
+  },
+  {
+    slug: "case-018",
+    ref: "CASE-018",
+    title: "Verrerie creuse Sud-Est — préchauffage air combustion + calorifugeage 600 m.",
+    region: "Sud-Est",
+    tag: "Verre · Sud-Est",
+    segments: ["industrie-autre"],
+    activity: "Verrerie creuse, 175 GWh/an",
+    travaux:
+      "Préchauffage air combustion four (IND-SE-01, opération spécifique) + calorifugeage 600 m réseau (IND-UT-114) + récupération fumées (IND-UT-139)",
+    fiches: ["IND-SE-01", "IND-UT-114", "IND-UT-139"],
+    stats: {
+      conso: "175 GWh/an",
+      invest: "750 000 €",
+      prime: "432 000 €",
+      reste: "318 000 €",
+      gain: "3 280 MWh/an",
+      roi: "3,2 ans",
+    },
+    narrative:
+      "Cas indicatif sectoriel — verrerie creuse Sud-Est 175 GWh/an. Audit DDADUE identifiant 5 gisements (préchauffage air combustion, récupération vapeur, calorifugeage, ventilateurs, éclairage). L'opération spécifique IND-SE-01 sur le préchauffage de l'air de combustion porte 320 k€ sur les 432 k€ de prime CEE.",
+    verbatim: {
+      quote:
+        "Illustration indicative — Les verreries et céramistes voient 65 à 85 % de leur facture concentrée sur les fours haute température. La récupération de chaleur sur fumées et le préchauffage des matières premières constituent les deux gisements majeurs.",
+      author: "Cas type",
+      role: "Verre & céramique",
+      region: "Sud-Est",
+    },
+    tone: "yellow",
+    date: "Cas indicatif sectoriel",
+  },
+);
+
 export const CASES_BY_SLUG = Object.fromEntries(CASES.map((c) => [c.slug, c]));
 
 export const FILTERS: { key: CaseSegment | "all"; label: string }[] = [
-  { key: "all", label: "Tous (12)" },
+  { key: "all", label: `Tous (${CASES.length})` },
   { key: "iaa", label: "IAA" },
   { key: "industrie-autre", label: "Industrie" },
   { key: "tertiaire", label: "Tertiaire" },

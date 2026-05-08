@@ -64,6 +64,30 @@ export default function IAAPage() {
                 </Link>
               </div>
             </div>
+
+            {/* v3 (Phase 3) — 3 chiffres clés du secteur, en parité visuelle
+                stricte avec les 7 autres pages secteurs (cf. SECTEURS_INDUSTRIE_V2.md). */}
+            <div className="grid grid-cols-3 gap-6 mt-16 max-[1100px]:grid-cols-1">
+              {hero.chiffres.map((c, i) => (
+                <div
+                  key={c.label}
+                  className="bg-white border border-[var(--color-border)] rounded-2xl p-7 reveal"
+                >
+                  <span className="mono text-[10.5px] tracking-[0.08em] uppercase text-[var(--color-text-3)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div
+                    className="it text-[clamp(32px,3vw,44px)] text-[var(--color-primary)] mt-3 leading-none"
+                    style={{ fontFeatureSettings: '"tnum" 1' }}
+                  >
+                    {c.value}
+                  </div>
+                  <p className="text-[14px] text-[var(--color-text-2)] mt-4 leading-[1.5]">
+                    {c.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

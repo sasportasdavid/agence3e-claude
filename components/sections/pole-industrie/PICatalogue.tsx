@@ -78,11 +78,7 @@ export function PICatalogue() {
                     : "bg-transparent text-[var(--color-text-3)] border border-[var(--color-border)]"
                 }`}
               >
-                {row.status === "phare"
-                  ? "Phare"
-                  : row.status === "dom"
-                    ? "DOM"
-                    : "Std"}
+                {row.status === "phare" ? "Phare" : "Std"}
               </span>
             </div>
           ))}

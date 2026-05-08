@@ -18,10 +18,17 @@ export const meta = {
 };
 
 export const hero = {
-  eyebrow: "Vertical fort 01 · Cœur de cœur",
-  h1: "Audit énergétique et CEE pour l'agroalimentaire à process froid.",
-  sub: "Laiteries, fromageries, charcuteries, plats préparés, surgelés, biscuiteries, brasseries et boissons. Tous les sites IAA combinant froid industriel et vapeur process ont un gisement énergétique massif, financé à 50–70 % par les CEE.",
+  eyebrow: "Secteur · Agroalimentaire & process froid",
+  h1: "Agroalimentaire & process froid.",
+  sub: "Production froide, conditionnement réfrigéré, conservation négative — vos lignes consomment énergie et fluides H24. La récupération de chaleur sur les groupes froids et le freecooling sont rentables en 2 à 4 ans.",
   cta: "Pré-qualifier mon site IAA",
+  /* v3 (Phase 3) — chiffres clés du secteur affichés sous le hero,
+     en parité visuelle avec les 7 autres pages secteurs. */
+  chiffres: [
+    { value: "14 000", label: "sites IAA en France" },
+    { value: "73 %", label: "au-dessus du seuil DDADUE 2,75 GWh" },
+    { value: "20 à 40 %", label: "de la conso totale concernée par le froid de process" },
+  ],
 };
 
 export const lecture = {

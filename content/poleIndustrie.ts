@@ -13,7 +13,7 @@ export const hero = {
   eyebrow: "Pôle Industrie · Cœur d'expertise",
   h1Lead: ["Là où la spécialisation", "fait gagner."],
   h1It: "Industriels français : nos primes CEE sont les plus importantes.",
-  sub: "218 fiches CEE actives, 40+ sectorielles industrie. IAA process froid, plasturgie, blanchisserie, traitement de surface. Audit DDADUE, montage CEE en compétition, AMO travaux jusqu'à la mise en service.",
+  sub: "218 fiches CEE actives, 40+ sectorielles industrie. Huit secteurs industriels couverts à parité — agroalimentaire, plasturgie, blanchisserie, métallurgie, chimie-pharma-cosmétique, imprimerie, bois-papier-carton, verre-céramique. Audit DDADUE, montage CEE en compétition, AMO travaux jusqu'à la mise en service.",
   ctaPrimary: "Pré-qualifier mon site industriel",
   ctaSecondary: "Voir les 12 fiches CEE",
   trustText: "Plus de 30 fiches CEE industrielles maîtrisées",
@@ -41,68 +41,10 @@ export const ddadue = {
   ],
 };
 
-export const specialites = {
-  eyebrow: "Trois spécialités industrielles",
-  title: { lead: "Les terrains où nous avons", it: "la main la plus sûre." },
-  cards: [
-    {
-      tone: "green" as const,
-      badge: "IAA · Process froid",
-      title: "Agroalimentaire — process froid.",
-      desc: "Laiteries, fromageries, charcuteries, plats préparés, surgelés. Récupération chaleur sur groupes froids, calorifugeage vapeur, NEP.",
-      stats: [
-        { l: "Sites France", v: "~1 800" },
-        { l: "> seuil DDADUE", v: "~62 %" },
-        { l: "Ticket audit", v: "35–80 k€" },
-        { l: "Gisement moyen", v: "18–28 %" },
-      ],
-    },
-    {
-      tone: "yellow" as const,
-      badge: "Plasturgie",
-      title: "Plasturgie — extrusion, injection, soufflage.",
-      desc: "Variation de vitesse extrudeuses, calorifugeage moules, récupération chaleur compresseurs, optimisation cycle injection.",
-      stats: [
-        { l: "Sites France", v: "~1 200" },
-        { l: "> seuil DDADUE", v: "~48 %" },
-        { l: "Ticket audit", v: "28–65 k€" },
-        { l: "Gisement moyen", v: "15–22 %" },
-      ],
-    },
-    {
-      tone: "mint" as const,
-      badge: "Blanchisserie",
-      title: "Blanchisserie industrielle.",
-      desc: "Récupération eaux grises, calorifugeage tunnels, optimisation cycle séchage, valorisation chaleur fatale en pré-chauffage.",
-      stats: [
-        { l: "Sites France", v: "~280" },
-        { l: "> seuil DDADUE", v: "~58 %" },
-        { l: "Ticket audit", v: "22–55 k€" },
-        { l: "Gisement moyen", v: "14–20 %" },
-      ],
-    },
-  ],
-};
-
-export const autresSecteurs = {
-  eyebrow: "Autres secteurs industriels couverts",
-  title: { lead: "Sept verticaux", it: "en plus." },
-  tiles: [
-    { num: "04", title: "Traitement de surface", desc: "Bains chauffés, four de séchage, ventilation captation." },
-    { num: "05", title: "Métallurgie", desc: "Fours, traitements thermiques, fonderie aluminium." },
-    { num: "06", title: "Verre & céramique", desc: "Fours de fusion, refroidissement, pots de cuisson." },
-    { num: "07", title: "Papier & carton", desc: "Sécheurs vapeur, broyeurs, calandres." },
-    { num: "08", title: "Chimie spécialités", desc: "Réacteurs chauffés, distillation, séchage." },
-    { num: "09", title: "Pharmacie & cosmétique", desc: "NEP, salles propres, autoclaves stérilisation." },
-    { num: "10", title: "Bois & ameublement", desc: "Sécheurs, presses chauffées, aspiration copeaux." },
-    {
-      num: "11",
-      title: "Mon secteur n'y est pas ?",
-      desc: "Décrivez-nous votre process, on s'adapte.",
-      dark: true,
-    },
-  ],
-};
+/* v3 (Phase 3) — Les exports `specialites` (3 verticaux forts) et
+ * `autresSecteurs` (7 secteurs noyés) ont été retirés au profit d'une
+ * grille unique à parité de 8 secteurs (cf. SECTORS_INDEX dans
+ * content/poleIndustrieSubs.ts, rendue par PISecteurs.tsx). */
 
 export const methode = {
   eyebrow: "Méthodologie",
@@ -155,6 +97,10 @@ export interface CatalogFiche {
   cat: "ut" | "ba" | "se";
 }
 
+/* v3 (Phase 3) — Liste des 12 fiches CEE industrie alignée sur le livrable
+ * SECTEURS_INDUSTRIE_V2.md : IND-UT-117, IND-UT-103, IND-UT-131, IND-UT-102,
+ * IND-UT-134, IND-SE-01, IND-UT-137, IND-UT-139, IND-UT-118, IND-UT-114,
+ * IND-UT-129, IND-UT-135. */
 export const catalogue = {
   eyebrow: "Catalogue fiches CEE industrie",
   title: { lead: "Douze fiches qui couvrent", it: "l'essentiel des plans d'action." },
@@ -166,18 +112,18 @@ export const catalogue = {
     { key: "phare", label: "Phares (7)" },
   ] as { key: CatalogCategory; label: string }[],
   rows: [
-    { ref: "IND-UT-117", title: "Récupération chaleur sur groupe froid", sector: "IAA, agro", prime: "98,5 k€", status: "phare", cat: "ut" },
-    { ref: "IND-UT-103", title: "Variation vitesse moteurs > 11 kW", sector: "Tous secteurs", prime: "59 k€", status: "phare", cat: "ut" },
-    { ref: "IND-UT-134", title: "Calorifugeage points singuliers vapeur", sector: "IAA, chimie", prime: "24,8 k€", status: "phare", cat: "ut" },
-    { ref: "IND-UT-137", title: "PAC haute température (process)", sector: "IAA, agro", prime: "186 k€", status: "phare", cat: "ut" },
-    { ref: "IND-UT-114", title: "Motovariateur synchrone permanent", sector: "Tous secteurs", prime: "42 k€", status: "phare", cat: "ut" },
-    { ref: "IND-UT-122", title: "Compresseur d'air à variation", sector: "Tous secteurs", prime: "38 k€", status: "phare", cat: "ut" },
-    { ref: "IND-BA-112", title: "Isolation toiture bâtiment industriel", sector: "Tous secteurs", prime: "62 k€", status: "phare", cat: "ba" },
-    { ref: "IND-UT-104", title: "Brûleur régulé sur turbine", sector: "Métallurgie, verre", prime: "82 k€", status: "std", cat: "ut" },
-    { ref: "IND-UT-141", title: "Détection de fuites air comprimé", sector: "Tous secteurs", prime: "12 k€", status: "std", cat: "ut" },
-    { ref: "IND-SE-101", title: "Système management énergie ISO 50001", sector: "Tous secteurs", prime: "28 k€", status: "std", cat: "se" },
-    { ref: "IND-UT-105", title: "Récupération chaleur fumées chaudière", sector: "IAA, papier", prime: "74 k€", status: "std", cat: "ut" },
-    { ref: "INDEN101", title: "Isolation murs DOM industrie", sector: "Outre-mer", prime: "112 k€", status: "dom", cat: "ut" },
+    { ref: "IND-UT-117", title: "Récupération de chaleur sur groupe froid", sector: "IAA, chimie, blanchisserie", prime: "8 à 47 k€", status: "phare", cat: "ut" },
+    { ref: "IND-UT-103", title: "Récupération de chaleur sur compresseur d'air", sector: "Tous secteurs", prime: "2 à 17 k€", status: "phare", cat: "ut" },
+    { ref: "IND-UT-131", title: "Optimisation des CTA (variation + récupération)", sector: "Chimie, pharma, cosmétique", prime: "7 à 30 k€", status: "phare", cat: "ut" },
+    { ref: "IND-UT-102", title: "Variation électronique de vitesse moteur", sector: "Tous secteurs", prime: "2 à 21 k€", status: "phare", cat: "ut" },
+    { ref: "IND-UT-134", title: "Sous-comptage énergétique", sector: "Tous secteurs", prime: "Selon parc", status: "phare", cat: "ut" },
+    { ref: "IND-SE-01", title: "Opération spécifique (chaleur fatale, préchauffage)", sector: "Métallurgie, verre, bois-papier", prime: "50 à 800+ k€", status: "phare", cat: "se" },
+    { ref: "IND-UT-137", title: "Système de récupération sur effluents", sector: "Blanchisserie, IAA", prime: "5 à 20 k€", status: "phare", cat: "ut" },
+    { ref: "IND-UT-139", title: "Récupération de chaleur sur fumées chaudière", sector: "Chimie, bois-papier, verre", prime: "5 à 38 k€", status: "std", cat: "ut" },
+    { ref: "IND-UT-118", title: "Récupération de chaleur sur fours", sector: "Métallurgie, verre, bois-papier", prime: "9 à 68 k€", status: "std", cat: "ut" },
+    { ref: "IND-UT-114", title: "Calorifugeage de réseaux", sector: "Tous secteurs", prime: "3 à 30 k€", status: "std", cat: "ut" },
+    { ref: "IND-UT-129", title: "Échangeur de chaleur sur condensats", sector: "Blanchisserie, imprimerie", prime: "3 à 17 k€", status: "std", cat: "ut" },
+    { ref: "IND-UT-135", title: "Freecooling par eau de refroidissement", sector: "IAA, datacenter, chimie", prime: "7 à 27 k€", status: "std", cat: "ut" },
   ] satisfies CatalogFiche[],
 };
 
@@ -244,9 +190,9 @@ export const faq = {
 };
 
 export const divider = {
-  eyebrow: "Vertical fort 01",
-  title: { lead: "Suite : page dédiée", it: "agroalimentaire — process froid." },
-  body: "Notre cœur de cœur. Voir le prototype dédié pour la mise en perspective sectorielle complète.",
-  cta: "Ouvrir la sous-page IAA",
-  href: "/pole-industrie/agroalimentaire-process-froid",
+  eyebrow: "Pré-qualification industrielle",
+  title: { lead: "Sous 24 h ouvrées :", it: "estimation, devis, calendrier." },
+  body: "Décrivez-nous votre site (secteur, conso, échéance) — nous vous rappelons sous 24 h ouvrées avec une fourchette d'audit, un calendrier de visite et la liste des gisements CEE prioritaires identifiés en pré-qualif.",
+  cta: "Pré-qualifier mon site",
+  href: "/contact",
 };
