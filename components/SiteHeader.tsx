@@ -204,16 +204,29 @@ const ENTRIES: Entry[] = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  /* drawer top offset = position de la `bottom` du <header> dans le viewport.
+     Cela couvre tous les cas (scroll=0 avec TopBar visible / scroll>0 sticky
+     pinned / redimensionnement) sans dépendre d'une constante magique. */
+  const [drawerTop, setDrawerTop] = useState<number>(0);
   const pathname = usePathname();
 
-  /* lock body scroll when mobile drawer open */
+  /* lock body scroll + compute drawer top when mobile drawer open */
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!mobileOpen) {
       document.body.style.overflow = "";
+      return;
     }
+    const header = document.querySelector("header");
+    const updateTop = () => {
+      if (header) {
+        setDrawerTop(Math.max(0, header.getBoundingClientRect().bottom));
+      }
+    };
+    updateTop();
+    document.body.style.overflow = "hidden";
+    window.addEventListener("resize", updateTop);
     return () => {
+      window.removeEventListener("resize", updateTop);
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
@@ -315,7 +328,10 @@ export function SiteHeader() {
           haut), pas au viewport — c'est exactement le bug observé.
           En sortant le drawer, son `fixed` retombe correctement sur le viewport. */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-[69px] bg-white overflow-y-auto z-40">
+        <div
+          className="lg:hidden fixed inset-0 bg-white overflow-y-auto z-40"
+          style={{ top: `${drawerTop}px` }}
+        >
           <nav className="flex flex-col px-5 py-6 gap-1">
             {ENTRIES.map((entry) => {
               if (entry.href) {
