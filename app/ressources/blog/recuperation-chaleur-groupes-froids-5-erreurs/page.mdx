@@ -1,0 +1,60 @@
+import { ArticleShell } from "../article-shell";
+
+export const metadata = {
+  title: "Récupération de chaleur sur groupes froids : 5 erreurs qui coûtent cher | Agence 3E",
+  description:
+    "Sous-dimensionnement de l'échangeur, oubli de la régulation, absence de mesure du gain, négligence du désembouage, sous-estimation des pertes thermiques de stockage.",
+  alternates: { canonical: "/ressources/blog/recuperation-chaleur-groupes-froids-5-erreurs" },
+};
+
+<ArticleShell
+  title="Récupération de chaleur sur groupes froids : 5 erreurs qui coûtent cher en agroalimentaire"
+  category="Industrie"
+  readTime="7 min"
+  date="Mars 2026"
+>
+
+# Récupération de chaleur sur groupes froids : 5 erreurs qui coûtent cher en agroalimentaire.
+
+La récupération de chaleur sur groupes froids (fiche **IND-UT-117**) est le gisement n°1 en IAA. Mais sa mise en œuvre rate régulièrement faute de quelques précautions clés. Tour d'horizon des cinq erreurs récurrentes.
+
+## 1. Sous-dimensionnement de l'échangeur
+
+L'erreur la plus fréquente : prendre un échangeur dimensionné pour la **chaleur moyenne** au lieu de la **chaleur de pointe**. Conséquence : 25 à 40 % de la chaleur récupérable est perdue, parce que l'échangeur sature aux périodes de forte demande de froid.
+
+> **Bonne pratique** : dimensionner sur la **puissance frigorifique de pointe** × COP, avec une marge de 15-20 % pour les transitoires.
+
+## 2. Oubli de la régulation
+
+L'échangeur seul ne suffit pas : il faut une **régulation** qui module le débit de fluide secondaire selon la disponibilité de chaleur ET le besoin process. Sans régulation, deux scénarios :
+
+- Chaleur produite mais pas valorisée → gain réel proche de zéro
+- Surcharge du process avec chaleur → arrêt manuel et complexité opérationnelle
+
+> **Bonne pratique** : vanne 3 voies pilotée par GTB, avec consignes priorité process / priorité récupération.
+
+## 3. Absence de mesure du gain
+
+Si le gain n'est pas mesuré post-travaux, il n'est **pas défendable** au PNCEE en cas de contrôle. Et le client n'a aucun moyen de prouver l'économie au comité d'investissement.
+
+> **Bonne pratique** : poser un compteur thermique (M-Bus ou Modbus) sur la boucle récupération, intégré à la GTB. Reporting mensuel.
+
+## 4. Négligence du désembouage
+
+Dans les boucles eau chaude récupération, l'embouage est rapide (3-5 ans). Sans désembouage régulier, les performances chutent de 30-50 % en 2-3 ans. Un échangeur encrassé est un échangeur en panne.
+
+> **Bonne pratique** : désembouage annuel + traitement d'eau adapté + filtre magnétique.
+
+## 5. Sous-estimation des pertes thermiques de stockage
+
+Quand la chaleur récupérée alimente un ballon tampon, les pertes thermiques de ce ballon (mal isolé, surdimensionné, en local non chauffé) peuvent annuler 15-25 % du gain.
+
+> **Bonne pratique** : isolation R = 4 m².K/W minimum, ballon dimensionné juste, local technique chauffé naturellement par les pertes.
+
+---
+
+**En résumé** : la fiche IND-UT-117 paie très bien (50–200 k€ de prime CEE typique), mais sa rentabilité dépend totalement de la qualité d'ingénierie. Une opération mal calée peut tomber à un ROI de 5 ans au lieu des 1,5–2,5 ans annoncés.
+
+[Pré-qualifier mon site IAA](/contact) · [En savoir plus sur le pôle IAA](/pole-industrie/agroalimentaire-process-froid)
+
+</ArticleShell>

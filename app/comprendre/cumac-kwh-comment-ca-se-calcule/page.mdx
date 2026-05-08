@@ -1,0 +1,50 @@
+export const metadata = {
+  title: "Le kWh cumac expliqué simplement | Agence 3E",
+  description:
+    "Formule de calcul du kWh cumac, exemple chiffré sur un variateur 30 kW, conversion en prime €. Décodage complet.",
+  alternates: { canonical: "/comprendre/cumac-kwh-comment-ca-se-calcule" },
+};
+
+<span className="eyebrow">Comprendre · Formule</span>
+
+# Le kWh cumac expliqué simplement.
+
+« Cumac » = **cum**ulé et **ac**tualisé. Décodage du mode de calcul des Certificats d'Économies d'Énergie.
+
+## Définition formelle
+
+Le kWh cumac représente la **quantité d'énergie économisée sur la durée de vie conventionnelle** d'une opération, **actualisée** à un taux fixé par arrêté ministériel.
+
+## Formule générale
+
+```
+kWh cumac = Économies annuelles (kWh)
+          × Durée de vie conventionnelle (an)
+          × Coefficient d'actualisation
+```
+
+## Exemple — Variateur sur moteur 30 kW (IND-UT-102)
+
+- Économie annuelle estimée : ~ **13 000 kWh**
+- Durée de vie conventionnelle : **15 ans**
+- Coefficient d'actualisation : ≈ **0,72**
+
+> Cumac ≈ 13 000 × 15 × 0,72 = **140 400 kWh cumac**
+
+## Conversion en prime €
+
+Multipliée par le **prix négocié de rachat**. Sur cet exemple, à **6 €/MWh cumac** : ~ **840 €**.
+
+## Pour les opérations industrielles
+
+Les fiches publient des **formules paramétriques**. Exemple IND-UT-117 :
+
+```
+kWh cumac = 270 × Pf × Hf × CB
+```
+
+où `Pf` est la puissance frigorifique, `Hf` les heures de fonctionnement, `CB` un coefficient de bonification climatique selon zone.
+
+---
+
+[Lire une fiche d'opération standardisée](/comprendre/fiches-operations-standardisees) · [Estimer ma prime CEE](/simulateur-cee)

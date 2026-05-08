@@ -1,26 +1,263 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   Agence 3E — Design tokens
+   Ported from DESIGN_SYSTEM.html / Maquette 2 v4 — Aurore.
+   ============================================================ */
+
+@theme {
+  --color-primary: #0a2540;
+  --color-primary-90: #1a3450;
+  --color-secondary: #00a86b;
+  --color-secondary-10: #e5f6ef;
+  --color-accent: #f5c518;
+  --color-error: #d64545;
+
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #0a2540;
+  --color-text-2: #425466;
+  --color-text-3: #8792a2;
+  --color-border: #e6ebf1;
+  --color-border-2: #eff2f7;
+
+  --color-pastel-rose: #fce4e4;
+  --color-pastel-rose-deep: #f5c8c8;
+  --color-pastel-blue: #e0eafb;
+  --color-pastel-blue-deep: #c5d6f4;
+  --color-pastel-green: #ddf1e5;
+  --color-pastel-green-deep: #b8e0ca;
+  --color-pastel-orange: #fce3d1;
+  --color-pastel-orange-deep: #f7c8a8;
+  --color-pastel-violet: #ece2f7;
+  --color-pastel-violet-deep: #d6bfee;
+  --color-pastel-yellow: #fcf1c8;
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --spacing-block: 200px;
+  --spacing-block-sm: 140px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "tnum" 1, "cv11" 1, "ss01" 1;
+    overflow-x: hidden;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img {
+    max-width: 100%;
+    display: block;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-x {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .container-wide {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .it {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .mono {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum" 1;
+  }
+  .display {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 16px;
+    height: 1px;
+    background: var(--color-text-2);
+  }
+
+  .section-title {
+    font-family: var(--font-sans);
+    font-size: clamp(40px, 4.4vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+    margin: 24px 0 0 0;
+    max-width: 880px;
+  }
+  .section-title .it {
+    font-size: inherit;
+    letter-spacing: -0.025em;
+  }
+  .section-lede {
+    font-size: 19px;
+    color: var(--color-text-2);
+    line-height: 1.55;
+    margin: 24px 0 0 0;
+    max-width: 640px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 14.5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.18s ease;
+    letter-spacing: -0.005em;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #1a3a60;
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: #fff;
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-primary);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-primary);
+    padding: 8px 0;
+  }
+  .btn-ghost:hover {
+    color: var(--color-secondary);
+  }
+  .btn-arrow::after {
+    content: "→";
+    font-size: 16px;
+    transition: transform 0.18s;
+  }
+  .btn-arrow:hover::after {
+    transform: translateX(3px);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.7, 0.3, 1),
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tooltip {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted currentColor;
+  }
+  .tooltip:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    font-feature-settings: normal;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+}
+
+.ddadue-live-dot {
+  box-shadow: 0 0 0 4px rgba(214, 69, 69, 0.18);
+  animation: ddadue-pulse 1.6s ease-in-out infinite;
+}
+@keyframes ddadue-pulse {
+  50% {
+    box-shadow: 0 0 0 8px rgba(214, 69, 69, 0);
+  }
+}
+
+@keyframes calcStep {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ddadue-live-dot {
+    animation: none;
+  }
 }

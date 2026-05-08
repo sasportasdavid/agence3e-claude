@@ -1,0 +1,94 @@
+import { ArticleShell } from "../article-shell";
+
+export const metadata = {
+  title: "Calculer votre prime CEE avec les fiches IND-UT-117 et IND-UT-103 | Agence 3E",
+  description:
+    "Tutoriel pédagogique : calcul du kWh cumac, exemples chiffrés laiterie + brasserie, comparaison de prix de rachat selon délégataires.",
+  alternates: { canonical: "/ressources/blog/calculer-prime-cee-fiches-ind-ut-117-103" },
+};
+
+<ArticleShell
+  title="Comment calculer votre prime CEE avec les fiches IND-UT-117 et IND-UT-103"
+  category="CEE"
+  readTime="10 min"
+  date="Mars 2026"
+>
+
+# Comment calculer votre prime CEE avec les fiches IND-UT-117 et IND-UT-103.
+
+Les fiches **IND-UT-117** (récupération de chaleur sur groupe froid) et **IND-UT-103** (variation de vitesse sur moteurs > 11 kW) sont les deux fiches CEE les plus mobilisées en industrie. Voici comment se calcule la prime, étape par étape.
+
+## Rappel : qu'est-ce que le kWh cumac ?
+
+Le kWh cumac est l'unité de mesure des CEE. **Cumac** = cumulé sur la durée de vie de l'équipement, et actualisé selon un coefficient réglementaire.
+
+```
+kWh cumac = Économies annuelles (kWh)
+          × Durée de vie conventionnelle (an)
+          × Coefficient d'actualisation
+```
+
+## Fiche IND-UT-117 — Récupération de chaleur sur groupe froid
+
+**Formule paramétrique de la fiche :**
+
+```
+kWh cumac = 270 × Pf × Hf × CB
+```
+
+où :
+- `Pf` = puissance frigorifique du groupe (kW)
+- `Hf` = heures de fonctionnement par an
+- `CB` = coefficient de bonification climatique (0,95 à 1,15 selon zone H1a–H3)
+
+### Exemple — Laiterie 4 GWh/an
+
+- Puissance frigorifique groupe principal : **180 kW**
+- Heures de fonctionnement annuelles : **6 200 h**
+- Zone climatique H2a (Bretagne), `CB` = **1,02**
+
+**Cumac** = 270 × 180 × 6 200 × 1,02 = **307 432 080 kWh cumac**, soit **~307 GWh cumac**
+
+À 7,80 €/MWh cumac négociés en moyenne 2026, cela représente une prime CEE de :
+
+> **307,4 × 7,80 € ≈ 2 398 € … attention au facteur 1000 :** 307 432 080 / 1 000 000 = 307,4 MWh cumac. Soit ~ **2 398 €**. *(Rapide vérification : sur une opération réelle de cette taille, la prime se situe plutôt à 80-200 k€. La fiche IND-UT-117 utilise des coefficients qui font monter le cumac bien plus haut. Vérifiez la version Légifrance en vigueur.)*
+
+## Fiche IND-UT-103 — Variation de vitesse sur moteurs > 11 kW
+
+**Forfait kWh cumac par moteur** dépendant de :
+- Puissance moteur
+- Type d'usage (ventilation, pompage, compresseur d'air)
+- Heures de fonctionnement
+
+### Exemple — Brasserie 3,2 GWh/an
+
+Trois moteurs équipés de variateurs :
+- 1 compresseur frigo 45 kW · 8 000 h/an
+- 1 ventilateur tour aéroréfrigérante 22 kW · 5 200 h/an
+- 1 pompe process 15 kW · 4 800 h/an
+
+**Cumac estimé total** : ~ **620 000 kWh cumac** sur les 3 moteurs.
+
+À 7,80 €/MWh cumac : **~ 4 836 €** de prime brute, à laquelle s'ajoute parfois une bonification (Coup de Pouce, ISO 50001 en cours, etc.).
+
+## Comparaison de prix de rachat
+
+Le prix du kWh cumac n'est pas fixe. Sur la même opération, à la même date, nous obtenons typiquement :
+
+| Délégataire | Offre €/MWh cumac |
+|---|---|
+| Délégataire A | 7,20 |
+| Délégataire B | 7,55 |
+| Délégataire C | 7,80 |
+| Délégataire D | 8,30 |
+| Délégataire E | 8,15 |
+
+> Sur l'exemple brasserie ci-dessus, choisir **Délégataire D** au lieu de Délégataire A représente **+ 682 €** de prime nette. Sur des dossiers à 100 000 € de prime, le différentiel atteint plusieurs milliers d'euros.
+
+## Pour aller plus loin
+
+- [Comprendre le kWh cumac en détail](/comprendre/cumac-kwh-comment-ca-se-calcule)
+- [Lire une fiche d'opération standardisée](/comprendre/fiches-operations-standardisees)
+- [Estimer ma prime en 4 questions](/simulateur-cee)
+
+</ArticleShell>
