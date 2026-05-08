@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LogoContractuel } from "@/brand/components/LogoContractuel";
+import { LogoHero } from "@/brand/components/LogoHero";
 
 /* ============================================================
    SiteHeader v2 — 6 entrées de premier niveau
@@ -257,11 +257,12 @@ export function SiteHeader() {
           aria-label="Agence 3E — Accueil"
           onClick={() => setMobileOpen(false)}
         >
-          {/* v3 (brand v1.0) — LOGO_CONTRACTUEL en header (matrice
-              Section 2 du Logo Guidelines : registre B2B sobre,
-              lecture rapide du nom). */}
-          <LogoContractuel size={140} className="max-md:hidden" />
-          <LogoContractuel size={88} className="md:hidden" />
+          {/* v4 (brand v1.1) — LOGO_HERO en header, conformément à la
+              matrice Section 2 du Logo Guidelines :
+              « Site web header / cover LinkedIn / kakémono → LOGO_HERO ».
+              Tailles strictes au-dessus du minimum 200 px (Section 3.1). */}
+          <LogoHero size={240} className="max-md:hidden" />
+          <LogoHero size={200} className="md:hidden" />
         </Link>
 
         {/* Desktop nav */}

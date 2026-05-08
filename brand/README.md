@@ -143,11 +143,13 @@ Tri-typographie chargée via Google Fonts :
 
 ## Application dans cette app Next.js
 
-| Emplacement                          | Logo utilisé                                   |
-| ------------------------------------ | ---------------------------------------------- |
-| Header (`components/SiteHeader.tsx`) | `<LogoContractuel size={80} />` (B2B sobre)     |
-| Footer (`components/SiteFooter.tsx`) | `<LogoContractuel size={60} negative />`        |
-| Favicon (`app/icon.svg`)             | `brand/logos/favicon.svg`                       |
+| Emplacement                                       | Logo utilisé                                                         |
+| ------------------------------------------------- | -------------------------------------------------------------------- |
+| Header desktop (`components/SiteHeader.tsx`)      | `<LogoHero size={240} />` (matrice Section 2 — site web header)       |
+| Header mobile (`components/SiteHeader.tsx`)       | `<LogoHero size={200} />` (taille minimale stricte Section 3.1)       |
+| Footer (`components/SiteFooter.tsx`)              | `<LogoContractuel size={120} negative />` (Section 2 — footer)        |
+| OG / Twitter image (`app/opengraph-image.tsx`)    | LOGO_HERO recomposé pour Satori (1200×630 sur fond `#0A2540`)         |
+| Favicon (`app/icon.svg`)                          | `brand/logos/favicon.svg`                                              |
 
 ## Application Make.com / e-mails / PDF
 
