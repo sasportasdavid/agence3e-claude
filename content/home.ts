@@ -190,7 +190,7 @@ export const poles = {
    composant components/sections/IndepSection.tsx existe encore mais
    n'est plus importé nulle part — il pourra être supprimé dans un
    sprint ultérieur si confirmation. Le contenu factuel équivalent
-   vit désormais sur /cabinet/notre-independance et
+   vit désormais sur /a-propos/notre-independance et
    /comprendre/independance-auditeur-nf-en-16247. */
 
 export const ddadue = {

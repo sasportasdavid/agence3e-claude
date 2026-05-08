@@ -39,7 +39,7 @@ const COLUMNS = [
     title: "Cabinet",
     links: [
       { href: "/notre-bureau-d-etudes", label: "Notre bureau d'études" },
-      { href: "/cabinet/notre-independance", label: "Gouvernance & indépendance" },
+      { href: "/a-propos/notre-independance", label: "Gouvernance & indépendance" },
       { href: "/partenaires-delegataires-cee", label: "Délégataires partenaires" },
       { href: "/reseau-installateurs-rge", label: "Réseau RGE" },
       { href: "/contact", label: "Contact" },

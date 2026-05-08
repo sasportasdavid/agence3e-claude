@@ -9,7 +9,7 @@ import { PilierSection } from "@/components/sections/PilierSection";
 import { PromiseSection } from "@/components/sections/PromiseSection";
 import { PolesSection } from "@/components/sections/PolesSection";
 /* v2 — IndepSection retirée de la Home (cf. MENU_ET_HOME_V2.md modification 4).
-   Le contenu est conservé sur la page dédiée /cabinet/notre-independance,
+   Le contenu est conservé sur la page dédiée /a-propos/notre-independance,
    accessible depuis le mega-menu Ressources et le footer. */
 import { DDADUESection } from "@/components/sections/DDADUESection";
 import { CasesSection } from "@/components/sections/CasesSection";

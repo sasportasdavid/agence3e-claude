@@ -1,7 +1,8 @@
 /* v2 — URL legacy /notre-independance → redirige (308) vers
-   /cabinet/notre-independance (page restructurée Phase 2). */
+   /a-propos/notre-independance (page de gouvernance, migrée sous
+   /a-propos/ pour cohérence avec les autres pages cabinet). */
 import { permanentRedirect } from "next/navigation";
 
 export default function LegacyIndependancePage(): never {
-  permanentRedirect("/cabinet/notre-independance");
+  permanentRedirect("/a-propos/notre-independance");
 }

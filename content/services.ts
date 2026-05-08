@@ -30,7 +30,7 @@ export interface Service {
   /** form variant */
   formProfile?: "industrie" | "tertiaire" | "residentiel" | "mixte";
   /** v2 — bloc "Notre organisation" en bas de page (mention factuelle
-      gouvernance, lien vers /cabinet/notre-independance). */
+      gouvernance, lien vers /a-propos/notre-independance). */
   gouvernance?: string;
   /** v2 — bloc "Notre rémunération" pour les pages courtage / montage CEE
       (texte verbatim AJUSTEMENTS_INDEPENDANCE.md section 2). */
@@ -73,7 +73,7 @@ export const SERVICES: Service[] = [
     delais: "6 à 8 semaines de la pré-qualification au rapport.",
     tarif: "6 000 à 18 000 € HT selon complexité du site et nombre d'établissements.",
     formProfile: "mixte",
-    /* v2 — gouvernance factuelle (lien vers /cabinet/notre-independance). */
+    /* v2 — gouvernance factuelle (lien vers /a-propos/notre-independance). */
     gouvernance:
       "L'audit DDADUE est conduit par Agence 3E Audit, entité certifiée OPQIBI 1905, juridiquement distincte d'Agence 3E Solutions (montage et courtage CEE). Cette organisation respecte l'exigence d'indépendance auditeur posée par NF EN 16247-3.",
   },

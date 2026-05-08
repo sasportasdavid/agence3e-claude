@@ -87,7 +87,7 @@ export default function NotreBureauPage() {
               </p>
               <div className="mt-10 reveal">
                 <Link
-                  href="/cabinet/notre-independance"
+                  href="/a-propos/notre-independance"
                   className="btn btn-secondary btn-arrow"
                 >
                   Voir la page Gouvernance
@@ -193,7 +193,7 @@ export default function NotreBureauPage() {
                   l&apos;audit par l&apos;administration en cas de contrôle.
                 </p>
                 <Link
-                  href="/cabinet/notre-independance"
+                  href="/a-propos/notre-independance"
                   className="btn btn-arrow mt-8 inline-flex"
                   style={{ background: "var(--color-secondary)", color: "#fff" }}
                 >

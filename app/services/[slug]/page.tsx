@@ -258,7 +258,7 @@ export default async function ServicePage(props: {
                 <p className="text-[15px] text-[var(--color-text-2)] mt-3 leading-[1.6]">
                   {s.gouvernance}{" "}
                   <Link
-                    href="/cabinet/notre-independance"
+                    href="/a-propos/notre-independance"
                     className="text-[var(--color-secondary)] underline underline-offset-2 hover:text-[#006e46]"
                   >
                     Voir la page Gouvernance
