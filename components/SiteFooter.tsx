@@ -39,7 +39,7 @@ const COLUMNS = [
     title: "Cabinet",
     links: [
       { href: "/notre-bureau-d-etudes", label: "Notre bureau d'études" },
-      { href: "/notre-independance", label: "Notre indépendance" },
+      { href: "/cabinet/notre-independance", label: "Gouvernance & indépendance" },
       { href: "/partenaires-delegataires-cee", label: "Délégataires partenaires" },
       { href: "/reseau-installateurs-rge", label: "Réseau RGE" },
       { href: "/contact", label: "Contact" },
@@ -73,9 +73,9 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="text-[13px] text-white/60 leading-[1.6] mt-4 max-w-[280px]">
-              Cabinet de conseil indépendant en performance énergétique. Audit
-              DDADUE, valorisation CEE, AMO travaux. France métropolitaine et
-              outre-mer.
+              Cabinet de conseil en performance énergétique. Audit DDADUE
+              conforme NF EN 16247, valorisation CEE compétitive, AMO travaux.
+              France métropolitaine et outre-mer.
             </p>
           </div>
           {COLUMNS.map((col) => (

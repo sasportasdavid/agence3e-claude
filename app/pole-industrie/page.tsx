@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title:
     "Pôle Industrie — Audit DDADUE, primes CEE optimisées | Agence 3E",
   description:
-    "Cabinet indépendant pour les industriels français. 218 fiches CEE actives, 40+ sectorielles industrie. IAA process froid, plasturgie, blanchisserie. Audit DDADUE NF EN 16247-3, montage CEE en compétition, AMO travaux.",
+    "Audit DDADUE conforme NF EN 16247-3 pour industriels français. 218 fiches CEE actives, 40+ sectorielles industrie. IAA process froid, plasturgie, blanchisserie. Montage CEE en compétition, AMO travaux jusqu'à la mise en service.",
   alternates: { canonical: "/pole-industrie" },
 };
 

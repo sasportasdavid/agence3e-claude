@@ -132,6 +132,10 @@ export const cas = {
 export const methode = {
   eyebrow: "Méthodologie spécifique IAA",
   title: { lead: "Nos points de vigilance", it: "audit en IAA." },
+  /* v2 — paragraphe gouvernance factuelle (verbatim AJUSTEMENTS_INDEPENDANCE.md
+     section 2 / pages secteurs industrie). Rendu en bas de la section méthodologie. */
+  intro:
+    "L'audit est conduit par Agence 3E Audit, entité certifiée OPQIBI 1905. La méthodologie suit la norme NF EN 16247-3. Le rapport est livré sous format PDF et est votre propriété — vous pouvez le partager avec votre direction, votre commissaire aux comptes, ou tout délégataire CEE de votre choix.",
   items: [
     {
       title: "Chaîne du froid alimentaire",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     "Notre bureau d'études Agence 3E Audit | Auditeur certifié OPQIBI",
   description:
-    "Présentation de notre bureau d'études interne. Auditeur certifié OPQIBI 1905, conformité NF EN 16247, indépendance juridique.",
+    "Présentation de notre bureau d'études interne. Auditeur certifié OPQIBI 1905, conformité NF EN 16247, entité juridique distincte (Agence 3E Audit).",
   alternates: { canonical: "/notre-bureau-d-etudes" },
 };
 
@@ -76,20 +76,21 @@ export default function NotreBureauPage() {
               >
                 Notre bureau d&apos;études : Agence 3E Audit,
                 <br />
-                <span className="it">entité indépendante.</span>
+                <span className="it">entité dédiée.</span>
               </h1>
               <p className="text-[19px] text-[var(--color-text-2)] mt-7 max-w-[680px] leading-[1.55] reveal">
-                Le bureau d&apos;études interne du groupe est une entité juridique
-                distincte de l&apos;entité commerciale. Cette séparation garantit
-                l&apos;indépendance de l&apos;auditeur et la défendabilité de
-                votre rapport.
+                Le bureau d&apos;études du groupe est une entité juridique
+                distincte de l&apos;entité commerciale, conformément à
+                l&apos;exigence d&apos;indépendance auditeur posée par
+                NF EN 16247-3. Cette organisation est documentée sur la page
+                Gouvernance.
               </p>
               <div className="mt-10 reveal">
                 <Link
-                  href="/notre-independance"
+                  href="/cabinet/notre-independance"
                   className="btn btn-secondary btn-arrow"
                 >
-                  Comprendre l&apos;architecture juridique
+                  Voir la page Gouvernance
                 </Link>
               </div>
             </div>
@@ -172,7 +173,7 @@ export default function NotreBureauPage() {
               />
               <div className="relative z-[1]">
                 <span className="eyebrow text-white/60 before:bg-white/30">
-                  L&apos;indépendance comme exigence structurelle
+                  Conformité NF EN 16247-3
                 </span>
                 <h2
                   className="font-bold tracking-[-0.035em] mt-5"
@@ -184,19 +185,19 @@ export default function NotreBureauPage() {
                 </h2>
                 <p className="text-[18px] text-white/[0.78] mt-6 leading-[1.6] max-w-[680px]">
                   L&apos;auditeur d&apos;Agence 3E Audit ne perçoit aucune
-                  commission sur les travaux qu&apos;il recommande. Il signe son
-                  rapport en propre, engage sa responsabilité civile
-                  professionnelle directement. Cette structuration n&apos;est
-                  pas un argument marketing : c&apos;est une condition de
-                  recevabilité de l&apos;audit par l&apos;administration en cas
-                  de contrôle.
+                  commission sur les travaux qu&apos;il recommande. Il signe
+                  son rapport en propre, engage sa responsabilité civile
+                  professionnelle directement. Cette organisation respecte
+                  l&apos;exigence d&apos;indépendance posée par la norme
+                  NF EN 16247-3 et conditionne la recevabilité de
+                  l&apos;audit par l&apos;administration en cas de contrôle.
                 </p>
                 <Link
-                  href="/notre-independance"
+                  href="/cabinet/notre-independance"
                   className="btn btn-arrow mt-8 inline-flex"
                   style={{ background: "var(--color-secondary)", color: "#fff" }}
                 >
-                  Comprendre notre indépendance dans le détail
+                  Voir la page Gouvernance
                 </Link>
               </div>
             </div>

@@ -185,19 +185,13 @@ export const poles = {
   ],
 };
 
-export const indep = {
-  eyebrow: "Manifeste d'indépendance",
-  title: {
-    lead: "Un auditeur ne vend pas les travaux qu'il prescrit.",
-    it: "C'est la lettre de la norme. C'est notre règle.",
-  },
-  lede: "La norme NF EN 16247-1 §4.4 impose une stricte séparation entre l'auditeur et le vendeur de travaux. Beaucoup l'oublient, certains la contournent. Nous l'avons inscrite dans notre structure juridique : Agence 3E Audit (l'œil) et Agence 3E Solutions (la main) sont juridiquement distinctes.",
-  meta: [
-    { label: "Référentiel", value: "NF EN 16247-1 §4.4" },
-    { label: "Qualification", value: "OPQIBI 1905" },
-    { label: "Statut", value: "Société privée indépendante" },
-  ],
-};
+/* v2 — l'export `indep` (manifeste défensif) a été supprimé en Phase 2.
+   La section IndepSection a été retirée de la Home en Phase 1. Le
+   composant components/sections/IndepSection.tsx existe encore mais
+   n'est plus importé nulle part — il pourra être supprimé dans un
+   sprint ultérieur si confirmation. Le contenu factuel équivalent
+   vit désormais sur /cabinet/notre-independance et
+   /comprendre/independance-auditeur-nf-en-16247. */
 
 export const ddadue = {
   eyebrow: "Échéance réglementaire",

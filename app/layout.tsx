@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   title:
     "Agence 3E — Conformité DDADUE, primes CEE optimisées, travaux pilotés.",
   description:
-    "Cabinet de conseil indépendant en performance énergétique. Audit DDADUE, valorisation CEE en compétition, AMO travaux. France métropolitaine et outre-mer.",
+    "Audit DDADUE conforme NF EN 16247, montage CEE compétitif, suivi du gisement à la mise en service. Industrie, tertiaire, résidentiel — France métropolitaine et outre-mer.",
   metadataBase: new URL("https://agence3e.fr"),
   openGraph: {
     title:
       "Agence 3E — Conformité DDADUE, primes CEE optimisées, travaux pilotés.",
     description:
-      "Cabinet indépendant en performance énergétique. Un seul interlocuteur de l'audit à la mise en service.",
+      "Audit énergétique conforme NF EN 16247-3, montage CEE compétitif, AMO travaux. Un seul interlocuteur de l'audit à la mise en service.",
     type: "website",
     locale: "fr_FR",
   },

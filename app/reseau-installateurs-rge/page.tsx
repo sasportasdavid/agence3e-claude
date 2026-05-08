@@ -114,10 +114,10 @@ export default function ReseauRGEPage() {
                 Vous choisissez.
               </p>
               <p className="text-[16px] text-[var(--color-text-2)] mt-4 leading-[1.6]">
-                Vous pouvez aussi consulter un installateur hors de notre réseau
-                et nous accepterons de monter le dossier CEE quel que soit votre
-                choix — c&apos;est l&apos;une de nos garanties contractuelles
-                d&apos;indépendance.
+                Vous pouvez aussi consulter un installateur hors de notre
+                réseau et nous accepterons de monter le dossier CEE quel que
+                soit votre choix — cette liberté contractuelle est une
+                exigence directe de la norme NF EN 16247-3.
               </p>
             </div>
           </div>

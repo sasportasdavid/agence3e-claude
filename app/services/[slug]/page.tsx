@@ -233,6 +233,43 @@ export default async function ServicePage(props: {
           </section>
         )}
 
+        {/* v2 — Notre rémunération (courtage / montage CEE uniquement) */}
+        {s.remuneration && (
+          <section className="py-[var(--spacing-block-sm)]">
+            <div className="container-x">
+              <div className="bg-[var(--color-pastel-blue)] rounded-2xl p-9 max-w-[860px] reveal">
+                <span className="eyebrow">Notre rémunération</span>
+                <p className="text-[16px] text-[var(--color-primary)] mt-4 leading-[1.65]">
+                  {s.remuneration}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* v2 — Notre organisation (mention factuelle gouvernance, lien vers cabinet) */}
+        {s.gouvernance && (
+          <section className="py-[var(--spacing-block-sm)]">
+            <div className="container-x">
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-7 max-w-[860px] reveal">
+                <span className="mono text-[10.5px] tracking-[0.1em] uppercase text-[var(--color-text-3)]">
+                  Notre organisation
+                </span>
+                <p className="text-[15px] text-[var(--color-text-2)] mt-3 leading-[1.6]">
+                  {s.gouvernance}{" "}
+                  <Link
+                    href="/cabinet/notre-independance"
+                    className="text-[var(--color-secondary)] underline underline-offset-2 hover:text-[#006e46]"
+                  >
+                    Voir la page Gouvernance
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* CTA final */}
         <section className="py-[var(--spacing-block-sm)]">
           <div className="container-x">

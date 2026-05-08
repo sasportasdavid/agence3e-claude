@@ -233,7 +233,11 @@ export default function IAAPage() {
             <h2 className="section-title reveal">
               {methode.title.lead} <span className="it">{methode.title.it}</span>
             </h2>
-            <div className="grid grid-cols-2 gap-7 mt-16 max-[1100px]:grid-cols-1">
+            {/* v2 — paragraphe gouvernance factuelle (verbatim livrable §2). */}
+            <p className="text-[16px] text-[var(--color-text-2)] mt-6 max-w-[780px] leading-[1.7] reveal">
+              {methode.intro}
+            </p>
+            <div className="grid grid-cols-2 gap-7 mt-12 max-[1100px]:grid-cols-1">
               {methode.items.map((m) => (
                 <div
                   key={m.title}

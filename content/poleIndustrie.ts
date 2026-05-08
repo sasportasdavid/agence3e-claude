@@ -124,11 +124,11 @@ export const amo = {
     lead: "L'auditeur sait ce qu'il faut faire.",
     it: "L'AMO s'assure que ça soit fait.",
   },
-  body: "Notre indépendance contractuelle est le préalable : nous ne touchons pas de commission sur les travaux. Notre rémunération est fixée à la pré-qualif, nos engagements sont écrits, le client garde la main.",
+  body: "L'AMO travaux est opérée par Agence 3E Solutions sur un mandat écrit. Notre rémunération est fixée à la pré-qualif, nos engagements sont écrits, le client garde la main du choix des installateurs.",
   engagements: [
     {
-      title: "Indépendance contractuelle",
-      desc: "Aucune commission cachée des installateurs. Rémunération fixée en cadrage.",
+      title: "Mandat écrit, rémunération fixée",
+      desc: "Aucune commission cachée des installateurs. Rémunération AMO fixée contractuellement en cadrage.",
     },
     {
       title: "Réception conforme NF EN 16247-3",
@@ -222,7 +222,7 @@ export const faq = {
     },
     {
       q: "Qu'est-ce qui distingue Agence 3E d'un installateur certifié RGE ?",
-      a: "L'indépendance. La norme NF EN 16247-1 §4.4 exige une stricte séparation entre l'auditeur et le vendeur de travaux. Beaucoup d'installateurs RGE proposent un audit « gratuit » couplé à leur prestation — c'est non conforme. Notre rapport est opposable parce que nous ne vendons rien d'autre.",
+      a: "Notre métier est l'audit et le courtage CEE, pas la pose. La norme NF EN 16247-3 exige que l'auditeur soit indépendant des solutions et installateurs qu'il pourrait recommander. Un installateur RGE qui propose un audit « gratuit » couplé à sa prestation n'est pas conforme à cette exigence. Notre rapport est opposable au PNCEE parce qu'il sort d'une entité dédiée à l'audit (Agence 3E Audit, certifiée OPQIBI 1905).",
     },
     {
       q: "Vous valorisez la prime CEE ou bien c'est nous qui le faisons ?",

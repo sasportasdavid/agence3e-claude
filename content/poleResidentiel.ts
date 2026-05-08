@@ -12,7 +12,7 @@ export const meta = {
   title:
     "Audit énergétique, MaPrimeRénov' et CEE pour particuliers et copropriétés | Agence 3E",
   description:
-    "Cabinet indépendant en rénovation énergétique. Audit obligatoire vente DPE F/G, MaPrimeRénov' Copropriétés, CEE résidentiel. Réseau RGE national.",
+    "Cabinet certifié OPQIBI en rénovation énergétique. Audit obligatoire vente DPE F/G, MaPrimeRénov' Copropriétés, CEE résidentiel. Réseau RGE national.",
 };
 
 export const hero = {

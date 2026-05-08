@@ -29,6 +29,12 @@ export interface Service {
   atout?: string;
   /** form variant */
   formProfile?: "industrie" | "tertiaire" | "residentiel" | "mixte";
+  /** v2 — bloc "Notre organisation" en bas de page (mention factuelle
+      gouvernance, lien vers /cabinet/notre-independance). */
+  gouvernance?: string;
+  /** v2 — bloc "Notre rémunération" pour les pages courtage / montage CEE
+      (texte verbatim AJUSTEMENTS_INDEPENDANCE.md section 2). */
+  remuneration?: string;
 }
 
 export const SERVICES: Service[] = [
@@ -67,6 +73,9 @@ export const SERVICES: Service[] = [
     delais: "6 à 8 semaines de la pré-qualification au rapport.",
     tarif: "6 000 à 18 000 € HT selon complexité du site et nombre d'établissements.",
     formProfile: "mixte",
+    /* v2 — gouvernance factuelle (lien vers /cabinet/notre-independance). */
+    gouvernance:
+      "L'audit DDADUE est conduit par Agence 3E Audit, entité certifiée OPQIBI 1905, juridiquement distincte d'Agence 3E Solutions (montage et courtage CEE). Cette organisation respecte l'exigence d'indépendance auditeur posée par NF EN 16247-3.",
   },
   {
     slug: "iso-50001-systeme-management-energie",
@@ -133,6 +142,11 @@ export const SERVICES: Service[] = [
     },
     tarif: "Inclus dans la rémunération sur marge CEE. Pas de facturation directe au client industriel.",
     formProfile: "mixte",
+    /* v2 — paragraphe Notre rémunération (texte verbatim livrable §2). */
+    remuneration:
+      "Le courtage CEE est opéré par Agence 3E Solutions, entité distincte d'Agence 3E Audit. Lorsque nous prenons en main votre dossier CEE, vous signez un mandat écrit qui précise la commission de courtage en €/MWh cumac négocié. Cette commission est notre seule rémunération sur la prime CEE — elle est facturée en transparence, séparée du prix de cession à l'obligé. Vous avez ainsi la visibilité complète sur le prix net du marché et sur ce que perçoit Agence 3E Solutions.",
+    gouvernance:
+      "Le montage de dossier est opéré par Agence 3E Solutions, entité distincte d'Agence 3E Audit (audits NF EN 16247). Cette séparation est documentée sur la page Gouvernance.",
   },
   {
     slug: "courtage-prime-cee",
@@ -154,6 +168,11 @@ export const SERVICES: Service[] = [
       body: "Nous vous communiquons toutes les offres reçues. Vous choisissez. Notre rémunération est calculée sur l'écart négocié versus l'offre médiane, en accord contractuel explicite.",
     },
     formProfile: "mixte",
+    /* v2 — Notre rémunération (texte verbatim livrable §2). */
+    remuneration:
+      "Le courtage CEE est opéré par Agence 3E Solutions, entité distincte d'Agence 3E Audit. Lorsque nous prenons en main votre dossier CEE, vous signez un mandat écrit qui précise la commission de courtage en €/MWh cumac négocié. Cette commission est notre seule rémunération sur la prime CEE — elle est facturée en transparence, séparée du prix de cession à l'obligé. Vous avez ainsi la visibilité complète sur le prix net du marché et sur ce que perçoit Agence 3E Solutions.",
+    gouvernance:
+      "Le courtage est opéré par Agence 3E Solutions, entité distincte d'Agence 3E Audit. Cette séparation respecte l'exigence d'indépendance auditeur posée par NF EN 16247-3.",
   },
   {
     slug: "amo-travaux-efficacite-energetique",
