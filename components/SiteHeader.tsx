@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 interface MenuColumn {
   title: string;
-  items: { href: string; label: string }[];
+  items: { href: string; label: string; disabled?: boolean }[];
 }
 
 interface MegaMenu {
@@ -32,11 +32,11 @@ const INDUSTRIE: MegaMenu = {
         { href: "/pole-industrie/agroalimentaire-process-froid", label: "Agroalimentaire & process froid" },
         { href: "/pole-industrie/plasturgie", label: "Plasturgie" },
         { href: "/pole-industrie/blanchisseries-industrielles", label: "Blanchisseries industrielles" },
-        { href: "/pole-industrie/metallurgie-fonderie", label: "Métallurgie & fonderie" },
-        { href: "/pole-industrie/chimie-pharmacie-cosmetique", label: "Chimie, pharmacie & cosmétique" },
-        { href: "/pole-industrie/imprimerie", label: "Imprimerie & industries graphiques" },
-        { href: "/pole-industrie/bois-papier-carton", label: "Bois, papier & carton" },
-        { href: "/pole-industrie/verre-ceramique", label: "Verre & céramique" },
+        { href: "/pole-industrie/metallurgie-fonderie", label: "Métallurgie & fonderie", disabled: true },
+        { href: "/pole-industrie/chimie-pharmacie-cosmetique", label: "Chimie, pharmacie & cosmétique", disabled: true },
+        { href: "/pole-industrie/imprimerie", label: "Imprimerie & industries graphiques", disabled: true },
+        { href: "/pole-industrie/bois-papier-carton", label: "Bois, papier & carton", disabled: true },
+        { href: "/pole-industrie/verre-ceramique", label: "Verre & céramique", disabled: true },
         { href: "/contact?secteur=autre", label: "→ Mon secteur n'y est pas" },
       ],
     },
@@ -55,7 +55,7 @@ const INDUSTRIE: MegaMenu = {
         { href: "/services/montage-dossiers-cee", label: "Montage dossiers CEE" },
         { href: "/services/courtage-prime-cee", label: "Courtage de la prime CEE" },
         { href: "/comprendre/fiches-operations-standardisees", label: "Catalogue 130 fiches CEE industrie" },
-        { href: "/services#pacte-industrie", label: "Pacte Industrie & subventions" },
+        { href: "/services#pacte-industrie", label: "Pacte Industrie & subventions", disabled: true },
         { href: "/services/amo-travaux-efficacite-energetique", label: "AMO travaux" },
       ],
     },
@@ -73,9 +73,9 @@ const TERTIAIRE: MegaMenu = {
         { href: "/pole-tertiaire/hotellerie-restauration", label: "Hôtellerie & restauration" },
         { href: "/pole-tertiaire/sante-medico-social", label: "Établissements de santé" },
         { href: "/pole-tertiaire/enseignement", label: "Établissements d'enseignement" },
-        { href: "/pole-tertiaire#sport-loisirs", label: "Établissements sportifs & loisirs" },
+        { href: "/pole-tertiaire#sport-loisirs", label: "Établissements sportifs & loisirs", disabled: true },
         { href: "/pole-tertiaire/datacenters", label: "Datacenters" },
-        { href: "/pole-tertiaire#logement-social", label: "Logement social" },
+        { href: "/pole-tertiaire#logement-social", label: "Logement social", disabled: true },
       ],
     },
     {
@@ -93,7 +93,7 @@ const TERTIAIRE: MegaMenu = {
         { href: "/services/montage-dossiers-cee", label: "Montage dossiers CEE" },
         { href: "/comprendre/fiches-operations-standardisees", label: "Catalogue fiches CEE tertiaire" },
         { href: "/services/amo-travaux-efficacite-energetique", label: "AMO travaux" },
-        { href: "/services#sdie", label: "Schéma Directeur Immobilier Énergétique (SDIE)" },
+        { href: "/services#sdie", label: "Schéma Directeur Immobilier Énergétique (SDIE)", disabled: true },
       ],
     },
   ],
@@ -405,16 +405,31 @@ function DesktopEntry({ entry }: { entry: Entry }) {
                 {col.title}
               </h5>
               <ul className="list-none m-0 p-0 flex flex-col gap-0.5">
-                {col.items.map((it) => (
-                  <li key={it.href}>
-                    <Link
-                      href={it.href}
-                      className="text-[13.5px] text-[var(--color-text)] py-1.5 px-2 rounded-md block hover:bg-[#f6f8fb] hover:text-[var(--color-primary)] transition-colors"
-                    >
-                      {it.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.items.map((it) =>
+                  it.disabled ? (
+                    <li key={it.href}>
+                      <span
+                        aria-disabled="true"
+                        title="Page disponible prochainement"
+                        className="text-[13.5px] text-[var(--color-text-3)] py-1.5 px-2 rounded-md block cursor-not-allowed select-none"
+                      >
+                        {it.label}
+                        <span className="ml-1.5 mono text-[9px] tracking-[0.06em] uppercase text-[var(--color-text-3)] align-middle">
+                          · à venir
+                        </span>
+                      </span>
+                    </li>
+                  ) : (
+                    <li key={it.href}>
+                      <Link
+                        href={it.href}
+                        className="text-[13.5px] text-[var(--color-text)] py-1.5 px-2 rounded-md block hover:bg-[#f6f8fb] hover:text-[var(--color-primary)] transition-colors"
+                      >
+                        {it.label}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           ))}
@@ -475,17 +490,32 @@ function MobileMenuPanel({
               {col.title}
             </h6>
             <ul className="list-none m-0 p-0 flex flex-col">
-              {col.items.map((it) => (
-                <li key={it.href}>
-                  <Link
-                    href={it.href}
-                    onClick={onLinkClick}
-                    className="text-[14.5px] text-[var(--color-primary)] py-2 px-1 block"
-                  >
-                    {it.label}
-                  </Link>
-                </li>
-              ))}
+              {col.items.map((it) =>
+                it.disabled ? (
+                  <li key={it.href}>
+                    <span
+                      aria-disabled="true"
+                      title="Page disponible prochainement"
+                      className="text-[14.5px] text-[var(--color-text-3)] py-2 px-1 block cursor-not-allowed select-none"
+                    >
+                      {it.label}
+                      <span className="ml-1.5 mono text-[9px] tracking-[0.06em] uppercase text-[var(--color-text-3)] align-middle">
+                        · à venir
+                      </span>
+                    </span>
+                  </li>
+                ) : (
+                  <li key={it.href}>
+                    <Link
+                      href={it.href}
+                      onClick={onLinkClick}
+                      className="text-[14.5px] text-[var(--color-primary)] py-2 px-1 block"
+                    >
+                      {it.label}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
         ))}
