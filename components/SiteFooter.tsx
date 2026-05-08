@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoContractuel } from "@/brand/components/LogoContractuel";
 
 const COLUMNS = [
   {
@@ -64,14 +65,9 @@ export function SiteFooter() {
       <div className="container-x">
         <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12 mb-16 max-[1100px]:grid-cols-2 max-md:grid-cols-1">
           <div>
-            <div className="flex flex-col leading-none">
-              <span className="text-[22px] font-bold text-white tracking-[-0.025em]">
-                Agence 3E
-              </span>
-              <span className="text-[9.5px] font-medium text-white/50 tracking-[0.07em] uppercase mt-1">
-                Agence Européenne pour l&apos;Économie d&apos;Énergie
-              </span>
-            </div>
+            {/* v3 (brand v1.0) — LOGO_CONTRACTUEL négatif en footer
+                (matrice Section 2 : densité d'info, neutralité visuelle). */}
+            <LogoContractuel size={120} negative ariaLabel="Agence 3E" />
             <p className="text-[13px] text-white/60 leading-[1.6] mt-4 max-w-[280px]">
               Cabinet de conseil en performance énergétique. Audit DDADUE
               conforme NF EN 16247, valorisation CEE compétitive, AMO travaux.

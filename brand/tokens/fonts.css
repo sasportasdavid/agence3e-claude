@@ -1,0 +1,17 @@
+/**
+ * A3E — Brand fonts (DS Aurore)
+ *
+ * Tri-typographie utilisée par les deux logos et le DS Aurore :
+ *   - Inter 400/500/600/700                  — texte courant + wordmark
+ *   - Source Serif Pro Italic 400/600        — baseline LOGO_HERO,
+ *                                              accents .it
+ *   - JetBrains Mono 400/500                 — sous-titre LOGO_CONTRACTUEL,
+ *                                              eyebrows et numéraires
+ *
+ * NB : dans l'app Next.js de ce repo, les polices sont déjà chargées
+ * via next/font/google dans app/layout.tsx (zéro CLS, hébergement local).
+ * Cet @import est destiné aux contextes externes : Lovable, e-mails HTML
+ * Make.com, plaquettes PDF, etc.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+Pro:ital,wght@1,400;1,600&display=swap');

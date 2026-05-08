@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { LogoContractuel } from "@/brand/components/LogoContractuel";
 
 /* ============================================================
    SiteHeader v2 — 6 entrées de premier niveau
@@ -220,15 +221,15 @@ export function SiteHeader() {
       <div className="flex justify-between items-center py-[14px] px-8 max-w-[1440px] mx-auto gap-6 max-lg:py-3 max-lg:px-5">
         <Link
           href="/"
-          className="flex flex-col leading-none flex-shrink-0"
+          className="flex items-center flex-shrink-0"
+          aria-label="Agence 3E — Accueil"
           onClick={() => setMobileOpen(false)}
         >
-          <span className="text-[20px] font-bold text-[var(--color-primary)] tracking-[-0.025em]">
-            Agence 3E
-          </span>
-          <span className="text-[9.5px] font-medium text-[var(--color-text-3)] tracking-[0.07em] uppercase mt-1 max-md:hidden">
-            Agence Européenne pour l&apos;Économie d&apos;Énergie
-          </span>
+          {/* v3 (brand v1.0) — LOGO_CONTRACTUEL en header (matrice
+              Section 2 du Logo Guidelines : registre B2B sobre,
+              lecture rapide du nom). */}
+          <LogoContractuel size={140} className="max-md:hidden" />
+          <LogoContractuel size={88} className="md:hidden" />
         </Link>
 
         {/* Desktop nav */}

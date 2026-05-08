@@ -1,0 +1,52 @@
+/**
+ * A3E — Brand tokens (DS Aurore)
+ *
+ * Source : DESIGN_SYSTEM.html, :root lignes 587-610.
+ * Reproduction stricte. Aucune valeur inventée.
+ *
+ * Convention de nommage : non-préfixée (--primary, --pastel-*, etc.)
+ * pour usage portable hors Next.js (Lovable, Make.com, e-mails HTML…).
+ *
+ * Dans cette app Next.js (Tailwind v4), les utilitaires de couleur
+ * proviennent du @theme déclaré dans app/globals.css avec un préfixe
+ * --color-* (cohérence Tailwind v4). Les deux jeux co-existent.
+ */
+
+:root {
+  /* Brand */
+  --primary: #0A2540;
+  --secondary: #00A86B;
+  --secondary-10: #E5F6EF;
+  --accent: #F5C518;
+
+  /* Status */
+  --error: #D64545;
+  --warn: #F5C518;
+
+  /* Surfaces */
+  --bg: #FFFFFF;
+  --bg-alt: #FAFBFC;
+
+  /* Texte */
+  --text: #0A2540;
+  --text-2: #425466;
+  --text-3: #8792A2;
+
+  /* Bordures */
+  --border: #E6EBF1;
+  --border-2: #EFF2F7;
+
+  /* Pastels Aurore (paire surface + deep, utilisée pour les blobs et halos) */
+  --pastel-green: #DDF1E5;
+  --pastel-green-deep: #6BCFA0;
+  --pastel-yellow: #FCF1C8;
+  --pastel-yellow-deep: #F5C518;
+  --pastel-mint: #D9F0E0;
+  --pastel-mint-deep: #4CC18E;
+  --pastel-sand: #F7EDC8;
+  --pastel-sand-deep: #E8C868;
+  --pastel-blue: #E0EAFB;
+  --pastel-blue-deep: #6E91D8;
+  --pastel-orange: #FCE3D1;
+  --pastel-orange-deep: #FF8B6B;
+}
