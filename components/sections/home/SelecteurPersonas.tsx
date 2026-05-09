@@ -34,11 +34,11 @@ const TILES: PersonaTile[] = [
     sub: (
       <>
         Pour vos sites de production : audit DDADUE conforme, gisements
-        CEE hiérarchisés, ROI sous 3 ans. 8 secteurs couverts, de
-        l&apos;agroalimentaire au verre.
+        CEE hiérarchisés, plan d&apos;action priorisé. 8 secteurs
+        couverts, de l&apos;agroalimentaire au verre.
       </>
     ),
-    stat: "8 secteurs · 130 fiches CEE",
+    stat: "8 secteurs couverts",
     variant: "industrie",
     halo:
       "radial-gradient(75% 70% at 80% 18%, rgba(255,139,107,0.32), transparent 60%)",
@@ -54,7 +54,7 @@ const TILES: PersonaTile[] = [
         retail, hôtellerie, datacenters et plus.
       </>
     ),
-    stat: "8 sous-segments · 87 M€ primes 2024",
+    stat: "8 sous-segments couverts",
     variant: "tertiaire",
     halo:
       "radial-gradient(75% 70% at 80% 18%, rgba(110,145,216,0.32), transparent 60%)",
@@ -70,7 +70,7 @@ const TILES: PersonaTile[] = [
         devis gratuit.
       </>
     ),
-    stat: "Maisons · Copropriétés · 100 €/m² isolation",
+    stat: "Maisons · Copropriétés · Aides cumulables",
     variant: "residentiel",
     halo:
       "radial-gradient(75% 70% at 80% 18%, rgba(107,207,160,0.32), transparent 60%)",

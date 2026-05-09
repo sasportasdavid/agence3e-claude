@@ -12,6 +12,7 @@
  */
 
 import Link from "next/link";
+import { DDADUECountdown } from "@/components/DDADUECountdown";
 
 export function EncartDDADUE() {
   return (
@@ -68,8 +69,8 @@ export function EncartDDADUE() {
               <div className="mono text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-3)]">
                 Délai
               </div>
-              <div className="mono text-[22px] text-[var(--color-primary)] mt-2 font-semibold tracking-[-0.01em]">
-                J−522
+              <div className="mt-2">
+                <DDADUECountdown className="text-[22px] text-[var(--color-primary)] font-semibold tracking-[-0.01em]" />
               </div>
               <p className="text-[12.5px] text-[var(--color-text-2)] mt-2 leading-[1.5]">
                 avant le 11 oct. 2026
