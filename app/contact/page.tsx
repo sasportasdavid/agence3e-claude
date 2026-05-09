@@ -65,20 +65,6 @@ export default function ContactPage() {
 
             <div className="mt-12 flex gap-8 flex-wrap text-[15px] reveal max-sm:flex-col max-sm:gap-3">
               <a
-                href={`tel:${c.coords.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 hover:text-[var(--color-secondary)]"
-              >
-                <span className="w-9 h-9 rounded-full bg-[var(--color-secondary-10)] flex items-center justify-center text-[var(--color-secondary)] text-base font-bold">
-                  ☎
-                </span>
-                <span>
-                  <span className="mono text-[10.5px] tracking-[0.08em] uppercase text-[var(--color-text-3)] block">
-                    Téléphone
-                  </span>
-                  <span className="font-semibold">{c.coords.phone}</span>
-                </span>
-              </a>
-              <a
                 href={`mailto:${c.coords.email}`}
                 className="flex items-center gap-3 hover:text-[var(--color-secondary)]"
               >

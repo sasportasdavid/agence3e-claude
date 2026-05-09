@@ -13,9 +13,11 @@ export const contactPage = {
     sub: "Trois portes d'entrée selon votre profil. Réponse sous 24h ouvrées.",
   },
   coords: {
-    phone: "01 23 45 67 89",
+    /* v3.3 — téléphone retiré (placeholder). À ré-introduire quand
+       David aura un standard pro. En attendant, contact via email
+       ou formulaire avec engagement réponse 24 h ouvrées. */
     email: "contact@agence3e.fr",
-    horaires: "Lundi au vendredi, 9h-18h",
+    horaires: "Réponse sous 24 h ouvrées (Lun-Ven)",
   },
   cards: [
     {

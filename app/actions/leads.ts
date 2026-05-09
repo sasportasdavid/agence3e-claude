@@ -248,8 +248,8 @@ function renderAckEmail(
           </table>
         </td></tr>
         <tr><td style="padding:18px 36px 28px;border-top:1px solid #EFF2F7;font-family:ui-monospace,monospace;font-size:11px;color:#8792A2;letter-spacing:0.04em;line-height:1.6;">
-          Vous avez besoin d'une réponse plus rapide ?<br>
-          Téléphone direct : <a href="tel:0123456789" style="color:#00A86B;text-decoration:none;">01 23 45 67 89</a> · Lun-Ven 9 h–18 h
+          Une question urgente ?<br>
+          Répondez directement à ce mail — nous traitons en priorité (lun-ven 9 h–18 h).
         </td></tr>
       </table>
     </td></tr>
@@ -273,8 +273,8 @@ Notre équipe revient vers vous sous 24 heures ouvrées avec :
 - une proposition de créneau visio/téléphone ;
 - les pièces jointes utiles (catalogue fiches CEE, exemple de rapport).
 
-Besoin d'une réponse plus rapide ?
-Téléphone direct : 01 23 45 67 89 — Lun-Ven 9 h-18 h.
+Une question urgente ? Répondez directement à ce mail —
+nous traitons en priorité (lun-ven 9 h–18 h).
 
 Agence 3E Audit · OPQIBI 1905 · NF EN 16247-3
 agence3e.fr`;

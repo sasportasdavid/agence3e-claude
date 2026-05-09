@@ -274,17 +274,17 @@ export function SiteHeader() {
 
         {/* Right side */}
         <div className="flex gap-3 items-center">
-          <a
-            href="tel:0123456789"
-            className="flex flex-col leading-tight text-right max-xl:hidden"
+          <Link
+            href="/contact?source=rappel"
+            className="flex flex-col leading-tight text-right max-xl:hidden hover:text-[var(--color-secondary)] transition-colors"
           >
             <span className="text-[10.5px] text-[var(--color-text-3)]">
-              Demander un rappel
+              Réponse sous 24 h ouvrées
             </span>
-            <span className="text-[14.5px] font-semibold text-[var(--color-primary)] mono">
-              01 23 45 67 89
+            <span className="text-[14.5px] font-semibold text-[var(--color-primary)]">
+              Demander un rappel →
             </span>
-          </a>
+          </Link>
           <Link
             href="/contact"
             className="btn btn-primary max-lg:hidden"
@@ -378,12 +378,13 @@ export function SiteHeader() {
             })}
 
             <div className="mt-6 flex flex-col gap-3 px-1">
-              <a
-                href="tel:0123456789"
+              <Link
+                href="/contact?source=rappel-mobile"
+                onClick={() => setMobileOpen(false)}
                 className="text-center py-3 px-5 rounded-full border border-[var(--color-border)] text-[15px] font-medium text-[var(--color-primary)]"
               >
-                ☎ 01 23 45 67 89
-              </a>
+                Demander un rappel sous 24 h
+              </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}

@@ -7,8 +7,11 @@ export function Topbar() {
           <span className="w-1 h-1 bg-[var(--color-accent)] rounded-full inline-block" />
           <span>France métropolitaine &amp; outre-mer</span>
         </div>
-        <a href="tel:0123456789" className="text-white font-medium">
-          01 23 45 67 89 — Lun-Ven 9h-18h
+        <a
+          href="/contact?source=topbar"
+          className="text-white font-medium hover:text-[var(--color-accent)] transition-colors"
+        >
+          Demander un rappel sous 24 h →
         </a>
       </div>
     </div>
