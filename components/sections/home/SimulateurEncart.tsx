@@ -21,16 +21,19 @@ interface CumacRow {
   ref: string;
   op: string;
   cumac: string;
-  prime: string;
+  type: string;
 }
 
+/* v3.4 — colonne 'Prime CEE' en € retiree, remplacee par 'Type'
+   (categorie technique). Total : 'Total estime 442,7 k€' devient
+   'Total programme 55 100 MWh cumac · 6 operations'. */
 const ROWS: CumacRow[] = [
-  { ref: "IND-UT-117", op: "Récup. chaleur groupes froids", cumac: "12 400", prime: "98,5 k€" },
-  { ref: "IND-UT-103", op: "Variation vitesse moteurs", cumac: "8 200", prime: "59,4 k€" },
-  { ref: "IND-UT-134", op: "Calorifugeage points sing.", cumac: "3 100", prime: "24,8 k€" },
-  { ref: "IND-UT-137", op: "PAC haute température", cumac: "21 800", prime: "186,2 k€" },
-  { ref: "IND-UT-114", op: "Calorifugeage réseaux", cumac: "5 600", prime: "42,1 k€" },
-  { ref: "IND-UT-129", op: "Échangeur condensats", cumac: "4 200", prime: "31,7 k€" },
+  { ref: "IND-UT-117", op: "Récup. chaleur groupes froids", cumac: "12 400", type: "Process froid" },
+  { ref: "IND-UT-103", op: "Variation vitesse moteurs", cumac: "8 200", type: "Motorisation" },
+  { ref: "IND-UT-134", op: "Calorifugeage points sing.", cumac: "3 100", type: "Réseau" },
+  { ref: "IND-UT-137", op: "PAC haute température", cumac: "21 800", type: "Récup. chaleur" },
+  { ref: "IND-UT-114", op: "Calorifugeage réseaux", cumac: "5 600", type: "Réseau" },
+  { ref: "IND-UT-129", op: "Échangeur condensats", cumac: "4 200", type: "Récup. chaleur" },
 ];
 
 export function SimulateurEncart() {
@@ -53,9 +56,10 @@ export function SimulateurEncart() {
           </div>
 
           <div className="relative z-[1] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-12 lg:p-20">
-            {/* Colonne 1 — texte + CTA */}
+            {/* Colonne 1 — texte + CTA. v3.4 : simulateur transformé en
+                formulaire de contact. Plus d'estimation factice exposée. */}
             <div>
-              <span className="eyebrow">Estimation gratuite · 30 secondes</span>
+              <span className="eyebrow">Estimation personnalisée · sous 48 h</span>
               <h2
                 className="display mt-6"
                 style={{
@@ -65,26 +69,26 @@ export function SimulateurEncart() {
                   lineHeight: 1.1,
                 }}
               >
-                Calculez votre prime CEE
+                Estimation personnalisée
                 <br />
-                en 4 questions.
+                de votre prime CEE.
               </h2>
               <p className="text-[17px] text-[var(--color-text-2)] leading-[1.65] mt-6 max-w-[520px]">
-                Indiquez votre segment, votre site et l&apos;opération
-                envisagée. Notre simulateur vous donne une estimation
-                chiffrée immédiate basée sur les fiches CEE officielles
-                et les prix du marché.
+                Décrivez votre site et votre opération en 2 minutes. Notre
+                équipe vous propose une estimation chiffrée sous 48 h,
+                basée sur les fiches CEE officielles et les conditions
+                actuelles du marché.
               </p>
               <div className="mt-8">
                 <Link
-                  href="/simulateur-cee"
+                  href="/contact?source=estimation-cee&type=estimation"
                   className="btn btn-arrow inline-flex"
                   style={{
                     background: "var(--color-secondary)",
                     color: "#FFFFFF",
                   }}
                 >
-                  Lancer le simulateur
+                  Demander mon estimation
                 </Link>
               </div>
             </div>
@@ -101,16 +105,16 @@ export function SimulateurEncart() {
                   TABLEAU_CUMAC.csv
                 </span>
               </div>
-              <div className="grid grid-cols-[110px_1fr_85px_90px] py-2.5 px-5 mono text-[9.5px] uppercase tracking-[0.06em] text-[var(--color-text-3)] border-b border-[var(--color-border-2)] bg-[#fafbfc]">
+              <div className="grid grid-cols-[110px_1fr_85px_120px] py-2.5 px-5 mono text-[9.5px] uppercase tracking-[0.06em] text-[var(--color-text-3)] border-b border-[var(--color-border-2)] bg-[#fafbfc]">
                 <span>Réf</span>
                 <span>Opération</span>
                 <span className="text-right">MWh cumac</span>
-                <span className="text-right">Prime</span>
+                <span className="text-right">Type</span>
               </div>
               {ROWS.map((r, i) => (
                 <div
                   key={r.ref}
-                  className={`grid grid-cols-[110px_1fr_85px_90px] py-2.5 px-5 items-center text-[12px] ${
+                  className={`grid grid-cols-[110px_1fr_85px_120px] py-2.5 px-5 items-center text-[12px] ${
                     i < ROWS.length - 1
                       ? "border-b border-[var(--color-border-2)]"
                       : ""
@@ -125,23 +129,17 @@ export function SimulateurEncart() {
                   <span className="text-right mono text-[11px] text-[var(--color-text-2)]">
                     {r.cumac}
                   </span>
-                  <span
-                    className="text-right it text-[13px] text-[#006e46]"
-                    style={{ fontFeatureSettings: '"tnum" 1' }}
-                  >
-                    {r.prime}
+                  <span className="text-right text-[11.5px] text-[var(--color-text-2)]">
+                    {r.type}
                   </span>
                 </div>
               ))}
               <div className="py-3 px-5 bg-[var(--color-secondary-10)] flex justify-between items-center border-t border-[var(--color-border-2)]">
                 <span className="mono text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-3)]">
-                  Total estimé
+                  Total programme
                 </span>
-                <span
-                  className="it text-[18px] text-[#006e46] tracking-[-0.02em]"
-                  style={{ fontFeatureSettings: '"tnum" 1' }}
-                >
-                  442,7 k€
+                <span className="mono text-[12px] text-[var(--color-primary)] tracking-[0.04em]">
+                  55 100 MWh cumac · 6 opérations
                 </span>
               </div>
             </div>
