@@ -153,6 +153,40 @@ export function SelecteurPersonas() {
             </Link>
           ))}
         </div>
+
+        {/* v3.1 — Porte de sortie : profils mixtes / atypiques.
+            Pattern : pas de cul-de-sac UX, conformément au diagnostic
+            simulateurs §3.1 (P0). On évite la 4e tuile dans la grille
+            pour ne pas dégrader la hiérarchie visuelle des 3 personas
+            principales : on met une bandeau sobre dessous, qui dirige
+            vers /contact pré-rempli avec un marqueur de provenance. */}
+        <div className="mt-12 lg:mt-14 reveal">
+          <Link
+            href="/contact?profil=autre"
+            className="group flex items-center gap-4 max-md:flex-col max-md:items-start max-md:gap-3 py-6 px-7 rounded-2xl bg-[var(--color-bg-alt,#FAFBFC)] border border-[var(--color-border-2)] hover:border-[var(--color-primary)] hover:bg-white transition-colors"
+          >
+            <span
+              className="text-[28px] leading-none shrink-0"
+              aria-hidden
+            >
+              🤔
+            </span>
+            <div className="flex-1">
+              <div className="text-[16px] font-semibold text-[var(--color-primary)] tracking-[-0.015em]">
+                Profil mixte, atypique, ou je ne sais pas encore ?
+              </div>
+              <p className="text-[14px] text-[var(--color-text-2)] mt-1 leading-[1.55]">
+                Groupe avec patrimoine industriel + tertiaire,
+                bailleur social, foncière, syndic, opérateur public,
+                cas hors France métropolitaine — décrivez-nous votre
+                situation, on revient vers vous sous 24 h ouvrées.
+              </p>
+            </div>
+            <span className="mono text-[13px] text-[var(--color-primary)] tracking-[-0.005em] group-hover:translate-x-0.5 transition-transform shrink-0">
+              Nous écrire →
+            </span>
+          </Link>
+        </div>
       </div>
     </section>
   );

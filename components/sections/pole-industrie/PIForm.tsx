@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { form } from "@/content/poleIndustrie";
 import { LeadForm, SubmitButton } from "@/components/LeadForm";
 
@@ -87,6 +88,22 @@ export function PIForm() {
                 className="w-full py-3 px-3.5 border border-[var(--color-border)] rounded-[10px] text-sm bg-[#fafbfc] text-[var(--color-text)] min-h-[90px] resize-y focus:outline-none focus:border-[var(--color-secondary)] focus:bg-white focus:shadow-[0_0_0_3px_rgba(0,168,107,0.12)]"
               />
             </div>
+            {/* v3.1 — RGPD checkbox (manquante avant ce fix, cf. diag §2.4). */}
+            <label className="col-span-2 max-[1100px]:col-span-1 flex gap-2.5 items-start text-[12.5px] text-[var(--color-text-2)] py-3 px-3.5 bg-white/60 rounded-lg leading-[1.5]">
+              <input type="checkbox" name="rgpd" required className="mt-[3px] shrink-0" />
+              <span>
+                J&apos;accepte qu&apos;Agence 3E me contacte sous 24 h
+                avec une pré-qualification chiffrée. Aucune cession à
+                des tiers.{" "}
+                <Link
+                  href="/politique-confidentialite-rgpd"
+                  className="text-[var(--color-primary)] underline"
+                >
+                  Politique de confidentialité
+                </Link>
+                .
+              </span>
+            </label>
             <div className="col-span-2 max-[1100px]:col-span-1">
               <SubmitButton className="w-full justify-center">
                 {form.cta}
