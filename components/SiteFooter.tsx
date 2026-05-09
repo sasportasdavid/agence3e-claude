@@ -62,7 +62,8 @@ export function SiteFooter() {
   return (
     <footer className="bg-[var(--color-primary)] text-white/70 pt-20 pb-8 mt-20 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,var(--color-secondary)_30%,var(--color-accent)_70%,transparent)]" />
-      <div className="container-x">
+      {/* v3 — container max 1440 (cohérent avec header et hero), brief §5.1 */}
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12 mb-16 max-[1100px]:grid-cols-2 max-md:grid-cols-1">
           <div>
             {/* v3 (brand v1.0) — LOGO_CONTRACTUEL négatif en footer
