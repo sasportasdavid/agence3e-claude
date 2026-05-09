@@ -16,6 +16,8 @@ import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { HeroV3 } from "@/components/sections/home/HeroV3";
 import { PilierV3 } from "@/components/sections/home/PilierV3";
 import { TriplePromesseV3 } from "@/components/sections/home/TriplePromesseV3";
+import { SelecteurPersonas } from "@/components/sections/home/SelecteurPersonas";
+import { CasesGrille } from "@/components/sections/home/CasesGrille";
 
 export const metadata = {
   title: "Home v3 — preview (test page)",
@@ -32,6 +34,8 @@ export default function TestHomeV3() {
         <HeroV3 />
         <PilierV3 />
         <TriplePromesseV3 />
+        <SelecteurPersonas />
+        <CasesGrille />
       </main>
       <SiteFooter />
       <StickyMobileCTA />

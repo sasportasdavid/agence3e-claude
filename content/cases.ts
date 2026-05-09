@@ -50,6 +50,9 @@ export interface CaseStudy {
     | "orange"
     | "yellow";
   date: string;
+  /** v3 — Photo header de la card (servie depuis /public/cases/). Optionnel
+   *  car les cas sectoriels indicatifs CASE-014 à CASE-018 n'en ont pas. */
+  image?: string;
 }
 
 export const CASES: CaseStudy[] = [
@@ -82,6 +85,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "rose",
     date: "Livré 03/2025",
+    image: "/cases/CASE-001_crystal-kwok-mhUsz2ezlXQ-unsplash.jpg",
   },
   {
     slug: "case-002",
@@ -112,6 +116,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "blue",
     date: "Livré 06/2025",
+    image: "/cases/CASE-002_fastenex-p-HNLlzPGbTBM-unsplash.jpg",
   },
   {
     slug: "case-003",
@@ -142,6 +147,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "violet",
     date: "Livré 02/2025",
+    image: "/cases/CASE-003_jeremy-sallee-lgrM1t4rxWQ-unsplash.jpg",
   },
   {
     slug: "case-004",
@@ -173,6 +179,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "green",
     date: "Livré 04/2025",
+    image: "/cases/CASE-004_kettenreaktion-l_Vn4HlFQVw-unsplash.jpg",
   },
   {
     slug: "case-005",
@@ -204,6 +211,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "yellow",
     date: "Livré 05/2025",
+    image: "/cases/CASE-005_willy-the-wizard-WoFMZjXF_Aw-unsplash.jpg",
   },
   {
     slug: "case-006",
@@ -235,6 +243,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "orange",
     date: "Livré 06/2025",
+    image: "/cases/CASE-006_beatriz-reynolds--6I0fI1MqZk-unsplash.jpg",
   },
   {
     slug: "case-007",
@@ -265,6 +274,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "green",
     date: "Livré 04/2025",
+    image: "/cases/CASE-007_taylor-vick-M5tzZtFCOfs-unsplash.jpg",
   },
   {
     slug: "case-008",
@@ -296,6 +306,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "blue",
     date: "Livré 08/2025",
+    image: "/cases/CASE-008_pascal-bernardon-OY8e4Qnu6TY-unsplash.jpg",
   },
   {
     slug: "case-009",
@@ -326,35 +337,42 @@ export const CASES: CaseStudy[] = [
     },
     tone: "violet",
     date: "Livré 09/2025",
+    image: "/cases/CASE-009_florian-delee-zphe6zINYA8-unsplash.jpg",
   },
+  /* v3 — CASE-010 remplacé : Copro tertiaire Lyon → Boulangerie industrielle IDF.
+     Le cas Copro tertiaire Lyon est conservé en archive si besoin (pas suffisamment
+     représentatif d'un segment cible v3). */
   {
     slug: "case-010",
     ref: "CASE-010",
-    title: "Copropriété tertiaire Lyon — optimiseur de relance + équilibrage hydraulique.",
-    region: "Rhône",
-    tag: "Copro tertiaire · Lyon",
-    segments: ["copro-tertiaire", "tertiaire"],
-    activity: "Immeuble bureaux 6 000 m², chauffage collectif",
+    title: "Boulangerie industrielle Île-de-France — récupération chaleur fours + variation vitesse pétrins.",
+    region: "Île-de-France",
+    tag: "IAA · Île-de-France",
+    segments: ["iaa"],
+    activity: "Boulangerie-viennoiserie industrielle, 5,8 GWh/an",
     travaux:
-      "Optimiseur de relance (BAT-TH-109) + équilibrage hydraulique (BAT-SE-103)",
-    fiches: ["BAT-TH-109", "BAT-SE-103"],
+      "Récupération de chaleur sur fours rotatifs (IND-UT-118) + variation de vitesse sur pétrins et chambres de pousse (IND-UT-102) + calorifugeage circuits vapeur (IND-UT-114)",
+    fiches: ["IND-UT-118", "IND-UT-102", "IND-UT-114"],
     stats: {
-      invest: "38 000 €",
-      prime: "24 500 €",
-      reste: "13 500 €",
-      gain: "11 200 €/an",
-      roi: "1,2 an",
+      conso: "5,8 GWh/an",
+      invest: "215 000 €",
+      prime: "118 000 €",
+      reste: "97 000 €",
+      gain: "62 000 €/an",
+      roi: "1,6 an",
     },
     narrative:
-      "Copropriété tertiaire 6 000 m², chauffage collectif gaz. Quick wins : optimiseur de relance et équilibrage hydraulique. AG votée à l'unanimité après présentation par notre AMO. 64 % d'investissement financé.",
+      "Boulangerie-viennoiserie industrielle 5,8 GWh/an. Audit DDADUE complet sur 6 lignes de production (fours rotatifs, fours de cuisson continue, chambres de pousse). Trois gisements priorisés : récupération de chaleur sur les fumées des fours pour préchauffer l'eau de NEP, variation de vitesse sur les moteurs > 11 kW, calorifugeage des circuits vapeur. ROI 1,6 an grâce au mix prime CEE + économies réelles dès l'année 1.",
     verbatim: {
-      quote: "60 % de l'investissement financé. AG votée à l'unanimité.",
-      author: "Sylvie K.",
-      role: "Présidente du conseil syndical",
-      region: "Rhône",
+      quote:
+        "Nos fours tournent 18 h sur 24, l'énergie c'était 22 % de notre coût direct. L'audit a payé sa facture en 6 mois.",
+      author: "Frédéric P.",
+      role: "Directeur d'exploitation",
+      region: "Île-de-France",
     },
     tone: "yellow",
     date: "Livré 03/2025",
+    image: "/cases/CASE-010_20260508153748.png",
   },
   {
     slug: "case-011",
@@ -384,36 +402,42 @@ export const CASES: CaseStudy[] = [
     },
     tone: "rose",
     date: "Livré 11/2024",
+    image: "/cases/CASE-011_tim-ziegelbaum-Tr1gcujxSIQ-unsplash.jpg",
   },
+  /* v3 — CASE-012 remplacé : Cosmétique Réunion → Imprimerie offset HdF.
+     Le cas DOM cosmétique reste pertinent côté outre-mer mais est moins
+     représentatif d'un segment-cible v3 (industrie métropolitaine). */
   {
     slug: "case-012",
     ref: "CASE-012",
-    title: "Industriel cosmétique La Réunion — isolation murs + climatiseur DOM.",
-    region: "La Réunion",
-    tag: "Industrie DOM · Réunion",
-    segments: ["dom", "industrie-autre"],
-    activity: "Production cosmétique 2,9 GWh/an, La Réunion",
+    title: "Imprimerie offset Hauts-de-France — récupération compresseurs + déstratification atelier.",
+    region: "Hauts-de-France",
+    tag: "Imprimerie · Hauts-de-France",
+    segments: ["industrie-autre"],
+    activity: "Imprimerie offset, 28 GWh/an",
     travaux:
-      "Isolation murs DOM (INDEN101) + isolation combles DOM (INDEN102) + climatiseur performant (BAT-TH-115)",
-    fiches: ["INDEN101", "INDEN102", "BAT-TH-115"],
+      "Récupération de chaleur sur 2 compresseurs (IND-UT-103) + déstratification atelier 4 200 m² (IND-BA-110) + variateurs sur moteurs > 11 kW (IND-UT-102) + calorifugeage circuits (IND-UT-114)",
+    fiches: ["IND-UT-103", "IND-BA-110", "IND-UT-102", "IND-UT-114"],
     stats: {
-      conso: "2,9 GWh/an",
-      invest: "95 000 €",
-      prime: "72 000 €", // barème DOM
-      reste: "23 000 €",
-      gain: "18 500 €/an",
-      roi: "1,2 an",
+      conso: "28 GWh/an",
+      invest: "138 000 €",
+      prime: "78 000 €",
+      reste: "60 000 €",
+      gain: "29 000 €/an",
+      roi: "2,1 ans",
     },
     narrative:
-      "Industriel cosmétique de La Réunion, 2,9 GWh/an. Mobilisation des fiches CEE outre-mer (INDEN101 et 102) avec barème DOM bonifié 25-40 % par rapport à la métropole. ROI net de 1,2 an, prime représente 76 % de l'investissement.",
+      "Imprimerie offset 28 GWh/an, 4 rotatives. Audit DDADUE identifiant 4 gisements (compresseurs, calorifugeage, déstratification, variateurs). Atelier 4 200 m² avec hauteur sous plafond > 8 m : déstratification d'air a divisé par 2 le temps de chauffe matinal. Récupération de chaleur compresseurs pour préchauffer l'eau process et l'ECS du bâtiment.",
     verbatim: {
-      quote: "Les fiches CEE outre-mer, peu de cabinets les maîtrisent. Agence 3E, oui.",
-      author: "Naïma F.",
-      role: "Directrice technique",
-      region: "La Réunion",
+      quote:
+        "On pensait qu'on ne pouvait plus rien gratter. L'audit a sorti 4 gisements qu'on avait sous le nez.",
+      author: "Hervé M.",
+      role: "Directeur industriel",
+      region: "Hauts-de-France",
     },
     tone: "orange",
     date: "Livré 07/2025",
+    image: "/cases/CASE-012_geri-sakti-CYrYxz-uvE4-unsplash.jpg",
   },
 ];
 
