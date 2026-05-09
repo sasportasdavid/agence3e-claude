@@ -32,14 +32,14 @@ const CARDS: PromiseCard[] = [
     h3: "Anticipez l'audit obligatoire.",
     desc: (
       <>
-        Audit énergétique conforme NF EN 16247-3, livrable sous 6 semaines.
-        Conduit par Agence 3E Audit, certifiée OPQIBI 1905. Périmètre
-        complet : sites industriels, bâtiments tertiaires, points de
-        consommation &gt; 2,75 GWh.
+        Audit énergétique conforme NF EN 16247-3, livraison indicative
+        sous 12 à 16 semaines. Conduit par Agence 3E Audit, certifiée
+        OPQIBI 1905. Périmètre complet : sites industriels, bâtiments
+        tertiaires, points de consommation &gt; 2,75 GWh annuels.
       </>
     ),
     stats: [
-      { label: "Délai", value: "6 semaines" },
+      { label: "Délai", value: "12 à 16 sem." },
       { label: "Norme", value: "NF EN 16247-3" },
     ],
     link: {
@@ -54,15 +54,14 @@ const CARDS: PromiseCard[] = [
     h3: "Allégez votre facture énergie.",
     desc: (
       <>
-        15 à 35 % d&apos;économies validées par audit, dès l&apos;année 1.
         Identification des gisements rentables, hiérarchisation par ROI,
-        plan d&apos;action chiffré sur 4 ans. Vous voyez exactement quoi
-        faire, dans quel ordre, pour quel gain.
+        plan d&apos;action sur 4 ans. Vous voyez exactement quoi faire,
+        dans quel ordre, pour quel gain — chiffres calibrés site par site.
       </>
     ),
     stats: [
-      { label: "Économies", value: "15 à 35 %" },
-      { label: "ROI moyen", value: "2,8 ans" },
+      { label: "Approche", value: "Plan d'action 4 ans" },
+      { label: "Méthode", value: "ROI maîtrisé" },
     ],
     link: {
       href: "/services/audit-energetique-ddadue#methode",
@@ -77,14 +76,14 @@ const CARDS: PromiseCard[] = [
     desc: (
       <>
         Courtage transparent de votre prime CEE auprès de délégataires
-        obligés. +12 à +25 % de prix négocié vs marché spot. Mandat
-        écrit, commission affichée en €/MWh cumac, prime versée sous 60
-        jours.
+        obligés. Mise en compétition systématique pour optimiser le prix
+        négocié vs marché spot. Mandat écrit, commission affichée en
+        €/MWh cumac, suivi versement dossier par dossier.
       </>
     ),
     stats: [
-      { label: "Surplus", value: "+12 à +25 %" },
-      { label: "Versement", value: "60 jours" },
+      { label: "Approche", value: "Mise en compétition" },
+      { label: "Suivi", value: "Dossier par dossier" },
     ],
     link: {
       href: "/services/courtage-prime-cee",
