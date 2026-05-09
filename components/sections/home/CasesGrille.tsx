@@ -96,12 +96,13 @@ export function CasesGrille() {
               lineHeight: 1.1,
             }}
           >
-            Des résultats chiffrés, vérifiables.
+            Quelques missions, plusieurs segments.
           </h2>
           <p className="text-[18px] text-[var(--color-text-2)] leading-[1.65] mt-6 reveal">
-            Six exemples sur les 80+ missions menées par Agence 3E Audit
-            et Agence 3E Solutions depuis 2023. Chiffres clients réels ou
-            cas types sectoriels indicatifs (mention explicite).
+            Sélection de missions menées par Agence 3E Audit et Agence 3E
+            Solutions depuis 2023. Cas réels (avec accord client) et
+            illustrations sectorielles indicatives, mention explicite sur
+            chaque card.
           </p>
         </div>
 
@@ -142,7 +143,7 @@ export function CasesGrille() {
             href="/ressources/etudes-de-cas"
             className="text-[15px] font-medium text-[var(--color-primary)] hover:underline underline-offset-2 inline-flex items-center gap-2"
           >
-            Voir les 80 études de cas
+            Voir l&apos;ensemble des études de cas
             <span aria-hidden>→</span>
           </Link>
         </div>
@@ -155,20 +156,32 @@ export function CasesGrille() {
  * Card individuelle
  * ──────────────────────────────────────────────────────────── */
 
+/**
+ * CaseCard — v3.4 format « Enjeu / Solutions / Résultats » (sans €).
+ *
+ * Si le cas a les champs `enjeu`, `solutions`, `results` (les 6 cas
+ * Home), on affiche le format structuré. Sinon, on tombe sur les KPI
+ * Investis. / Prime / ROI (legacy).
+ *
+ * CTA bottom v3.4 : « Demander un cas similaire » → /contact pré-rempli
+ * via queryparams (source / ref / segment).
+ */
 function CaseCard({ c }: { c: CaseStudy }) {
-  const kpis = [
-    { label: "Investis.", value: c.stats.invest },
-    { label: "Prime", value: c.stats.prime },
-    { label: "ROI", value: c.stats.roi ?? c.stats.gain ?? "—" },
-  ];
+  const v3 = Boolean(c.enjeu && c.solutions && c.results);
+
+  const ctaHref = v3
+    ? `/contact?source=cas-similaire&ref=${c.slug}${c.homeSegment ? `&segment=${c.homeSegment}` : ""}`
+    : `/ressources/etudes-de-cas/${c.slug}`;
 
   return (
-    <Link
-      href={`/ressources/etudes-de-cas/${c.slug}`}
-      className="group block bg-white border border-[var(--color-border-2)] rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_24px_56px_-16px_rgba(10,37,64,0.16)] transition-all duration-300"
-    >
-      {/* Photo header — ratio 16/10, hover scale 1.03 interne */}
-      <div className="relative w-full aspect-[16/10] overflow-hidden bg-[var(--color-border-2)]">
+    <article className="group block bg-white border border-[var(--color-border-2)] rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_24px_56px_-16px_rgba(10,37,64,0.16)] transition-all duration-300 flex flex-col">
+      {/* Photo header — ratio 16/10, hover scale 1.03 interne. Liée vers
+          la page détail du cas (route classique). */}
+      <Link
+        href={`/ressources/etudes-de-cas/${c.slug}`}
+        className="relative w-full aspect-[16/10] overflow-hidden bg-[var(--color-border-2)] block"
+        aria-label={`Photo — ${c.title}`}
+      >
         {c.image ? (
           <Image
             src={c.image}
@@ -182,10 +195,10 @@ function CaseCard({ c }: { c: CaseStudy }) {
             Photo à venir
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Body */}
-      <div className="p-7">
+      <div className="p-7 flex flex-col flex-1">
         <div className="flex items-center justify-between gap-3">
           <span className="mono text-[10.5px] tracking-[0.06em] uppercase text-[var(--color-text-3)]">
             {c.tag}
@@ -201,27 +214,114 @@ function CaseCard({ c }: { c: CaseStudy }) {
           {c.activity}
         </p>
 
-        <div className="grid grid-cols-3 gap-3 mt-5 pt-5 border-t border-[var(--color-border-2)]">
-          {kpis.map((k) => (
-            <div key={k.label}>
-              <div className="mono text-[9.5px] uppercase tracking-[0.06em] text-[var(--color-text-3)]">
-                {k.label}
-              </div>
-              <div
-                className="it text-[15.5px] text-[var(--color-primary)] mt-1 leading-none tracking-[-0.01em]"
-                style={{ fontFeatureSettings: '"tnum" 1' }}
-              >
-                {k.value}
-              </div>
-            </div>
-          ))}
-        </div>
+        {v3 ? (
+          <CaseCardSections
+            enjeu={c.enjeu!}
+            solutions={c.solutions!}
+            results={c.results!}
+          />
+        ) : (
+          <CaseCardKPILegacy
+            invest={c.stats.invest}
+            prime={c.stats.prime}
+            roi={c.stats.roi ?? c.stats.gain ?? "—"}
+          />
+        )}
 
-        <div className="mt-5 flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-primary)] group-hover:gap-2.5 transition-all">
-          Lire le cas complet
+        {/* CTA — toujours en bas, même hauteur grâce à mt-auto */}
+        <Link
+          href={ctaHref}
+          className="mt-auto pt-5 flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-primary)] group-hover:gap-2.5 transition-all"
+        >
+          {v3 ? "Demander un cas similaire" : "Lire le cas complet"}
           <span aria-hidden>→</span>
-        </div>
+        </Link>
       </div>
-    </Link>
+    </article>
+  );
+}
+
+/** v3.4 — bloc Enjeu / Solutions / Résultats sans €. */
+function CaseCardSections({
+  enjeu,
+  solutions,
+  results,
+}: {
+  enjeu: string;
+  solutions: string[];
+  results: string[];
+}) {
+  return (
+    <div className="mt-5 pt-5 border-t border-[var(--color-border-2)] space-y-4">
+      <CaseSection title="Enjeu">
+        <p className="text-[13px] text-[var(--color-text-2)] leading-[1.55]">
+          {enjeu}
+        </p>
+      </CaseSection>
+      <CaseSection title="Solutions déployées">
+        <ul className="text-[13px] text-[var(--color-text-2)] leading-[1.55] space-y-1 list-disc pl-4 marker:text-[var(--color-text-3)]">
+          {solutions.map((s, i) => (
+            <li key={i}>{s}</li>
+          ))}
+        </ul>
+      </CaseSection>
+      <CaseSection title="Résultats">
+        <ul className="text-[13px] text-[var(--color-text-2)] leading-[1.55] space-y-1 list-disc pl-4 marker:text-[var(--color-secondary)]">
+          {results.map((r, i) => (
+            <li key={i}>{r}</li>
+          ))}
+        </ul>
+      </CaseSection>
+    </div>
+  );
+}
+
+function CaseSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <div className="mono text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-3)] mb-1.5">
+        {title}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+/** Legacy — KPI Investis. / Prime / ROI pour les cas non-Home. */
+function CaseCardKPILegacy({
+  invest,
+  prime,
+  roi,
+}: {
+  invest: string;
+  prime: string;
+  roi: string;
+}) {
+  return (
+    <div className="grid grid-cols-3 gap-3 mt-5 pt-5 border-t border-[var(--color-border-2)]">
+      {[
+        { label: "Investis.", value: invest },
+        { label: "Prime", value: prime },
+        { label: "ROI", value: roi },
+      ].map((k) => (
+        <div key={k.label}>
+          <div className="mono text-[9.5px] uppercase tracking-[0.06em] text-[var(--color-text-3)]">
+            {k.label}
+          </div>
+          <div
+            className="it text-[15.5px] text-[var(--color-primary)] mt-1 leading-none tracking-[-0.01em]"
+            style={{ fontFeatureSettings: '"tnum" 1' }}
+          >
+            {k.value}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

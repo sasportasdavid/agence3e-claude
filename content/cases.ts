@@ -53,6 +53,23 @@ export interface CaseStudy {
   /** v3 — Photo header de la card (servie depuis /public/cases/). Optionnel
    *  car les cas sectoriels indicatifs CASE-014 à CASE-018 n'en ont pas. */
   image?: string;
+
+  /* ──────────────────────────────────────────────────────────────
+   * v3.4 — Format Home « Enjeu / Solutions / Résultats » (sans €).
+   * Pour les 6 cas mis en avant en home (CASE-001, 002, 003, 007,
+   * 009, 011), on remplit ces 3 champs et la card affiche ce
+   * contenu structuré au lieu des KPI Investis. / Prime / ROI.
+   * Les autres cas (CASE-004→012 sauf ceux-ci, et 014-018) gardent
+   * l'affichage classique sur /ressources/etudes-de-cas/[slug].
+   * ────────────────────────────────────────────────────────────── */
+  /** Court résumé du contexte de la mission, 1-2 lignes. */
+  enjeu?: string;
+  /** 3 à 5 actions menées, format puce. */
+  solutions?: string[];
+  /** 3 à 5 résultats factuels SANS chiffre financier (€), format puce. */
+  results?: string[];
+  /** Segment court pour pré-remplir le formulaire /contact via queryparam. */
+  homeSegment?: "industrie" | "tertiaire" | "residentiel";
 }
 
 export const CASES: CaseStudy[] = [
@@ -86,6 +103,20 @@ export const CASES: CaseStudy[] = [
     tone: "rose",
     date: "Livré 03/2025",
     image: "/cases/CASE-001_crystal-kwok-mhUsz2ezlXQ-unsplash.jpg",
+    enjeu: "Sécurisation conformité DDADUE 2026 et identification des leviers d'efficacité énergétique avec ROI maîtrisé.",
+    solutions: [
+      "Audit énergétique NF EN 16247-3 sur périmètre complet",
+      "Récupération chaleur sur groupe froid (fiche IND-UT-117)",
+      "Calorifugeage des réseaux haute température",
+      "Plan d'action 4 ans validé en CODIR",
+    ],
+    results: [
+      "Conformité DDADUE livrée — audit déposé sur AIDER",
+      "7 préconisations priorisées par ROI",
+      "38 % de couverture CEE du gisement identifié",
+      "Plan de financement bancable",
+    ],
+    homeSegment: "industrie",
   },
   {
     slug: "case-002",
@@ -117,6 +148,20 @@ export const CASES: CaseStudy[] = [
     tone: "blue",
     date: "Livré 06/2025",
     image: "/cases/CASE-002_fastenex-p-HNLlzPGbTBM-unsplash.jpg",
+    enjeu: "Modernisation parc presses à injection avec optimisation énergétique et capture maximale de la prime CEE.",
+    solutions: [
+      "Audit énergétique préalable NF EN 16247-3",
+      "Variateurs électroniques sur 12 presses (fiche IND-UT-102)",
+      "Remplacement par presse hybride dernière génération",
+      "Mise en compétition de 5 délégataires CEE",
+    ],
+    results: [
+      "Audit livré et conforme DDADUE",
+      "Programme de modernisation cohérent sur 18 mois",
+      "Prime CEE optimisée par mise en compétition",
+      "Suivi exploitation 12 mois inclus",
+    ],
+    homeSegment: "industrie",
   },
   {
     slug: "case-003",
@@ -148,6 +193,20 @@ export const CASES: CaseStudy[] = [
     tone: "violet",
     date: "Livré 02/2025",
     image: "/cases/CASE-003_jeremy-sallee-lgrM1t4rxWQ-unsplash.jpg",
+    enjeu: "Réduction consommation vapeur process (90 °C) avec récupération chaleur fatale et alignement décret tertiaire DEET.",
+    solutions: [
+      "Audit énergétique NF EN 16247-3 multi-sites",
+      "Pompe à chaleur haute température sur chaleur fatale (IND-UT-137)",
+      "Système de monitoring énergétique en continu",
+      "Déclaration OPERAT incluse",
+    ],
+    results: [
+      "Conformité DDADUE et trajectoire DEET 2030 sécurisées",
+      "Gain énergétique majeur sur poste vapeur",
+      "Audit déposé AIDER + déclaration OPERAT validée",
+      "Plan pluriannuel approuvé direction générale",
+    ],
+    homeSegment: "industrie",
   },
   {
     slug: "case-004",
@@ -275,6 +334,20 @@ export const CASES: CaseStudy[] = [
     tone: "green",
     date: "Livré 04/2025",
     image: "/cases/CASE-007_taylor-vick-M5tzZtFCOfs-unsplash.jpg",
+    enjeu: "Optimisation PUE par confinement allées chaudes/froides et maximisation du free-cooling sur un site existant non rénové.",
+    solutions: [
+      "Audit énergétique spécifique datacenter",
+      "Confinement allées froides + allées chaudes (fiche BAT-TH-153)",
+      "Système de free-cooling sur eau de refroidissement (BAT-TH-156)",
+      "Plan de pilotage PUE sur 4 ans",
+    ],
+    results: [
+      "PUE significativement amélioré",
+      "Programme de modernisation en cours",
+      "Suivi PUE mensuel intégré GTB",
+      "Conformité DEET datacenter sécurisée",
+    ],
+    homeSegment: "tertiaire",
   },
   {
     slug: "case-008",
@@ -338,6 +411,20 @@ export const CASES: CaseStudy[] = [
     tone: "violet",
     date: "Livré 09/2025",
     image: "/cases/CASE-009_florian-delee-zphe6zINYA8-unsplash.jpg",
+    enjeu: "Mise en conformité décret tertiaire (DEET) avec trajectoire de réduction des consommations à horizon 2030.",
+    solutions: [
+      "Diagnostic énergétique tertiaire complet",
+      "Raccordement réseau de chaleur urbain (fiche BAT-TH-127)",
+      "Modernisation GTB pour pilotage fin",
+      "Déclaration OPERAT initiale + plan pluriannuel",
+    ],
+    results: [
+      "Trajectoire DEET 2030 validée par audit externe",
+      "GTB opérationnelle avec monitoring en temps réel",
+      "Déclaration OPERAT livrée en délai",
+      "Accompagnement annuel programmé",
+    ],
+    homeSegment: "tertiaire",
   },
   /* v3 — CASE-010 remplacé : Copro tertiaire Lyon → Boulangerie industrielle IDF.
      Le cas Copro tertiaire Lyon est conservé en archive si besoin (pas suffisamment
@@ -403,6 +490,20 @@ export const CASES: CaseStudy[] = [
     tone: "rose",
     date: "Livré 11/2024",
     image: "/cases/CASE-011_tim-ziegelbaum-Tr1gcujxSIQ-unsplash.jpg",
+    enjeu: "Sortie de classe énergétique défavorable et amélioration confort résidents avec optimisation des aides MaPrimeRénov' Copro.",
+    solutions: [
+      "Audit énergétique en copropriété",
+      "Isolation toitures (fiche BAT-EN-107)",
+      "Modernisation GTB chaufferie centrale",
+      "Montage MaPrimeRénov' Copro + prime CEE",
+    ],
+    results: [
+      "Sortie de passoire thermique confirmée",
+      "Confort thermique des résidents amélioré",
+      "Aides cumulées mobilisées (MaPrimeRénov' + CEE)",
+      "Plan pluriannuel travaux (PPT) déposé",
+    ],
+    homeSegment: "residentiel",
   },
   /* v3 — CASE-012 remplacé : Cosmétique Réunion → Imprimerie offset HdF.
      Le cas DOM cosmétique reste pertinent côté outre-mer mais est moins
