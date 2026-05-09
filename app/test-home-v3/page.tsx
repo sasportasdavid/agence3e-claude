@@ -15,9 +15,13 @@ import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 
 import { HeroV3 } from "@/components/sections/home/HeroV3";
 import { PilierV3 } from "@/components/sections/home/PilierV3";
+import { SimulateurEncart } from "@/components/sections/home/SimulateurEncart";
 import { TriplePromesseV3 } from "@/components/sections/home/TriplePromesseV3";
 import { SelecteurPersonas } from "@/components/sections/home/SelecteurPersonas";
+import { EncartDDADUE } from "@/components/sections/home/EncartDDADUE";
 import { CasesGrille } from "@/components/sections/home/CasesGrille";
+import { HowSection } from "@/components/sections/HowSection";
+import { ResourcesSection } from "@/components/sections/ResourcesSection";
 
 export const metadata = {
   title: "Home v3 — preview (test page)",
@@ -31,11 +35,16 @@ export default function TestHomeV3() {
       <Topbar />
       <SiteHeader />
       <main>
+        {/* Ordre Phase D §D.3 (anticipé en page de test) */}
         <HeroV3 />
         <PilierV3 />
+        <SimulateurEncart />
         <TriplePromesseV3 />
         <SelecteurPersonas />
+        <EncartDDADUE />
         <CasesGrille />
+        <HowSection />
+        <ResourcesSection />
       </main>
       <SiteFooter />
       <StickyMobileCTA />

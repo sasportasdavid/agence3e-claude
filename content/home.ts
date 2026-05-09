@@ -399,33 +399,34 @@ export const cases: {
   ],
 };
 
+/* v3 — Méthode 4 étapes, brief §3.8 (texte verbatim). */
 export const how = {
-  eyebrow: "Notre méthode",
-  title: { lead: "Quatre étapes,", it: "douze à seize semaines." },
+  eyebrow: "Méthode",
+  title: { lead: "Quatre étapes,", it: "un seul interlocuteur." },
   steps: [
     {
       n: 1,
-      title: "Cadrage",
-      duration: "Sem. 0 → 1",
-      desc: "Pré-qualification, NDA, collecte des factures énergie sur 24 mois, périmètre auditable.",
+      title: "Cadrage NDA",
+      duration: "Semaine 0",
+      desc: "Comprendre vos enjeux. Signature NDA, recueil documentaire, périmètre d'audit défini.",
     },
     {
       n: 2,
-      title: "Audit terrain",
-      duration: "Sem. 2 → 6",
-      desc: "Visite des installations, instrumentation, modélisation, identification des gisements prioritaires.",
+      title: "Audit énergétique DDADUE",
+      duration: "Semaines 1–6",
+      desc: "Visite de site, campagne de mesures, modélisation des gisements. Livrable : rapport NF EN 16247-3.",
     },
     {
       n: 3,
       title: "Montage CEE",
-      duration: "Sem. 6 → 10",
-      desc: "Mise en compétition de 5 délégataires, sélection, signature de la convention de partenariat.",
+      duration: "Semaines 7–10",
+      desc: "Constitution des dossiers de prime CEE, négociation auprès des délégataires, mandat de courtage signé.",
     },
     {
       n: 4,
-      title: "Pilotage AMO",
-      duration: "Sem. 10 → 16",
-      desc: "Travaux, attestations, dépôts EMMY, versement de la prime, suivi exploitation 12 mois.",
+      title: "Pilotage AMO travaux",
+      duration: "Semaines 11–30+",
+      desc: "Qualification installateurs RGE, suivi chantier, réception. Versement prime CEE sous 60 jours après mise en service.",
     },
   ],
 };
@@ -442,30 +443,35 @@ export const sim = {
   cta: "Lancer le simulateur",
 };
 
+/* v3 — Ressources, brief §3.9 (texte verbatim eyebrow / H2 / sub).
+ * Mix recommandé : 2 articles blog + 1 guide PDF téléchargeable. */
 export const resources = {
-  eyebrow: "Comprendre",
-  title: { lead: "Ressources", it: "de référence." },
+  eyebrow: "Ressources",
+  title: { lead: "Aller", it: "plus loin." },
+  sub: "Articles, guides et fiches pratiques pour comprendre le dispositif CEE et l'audit DDADUE.",
   items: [
-    {
-      tag: "Guide · 24 pages",
-      title:
-        "DDADUE 2025 — qui, quoi, quand. Le guide complet du dirigeant.",
-      cta: "Télécharger →",
-      href: "/ressources/guides",
-    },
     {
       tag: "Article · 8 min",
       title:
         "6ᵉ période CEE : ce qui change vraiment pour les industriels.",
-      cta: "Lire →",
+      cta: "Lire l'article",
       href: "/comprendre/6e-periode-cee-2026-2030",
     },
     {
-      tag: "Décryptage",
+      tag: "Décryptage · 12 min",
       title:
         "ISO 50001 vs DDADUE : équivalence, complémentarité, quand basculer.",
-      cta: "Lire →",
+      cta: "Lire le décryptage",
       href: "/comprendre/iso-50001-vs-audit-ddadue",
     },
+    {
+      tag: "Guide PDF · 24 pages",
+      title:
+        "DDADUE 2026 — qui, quoi, quand. Le guide complet du dirigeant.",
+      cta: "Télécharger le guide",
+      href: "/ressources/guides",
+    },
   ],
+  ctaAll: "Voir toutes les ressources",
+  hrefAll: "/ressources",
 };
