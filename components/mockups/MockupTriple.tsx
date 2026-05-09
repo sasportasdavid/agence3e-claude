@@ -118,10 +118,10 @@ function MockupRapportAudit() {
         </div>
         <div className="mt-4 pt-3 border-t border-[var(--color-border-2)] flex justify-between items-center">
           <span className="mono text-[10px] text-[var(--color-text-3)] tracking-[0.06em] uppercase">
-            Prime CEE estimée
+            Plan d&apos;action 4 ans
           </span>
-          <span className="it text-[20px] text-[var(--color-primary)] tracking-[-0.02em]">
-            182 400 €
+          <span className="it text-[16px] text-[var(--color-primary)] tracking-[-0.01em]">
+            ROI maîtrisé
           </span>
         </div>
       </div>
@@ -161,7 +161,7 @@ function MockupDashboardCEE() {
         <div className="mt-4 grid grid-cols-3 gap-2.5">
           {[
             { l: "Cumac", v: "12,4 GWh" },
-            { l: "Prime", v: "182,4 k€" },
+            { l: "Délégataires", v: "5 / 5" },
             { l: "Statut", v: "Validé" },
           ].map((s) => (
             <div
@@ -183,7 +183,7 @@ function MockupDashboardCEE() {
             { l: "Audit livré", done: true },
             { l: "Dossier déposé PNCEE", done: true },
             { l: "Validation délégataire", done: true },
-            { l: "Versement prime", done: false },
+            { l: "Versement final", done: false },
           ].map((j) => (
             <div key={j.l} className="flex items-center gap-2 text-[11px]">
               <span
