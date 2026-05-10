@@ -38,25 +38,38 @@ export function HeroV3() {
             <h1
               className="display reveal mt-7"
               style={{
-                fontSize: "clamp(40px, 6.6vw, 92px)",
-                lineHeight: 1.02,
-                letterSpacing: "-0.045em",
+                /* v3.5 — H1 plus long que la v3 originale (51 car vs 38).
+                   Pour rester sur 2-3 lignes max sans coupure sauvage en
+                   milieu de mot :
+                   1. Pas de <br> forcé : la moitié inférieure passe en
+                      span italique inline et `text-wrap: balance` répartit
+                      naturellement sur 2-3 lignes selon viewport.
+                   2. Font max 64px (au lieu de 92px de la v3 originale)
+                      — proportionnel à la longueur du H1.
+                   3. line-height 1.08 pour rapprocher visuellement les
+                      lignes wrappées. */
+                fontSize: "clamp(36px, 5vw, 64px)",
+                lineHeight: 1.08,
+                letterSpacing: "-0.035em",
                 fontWeight: 600,
+                textWrap: "balance",
               }}
             >
-              L&apos;énergie comme
-              <br />
+              Coordonner vos obligations,{" "}
               <span
                 className="it text-[var(--color-primary)]"
-                style={{ fontWeight: 400, letterSpacing: "-0.025em" }}
+                style={{ fontWeight: 400, letterSpacing: "-0.02em" }}
               >
-                un sujet stratégique.
+                piloter vos économies.
               </span>
             </h1>
             <p className="text-[20px] text-[var(--color-text-2)] leading-[1.55] mt-8 max-w-[560px] reveal">
-              Pour vos sites industriels, votre parc tertiaire ou votre
-              logement — audit conforme, primes CEE optimisées, travaux
-              pilotés. Trois segments, une méthode, un interlocuteur.
+              Cabinet spécialisé dans la conformité réglementaire et la
+              performance énergétique. Nous identifions vos gisements
+              d&apos;économies, hiérarchisons les actions par ROI, et
+              finançons leur mise en œuvre via les CEE — sites industriels,
+              parc tertiaire, copropriétés. Un seul interlocuteur, de
+              l&apos;audit à la mise en service.
             </p>
 
             {/* CTAs */}
@@ -71,7 +84,7 @@ export function HeroV3() {
                 href="#encart-simulateur"
                 className="btn btn-secondary"
               >
-                Calculer mes économies
+                Identifier mes gisements
               </Link>
             </div>
 
