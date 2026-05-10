@@ -50,6 +50,26 @@ export interface CaseStudy {
     | "orange"
     | "yellow";
   date: string;
+  /** v3 — Photo header de la card (servie depuis /public/cases/). Optionnel
+   *  car les cas sectoriels indicatifs CASE-014 à CASE-018 n'en ont pas. */
+  image?: string;
+
+  /* ──────────────────────────────────────────────────────────────
+   * v3.4 — Format Home « Enjeu / Solutions / Résultats » (sans €).
+   * Pour les 6 cas mis en avant en home (CASE-001, 002, 003, 007,
+   * 009, 011), on remplit ces 3 champs et la card affiche ce
+   * contenu structuré au lieu des KPI Investis. / Prime / ROI.
+   * Les autres cas (CASE-004→012 sauf ceux-ci, et 014-018) gardent
+   * l'affichage classique sur /ressources/etudes-de-cas/[slug].
+   * ────────────────────────────────────────────────────────────── */
+  /** Court résumé du contexte de la mission, 1-2 lignes. */
+  enjeu?: string;
+  /** 3 à 5 actions menées, format puce. */
+  solutions?: string[];
+  /** 3 à 5 résultats factuels SANS chiffre financier (€), format puce. */
+  results?: string[];
+  /** Segment court pour pré-remplir le formulaire /contact via queryparam. */
+  homeSegment?: "industrie" | "tertiaire" | "residentiel";
 }
 
 export const CASES: CaseStudy[] = [
@@ -82,6 +102,21 @@ export const CASES: CaseStudy[] = [
     },
     tone: "rose",
     date: "Livré 03/2025",
+    image: "/cases/CASE-001_crystal-kwok-mhUsz2ezlXQ-unsplash.jpg",
+    enjeu: "Sécurisation conformité DDADUE 2026 et identification des leviers d'efficacité énergétique avec ROI maîtrisé.",
+    solutions: [
+      "Audit énergétique NF EN 16247-3 sur périmètre complet",
+      "Récupération chaleur sur groupe froid (fiche IND-UT-117)",
+      "Calorifugeage des réseaux haute température",
+      "Plan d'action 4 ans validé en CODIR",
+    ],
+    results: [
+      "Conformité DDADUE livrée — audit déposé sur AIDER",
+      "7 préconisations priorisées par ROI",
+      "38 % de couverture CEE du levier identifié",
+      "Plan de financement bancable",
+    ],
+    homeSegment: "industrie",
   },
   {
     slug: "case-002",
@@ -112,6 +147,21 @@ export const CASES: CaseStudy[] = [
     },
     tone: "blue",
     date: "Livré 06/2025",
+    image: "/cases/CASE-002_fastenex-p-HNLlzPGbTBM-unsplash.jpg",
+    enjeu: "Modernisation parc presses à injection avec optimisation énergétique et capture maximale de la prime CEE.",
+    solutions: [
+      "Audit énergétique préalable NF EN 16247-3",
+      "Variateurs électroniques sur 12 presses (fiche IND-UT-102)",
+      "Remplacement par presse hybride dernière génération",
+      "Mise en compétition de 5 délégataires CEE",
+    ],
+    results: [
+      "Audit livré et conforme DDADUE",
+      "Programme de modernisation cohérent sur 18 mois",
+      "Prime CEE optimisée par mise en compétition",
+      "Suivi exploitation 12 mois inclus",
+    ],
+    homeSegment: "industrie",
   },
   {
     slug: "case-003",
@@ -142,6 +192,21 @@ export const CASES: CaseStudy[] = [
     },
     tone: "violet",
     date: "Livré 02/2025",
+    image: "/cases/CASE-003_jeremy-sallee-lgrM1t4rxWQ-unsplash.jpg",
+    enjeu: "Réduction consommation vapeur process (90 °C) avec récupération chaleur fatale et alignement décret tertiaire DEET.",
+    solutions: [
+      "Audit énergétique NF EN 16247-3 multi-sites",
+      "Pompe à chaleur haute température sur chaleur fatale (IND-UT-137)",
+      "Système de monitoring énergétique en continu",
+      "Déclaration OPERAT incluse",
+    ],
+    results: [
+      "Conformité DDADUE et trajectoire DEET 2030 sécurisées",
+      "Gain énergétique majeur sur poste vapeur",
+      "Audit déposé AIDER + déclaration OPERAT validée",
+      "Plan pluriannuel approuvé direction générale",
+    ],
+    homeSegment: "industrie",
   },
   {
     slug: "case-004",
@@ -173,6 +238,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "green",
     date: "Livré 04/2025",
+    image: "/cases/CASE-004_kettenreaktion-l_Vn4HlFQVw-unsplash.jpg",
   },
   {
     slug: "case-005",
@@ -204,6 +270,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "yellow",
     date: "Livré 05/2025",
+    image: "/cases/CASE-005_willy-the-wizard-WoFMZjXF_Aw-unsplash.jpg",
   },
   {
     slug: "case-006",
@@ -235,6 +302,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "orange",
     date: "Livré 06/2025",
+    image: "/cases/CASE-006_beatriz-reynolds--6I0fI1MqZk-unsplash.jpg",
   },
   {
     slug: "case-007",
@@ -265,6 +333,21 @@ export const CASES: CaseStudy[] = [
     },
     tone: "green",
     date: "Livré 04/2025",
+    image: "/cases/CASE-007_taylor-vick-M5tzZtFCOfs-unsplash.jpg",
+    enjeu: "Optimisation PUE par confinement allées chaudes/froides et maximisation du free-cooling sur un site existant non rénové.",
+    solutions: [
+      "Audit énergétique spécifique datacenter",
+      "Confinement allées froides + allées chaudes (fiche BAT-TH-153)",
+      "Système de free-cooling sur eau de refroidissement (BAT-TH-156)",
+      "Plan de pilotage PUE sur 4 ans",
+    ],
+    results: [
+      "PUE significativement amélioré",
+      "Programme de modernisation en cours",
+      "Suivi PUE mensuel intégré GTB",
+      "Conformité DEET datacenter sécurisée",
+    ],
+    homeSegment: "tertiaire",
   },
   {
     slug: "case-008",
@@ -296,6 +379,7 @@ export const CASES: CaseStudy[] = [
     },
     tone: "blue",
     date: "Livré 08/2025",
+    image: "/cases/CASE-008_pascal-bernardon-OY8e4Qnu6TY-unsplash.jpg",
   },
   {
     slug: "case-009",
@@ -326,35 +410,56 @@ export const CASES: CaseStudy[] = [
     },
     tone: "violet",
     date: "Livré 09/2025",
+    image: "/cases/CASE-009_florian-delee-zphe6zINYA8-unsplash.jpg",
+    enjeu: "Mise en conformité décret tertiaire (DEET) avec trajectoire de réduction des consommations à horizon 2030.",
+    solutions: [
+      "Diagnostic énergétique tertiaire complet",
+      "Raccordement réseau de chaleur urbain (fiche BAT-TH-127)",
+      "Modernisation GTB pour pilotage fin",
+      "Déclaration OPERAT initiale + plan pluriannuel",
+    ],
+    results: [
+      "Trajectoire DEET 2030 validée par audit externe",
+      "GTB opérationnelle avec monitoring en temps réel",
+      "Déclaration OPERAT livrée en délai",
+      "Accompagnement annuel programmé",
+    ],
+    homeSegment: "tertiaire",
   },
+  /* v3 — CASE-010 remplacé : Copro tertiaire Lyon → Boulangerie industrielle IDF.
+     Le cas Copro tertiaire Lyon est conservé en archive si besoin (pas suffisamment
+     représentatif d'un segment cible v3). */
   {
     slug: "case-010",
     ref: "CASE-010",
-    title: "Copropriété tertiaire Lyon — optimiseur de relance + équilibrage hydraulique.",
-    region: "Rhône",
-    tag: "Copro tertiaire · Lyon",
-    segments: ["copro-tertiaire", "tertiaire"],
-    activity: "Immeuble bureaux 6 000 m², chauffage collectif",
+    title: "Boulangerie industrielle Île-de-France — récupération chaleur fours + variation vitesse pétrins.",
+    region: "Île-de-France",
+    tag: "IAA · Île-de-France",
+    segments: ["iaa"],
+    activity: "Boulangerie-viennoiserie industrielle, 5,8 GWh/an",
     travaux:
-      "Optimiseur de relance (BAT-TH-109) + équilibrage hydraulique (BAT-SE-103)",
-    fiches: ["BAT-TH-109", "BAT-SE-103"],
+      "Récupération de chaleur sur fours rotatifs (IND-UT-118) + variation de vitesse sur pétrins et chambres de pousse (IND-UT-102) + calorifugeage circuits vapeur (IND-UT-114)",
+    fiches: ["IND-UT-118", "IND-UT-102", "IND-UT-114"],
     stats: {
-      invest: "38 000 €",
-      prime: "24 500 €",
-      reste: "13 500 €",
-      gain: "11 200 €/an",
-      roi: "1,2 an",
+      conso: "5,8 GWh/an",
+      invest: "215 000 €",
+      prime: "118 000 €",
+      reste: "97 000 €",
+      gain: "62 000 €/an",
+      roi: "1,6 an",
     },
     narrative:
-      "Copropriété tertiaire 6 000 m², chauffage collectif gaz. Quick wins : optimiseur de relance et équilibrage hydraulique. AG votée à l'unanimité après présentation par notre AMO. 64 % d'investissement financé.",
+      "Boulangerie-viennoiserie industrielle 5,8 GWh/an. Audit DDADUE complet sur 6 lignes de production (fours rotatifs, fours de cuisson continue, chambres de pousse). Trois gisements priorisés : récupération de chaleur sur les fumées des fours pour préchauffer l'eau de NEP, variation de vitesse sur les moteurs > 11 kW, calorifugeage des circuits vapeur. ROI 1,6 an grâce au mix prime CEE + économies réelles dès l'année 1.",
     verbatim: {
-      quote: "60 % de l'investissement financé. AG votée à l'unanimité.",
-      author: "Sylvie K.",
-      role: "Présidente du conseil syndical",
-      region: "Rhône",
+      quote:
+        "Nos fours tournent 18 h sur 24, l'énergie c'était 22 % de notre coût direct. L'audit a payé sa facture en 6 mois.",
+      author: "Frédéric P.",
+      role: "Directeur d'exploitation",
+      region: "Île-de-France",
     },
     tone: "yellow",
     date: "Livré 03/2025",
+    image: "/cases/CASE-010_20260508153748.png",
   },
   {
     slug: "case-011",
@@ -384,36 +489,56 @@ export const CASES: CaseStudy[] = [
     },
     tone: "rose",
     date: "Livré 11/2024",
+    image: "/cases/CASE-011_tim-ziegelbaum-Tr1gcujxSIQ-unsplash.jpg",
+    enjeu: "Sortie de classe énergétique défavorable et amélioration confort résidents avec optimisation des aides MaPrimeRénov' Copro.",
+    solutions: [
+      "Audit énergétique en copropriété",
+      "Isolation toitures (fiche BAT-EN-107)",
+      "Modernisation GTB chaufferie centrale",
+      "Montage MaPrimeRénov' Copro + prime CEE",
+    ],
+    results: [
+      "Sortie de passoire thermique confirmée",
+      "Confort thermique des résidents amélioré",
+      "Aides cumulées mobilisées (MaPrimeRénov' + CEE)",
+      "Plan pluriannuel travaux (PPT) déposé",
+    ],
+    homeSegment: "residentiel",
   },
+  /* v3 — CASE-012 remplacé : Cosmétique Réunion → Imprimerie offset HdF.
+     Le cas DOM cosmétique reste pertinent côté outre-mer mais est moins
+     représentatif d'un segment-cible v3 (industrie métropolitaine). */
   {
     slug: "case-012",
     ref: "CASE-012",
-    title: "Industriel cosmétique La Réunion — isolation murs + climatiseur DOM.",
-    region: "La Réunion",
-    tag: "Industrie DOM · Réunion",
-    segments: ["dom", "industrie-autre"],
-    activity: "Production cosmétique 2,9 GWh/an, La Réunion",
+    title: "Imprimerie offset Hauts-de-France — récupération compresseurs + déstratification atelier.",
+    region: "Hauts-de-France",
+    tag: "Imprimerie · Hauts-de-France",
+    segments: ["industrie-autre"],
+    activity: "Imprimerie offset, 28 GWh/an",
     travaux:
-      "Isolation murs DOM (INDEN101) + isolation combles DOM (INDEN102) + climatiseur performant (BAT-TH-115)",
-    fiches: ["INDEN101", "INDEN102", "BAT-TH-115"],
+      "Récupération de chaleur sur 2 compresseurs (IND-UT-103) + déstratification atelier 4 200 m² (IND-BA-110) + variateurs sur moteurs > 11 kW (IND-UT-102) + calorifugeage circuits (IND-UT-114)",
+    fiches: ["IND-UT-103", "IND-BA-110", "IND-UT-102", "IND-UT-114"],
     stats: {
-      conso: "2,9 GWh/an",
-      invest: "95 000 €",
-      prime: "72 000 €", // barème DOM
-      reste: "23 000 €",
-      gain: "18 500 €/an",
-      roi: "1,2 an",
+      conso: "28 GWh/an",
+      invest: "138 000 €",
+      prime: "78 000 €",
+      reste: "60 000 €",
+      gain: "29 000 €/an",
+      roi: "2,1 ans",
     },
     narrative:
-      "Industriel cosmétique de La Réunion, 2,9 GWh/an. Mobilisation des fiches CEE outre-mer (INDEN101 et 102) avec barème DOM bonifié 25-40 % par rapport à la métropole. ROI net de 1,2 an, prime représente 76 % de l'investissement.",
+      "Imprimerie offset 28 GWh/an, 4 rotatives. Audit DDADUE identifiant 4 gisements (compresseurs, calorifugeage, déstratification, variateurs). Atelier 4 200 m² avec hauteur sous plafond > 8 m : déstratification d'air a divisé par 2 le temps de chauffe matinal. Récupération de chaleur compresseurs pour préchauffer l'eau process et l'ECS du bâtiment.",
     verbatim: {
-      quote: "Les fiches CEE outre-mer, peu de cabinets les maîtrisent. Agence 3E, oui.",
-      author: "Naïma F.",
-      role: "Directrice technique",
-      region: "La Réunion",
+      quote:
+        "On pensait qu'on ne pouvait plus rien gratter. L'audit a sorti 4 gisements qu'on avait sous le nez.",
+      author: "Hervé M.",
+      role: "Directeur industriel",
+      region: "Hauts-de-France",
     },
     tone: "orange",
     date: "Livré 07/2025",
+    image: "/cases/CASE-012_geri-sakti-CYrYxz-uvE4-unsplash.jpg",
   },
 ];
 

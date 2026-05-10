@@ -216,216 +216,34 @@ export const ddadue = {
   ],
 };
 
-/* v2 — Études de cas équilibrées 6 industrie / 4 tertiaire / 2 particuliers
-   conformément à MENU_ET_HOME_V2.md modification 6.
-
-   Note : la 4e card industrie (Plasturgie Auvergne) et la 6e card industrie
-   (Métallurgie Grand Est) sont des "cas types sectoriels", pas des références
-   client réelles. Elles seront étoffées en Phase 3 (livrable
-   SECTEURS_INDUSTRIE_V2.md). Les autres cards pointent vers les détails
-   existants dans content/cases.ts. */
-export const cases: {
-  eyebrow: string;
-  title: { lead: string; it: string };
-  items: CaseItem[];
-} = {
-  eyebrow: "Études de cas",
-  title: { lead: "Douze dossiers,", it: "trois segments couverts." },
-  items: [
-    /* ============== INDUSTRIE — 6 cards ============== */
-    {
-      span: 2 as const,
-      tone: "rose" as const,
-      tag: "IAA · Bretagne · 4,2 GWh",
-      ref: "CASE-001",
-      title:
-        "Laiterie Bretagne — récupération chaleur sur groupe froid + calorifugeage.",
-      meta: { ref: "IND-UT-117", date: "Livré 03/2025" },
-      stats: [
-        { l: "Investis.", v: "184 k€" },
-        { l: "Prime CEE", v: "98,5 k€" },
-        { l: "ROI net", v: "2,1 ans" },
-      ],
-    },
-    {
-      span: 2 as const,
-      tone: "violet" as const,
-      tag: "IAA · Hauts-de-France",
-      ref: "CASE-004",
-      title: "Charcuterie HdF — condensation flottante + ISO 50001.",
-      meta: { ref: "IND-UT-116", date: "Livré 04/2025" },
-      stats: [
-        { l: "Investis.", v: "168 k€" },
-        { l: "Prime CEE", v: "89 k€" },
-        { l: "ROI net", v: "1,7 an" },
-      ],
-    },
-    {
-      span: 2 as const,
-      tone: "blue" as const,
-      tag: "Plasturgie · Auvergne-Rhône-Alpes",
-      ref: "CASE-002",
-      title: "Plasturgie ARA — variateurs sur 12 presses + presse hybride.",
-      meta: { ref: "IND-UT-102", date: "Livré 06/2025" },
-      stats: [
-        { l: "Investis.", v: "312 k€" },
-        { l: "Prime CEE", v: "142 k€" },
-        { l: "ROI net", v: "2,9 ans" },
-      ],
-    },
-    {
-      span: 2 as const,
-      tone: "yellow" as const,
-      tag: "Plasturgie · Cas type sectoriel",
-      ref: "CASE-IND-PLAST-2",
-      title: "Plasturgiste 25 presses — calorifugeage + récup. eau process.",
-      meta: { ref: "IND-UT-131", date: "Cas type · à étoffer" },
-      stats: [
-        { l: "Investis.", v: "210 k€" },
-        { l: "Prime CEE", v: "92 k€" },
-        { l: "ROI net", v: "3,1 ans" },
-      ],
-    },
-    {
-      span: 2 as const,
-      tone: "orange" as const,
-      tag: "Blanchisserie · IDF",
-      ref: "CASE-003",
-      title: "Blanchisserie hospitalière — PAC haute T° sur chaleur fatale.",
-      meta: { ref: "IND-UT-137", date: "Livré 02/2025" },
-      stats: [
-        { l: "Investis.", v: "245 k€" },
-        { l: "Prime CEE", v: "158 k€" },
-        { l: "ROI net", v: "1,4 an" },
-      ],
-    },
-    {
-      span: 2 as const,
-      tone: "green" as const,
-      tag: "Métallurgie · Cas type sectoriel",
-      ref: "CASE-IND-METAL-1",
-      title: "Fonderie aluminium — brûleur récupération chaleur four.",
-      meta: { ref: "IND-UT-118", date: "Cas type · à étoffer" },
-      stats: [
-        { l: "Investis.", v: "295 k€" },
-        { l: "Prime CEE", v: "138 k€" },
-        { l: "ROI net", v: "2,7 ans" },
-      ],
-    },
-
-    /* ============== TERTIAIRE — 4 cards ============== */
-    {
-      span: 3 as const,
-      tone: "blue" as const,
-      tag: "Hôtellerie · Occitanie",
-      ref: "CASE-008",
-      title:
-        "Groupe hôtelier 4★ — récup. eaux grises + GTB + ventilo HP sur 4 sites.",
-      meta: { ref: "BAT-TH-154", date: "Livré 08/2025" },
-      stats: [
-        { l: "Investis.", v: "145 k€" },
-        { l: "Prime CEE", v: "68 k€" },
-        { l: "ROI net", v: "2,7 ans" },
-      ],
-    },
-    {
-      span: 3 as const,
-      tone: "violet" as const,
-      tag: "Datacenter · IDF",
-      ref: "CASE-007",
-      title: "Datacenter on-premise — confinement allées + free-cooling.",
-      meta: { ref: "BAT-TH-153", date: "Livré 04/2025" },
-      stats: [
-        { l: "Investis.", v: "380 k€" },
-        { l: "Prime CEE", v: "195 k€" },
-        { l: "ROI net", v: "2,0 ans" },
-      ],
-    },
-    {
-      span: 3 as const,
-      tone: "green" as const,
-      tag: "Bureaux · IDF",
-      ref: "CASE-009",
-      title: "Siège entreprise 4 200 m² — réseau de chaleur urbain + GTB.",
-      meta: { ref: "BAT-TH-127", date: "Livré 09/2025" },
-      stats: [
-        { l: "Investis.", v: "165 k€" },
-        { l: "Prime CEE", v: "95 k€" },
-        { l: "ROI net", v: "2,2 ans" },
-      ],
-    },
-    {
-      span: 3 as const,
-      tone: "yellow" as const,
-      tag: "Copropriété tertiaire · Lyon",
-      ref: "CASE-010",
-      title: "Immeuble bureaux 6 000 m² — optimiseur de relance + équilibrage.",
-      meta: { ref: "BAT-TH-109", date: "Livré 03/2025" },
-      stats: [
-        { l: "Investis.", v: "38 k€" },
-        { l: "Prime CEE", v: "24,5 k€" },
-        { l: "ROI net", v: "1,2 an" },
-      ],
-    },
-
-    /* ============== PARTICULIERS — 2 cards ============== */
-    {
-      span: 3 as const,
-      tone: "rose" as const,
-      tag: "Maison individuelle · Île-de-France",
-      ref: "CASE-013",
-      title: "Pavillon 140 m² — PAC air/eau + isolation combles + ITE.",
-      meta: { ref: "BAR-TH-104 · BAR-EN-101/102", date: "Cas type · à étoffer" },
-      stats: [
-        { l: "Investis.", v: "42 k€" },
-        { l: "Aides cumulées", v: "26 k€" },
-        { l: "Reste à charge", v: "16 k€" },
-      ],
-    },
-    {
-      span: 3 as const,
-      tone: "orange" as const,
-      tag: "Copropriété · Marseille",
-      ref: "CASE-011",
-      title:
-        "Copro 48 lots — isolation toitures + GTB chaufferie · MaPrimeRénov' Copro.",
-      meta: { ref: "BAT-EN-107", date: "Livré 11/2024" },
-      stats: [
-        { l: "Investis.", v: "285 k€" },
-        { l: "Aides cumulées", v: "198 k€" },
-        { l: "Reste à charge", v: "87 k€" },
-      ],
-    },
-  ],
-};
-
+/* v3 — Méthode 4 étapes, brief §3.8 (texte verbatim). */
 export const how = {
-  eyebrow: "Notre méthode",
-  title: { lead: "Quatre étapes,", it: "douze à seize semaines." },
+  eyebrow: "Méthode",
+  title: { lead: "Quatre étapes,", it: "un seul interlocuteur." },
   steps: [
     {
       n: 1,
-      title: "Cadrage",
-      duration: "Sem. 0 → 1",
-      desc: "Pré-qualification, NDA, collecte des factures énergie sur 24 mois, périmètre auditable.",
+      title: "Cadrage NDA",
+      duration: "Semaine 0",
+      desc: "Comprendre vos enjeux. Signature NDA, recueil documentaire, périmètre d'audit défini.",
     },
     {
       n: 2,
-      title: "Audit terrain",
-      duration: "Sem. 2 → 6",
-      desc: "Visite des installations, instrumentation, modélisation, identification des gisements prioritaires.",
+      title: "Audit énergétique DDADUE",
+      duration: "Semaines 1–6",
+      desc: "Visite de site, campagne de mesures, modélisation des leviers. Livrable : rapport NF EN 16247-3.",
     },
     {
       n: 3,
       title: "Montage CEE",
-      duration: "Sem. 6 → 10",
-      desc: "Mise en compétition de 5 délégataires, sélection, signature de la convention de partenariat.",
+      duration: "Semaines 7–10",
+      desc: "Constitution des dossiers de prime CEE, négociation auprès des délégataires, mandat de courtage signé.",
     },
     {
       n: 4,
-      title: "Pilotage AMO",
-      duration: "Sem. 10 → 16",
-      desc: "Travaux, attestations, dépôts EMMY, versement de la prime, suivi exploitation 12 mois.",
+      title: "Pilotage AMO travaux",
+      duration: "Semaines 11–30+",
+      desc: "Qualification installateurs RGE, suivi chantier, réception. Versement prime CEE sous 60 jours après mise en service.",
     },
   ],
 };
@@ -442,30 +260,35 @@ export const sim = {
   cta: "Lancer le simulateur",
 };
 
+/* v3 — Ressources, brief §3.9 (texte verbatim eyebrow / H2 / sub).
+ * Mix recommandé : 2 articles blog + 1 guide PDF téléchargeable. */
 export const resources = {
-  eyebrow: "Comprendre",
-  title: { lead: "Ressources", it: "de référence." },
+  eyebrow: "Ressources",
+  title: { lead: "Aller", it: "plus loin." },
+  sub: "Articles, guides et fiches pratiques pour comprendre le dispositif CEE et l'audit DDADUE.",
   items: [
-    {
-      tag: "Guide · 24 pages",
-      title:
-        "DDADUE 2025 — qui, quoi, quand. Le guide complet du dirigeant.",
-      cta: "Télécharger →",
-      href: "/ressources/guides",
-    },
     {
       tag: "Article · 8 min",
       title:
         "6ᵉ période CEE : ce qui change vraiment pour les industriels.",
-      cta: "Lire →",
+      cta: "Lire l'article",
       href: "/comprendre/6e-periode-cee-2026-2030",
     },
     {
-      tag: "Décryptage",
+      tag: "Décryptage · 12 min",
       title:
         "ISO 50001 vs DDADUE : équivalence, complémentarité, quand basculer.",
-      cta: "Lire →",
+      cta: "Lire le décryptage",
       href: "/comprendre/iso-50001-vs-audit-ddadue",
     },
+    {
+      tag: "Guide PDF · 24 pages",
+      title:
+        "DDADUE 2026 — qui, quoi, quand. Le guide complet du dirigeant.",
+      cta: "Télécharger le guide",
+      href: "/ressources/guides",
+    },
   ],
+  ctaAll: "Voir toutes les ressources",
+  hrefAll: "/ressources",
 };

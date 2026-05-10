@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LogoContractuel } from "@/brand/components/LogoContractuel";
+import { LogoHero } from "@/brand/components/LogoHero";
 
 /* ============================================================
    SiteHeader v2 — 6 entrées de premier niveau
@@ -203,21 +204,52 @@ const ENTRIES: Entry[] = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  /* drawer top offset = position de la `bottom` du <header> dans le viewport.
+     Cela couvre tous les cas (scroll=0 avec TopBar visible / scroll>0 sticky
+     pinned / redimensionnement) sans dépendre d'une constante magique. */
+  const [drawerTop, setDrawerTop] = useState<number>(0);
+  const pathname = usePathname();
 
-  /* lock body scroll when mobile drawer open */
+  /* lock body scroll + compute drawer top when mobile drawer open */
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!mobileOpen) {
       document.body.style.overflow = "";
+      return;
     }
+    const header = document.querySelector("header");
+    const updateTop = () => {
+      if (header) {
+        setDrawerTop(Math.max(0, header.getBoundingClientRect().bottom));
+      }
+    };
+    updateTop();
+    document.body.style.overflow = "hidden";
+    window.addEventListener("resize", updateTop);
     return () => {
+      window.removeEventListener("resize", updateTop);
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
+  /* fermeture auto au changement de route (taps sur les liens du drawer) */
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenAccordion(null);
+  }, [pathname]);
+
+  /* fermeture sur touche Escape (a11y) */
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   return (
-    <header className="bg-white/[0.92] backdrop-blur-md border-b border-[var(--color-border-2)] sticky top-0 z-50">
+    <>
+      <header className="bg-white/[0.92] backdrop-blur-md border-b border-[var(--color-border-2)] sticky top-0 z-50">
       <div className="flex justify-between items-center py-[14px] px-8 max-w-[1440px] mx-auto gap-6 max-lg:py-3 max-lg:px-5">
         <Link
           href="/"
@@ -225,11 +257,12 @@ export function SiteHeader() {
           aria-label="Agence 3E — Accueil"
           onClick={() => setMobileOpen(false)}
         >
-          {/* v3 (brand v1.0) — LOGO_CONTRACTUEL en header (matrice
-              Section 2 du Logo Guidelines : registre B2B sobre,
-              lecture rapide du nom). */}
-          <LogoContractuel size={140} className="max-md:hidden" />
-          <LogoContractuel size={88} className="md:hidden" />
+          {/* v4 (brand v1.1) — LOGO_HERO en header, conformément à la
+              matrice Section 2 du Logo Guidelines :
+              « Site web header / cover LinkedIn / kakémono → LOGO_HERO ».
+              Tailles strictes au-dessus du minimum 200 px (Section 3.1). */}
+          <LogoHero size={240} className="max-md:hidden" />
+          <LogoHero size={200} className="md:hidden" />
         </Link>
 
         {/* Desktop nav */}
@@ -241,17 +274,17 @@ export function SiteHeader() {
 
         {/* Right side */}
         <div className="flex gap-3 items-center">
-          <a
-            href="tel:0123456789"
-            className="flex flex-col leading-tight text-right max-xl:hidden"
+          <Link
+            href="/contact?source=rappel"
+            className="flex flex-col leading-tight text-right max-xl:hidden hover:text-[var(--color-secondary)] transition-colors"
           >
             <span className="text-[10.5px] text-[var(--color-text-3)]">
-              Demander un rappel
+              Réponse sous 24 h ouvrées
             </span>
-            <span className="text-[14.5px] font-semibold text-[var(--color-primary)] mono">
-              01 23 45 67 89
+            <span className="text-[14.5px] font-semibold text-[var(--color-primary)]">
+              Demander un rappel →
             </span>
-          </a>
+          </Link>
           <Link
             href="/contact"
             className="btn btn-primary max-lg:hidden"
@@ -286,10 +319,20 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+      </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — rendu en sibling du <header> et non en enfant.
+          Le header utilise `backdrop-blur-md` qui ajoute `backdrop-filter`,
+          ce qui crée un containing block pour les descendants `position: fixed`
+          (gotcha CSS standard). Si le drawer était à l'intérieur de <header>,
+          son `fixed inset-0` se calculerait relativement au header (~68 px de
+          haut), pas au viewport — c'est exactement le bug observé.
+          En sortant le drawer, son `fixed` retombe correctement sur le viewport. */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-[59px] bg-white overflow-y-auto z-40">
+        <div
+          className="lg:hidden fixed inset-0 bg-white overflow-y-auto z-40"
+          style={{ top: `${drawerTop}px` }}
+        >
           <nav className="flex flex-col px-5 py-6 gap-1">
             {ENTRIES.map((entry) => {
               if (entry.href) {
@@ -335,12 +378,13 @@ export function SiteHeader() {
             })}
 
             <div className="mt-6 flex flex-col gap-3 px-1">
-              <a
-                href="tel:0123456789"
+              <Link
+                href="/contact?source=rappel-mobile"
+                onClick={() => setMobileOpen(false)}
                 className="text-center py-3 px-5 rounded-full border border-[var(--color-border)] text-[15px] font-medium text-[var(--color-primary)]"
               >
-                ☎ 01 23 45 67 89
-              </a>
+                Demander un rappel sous 24 h
+              </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
@@ -352,7 +396,7 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
 

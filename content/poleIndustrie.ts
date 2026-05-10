@@ -168,7 +168,7 @@ export const faq = {
     },
     {
       q: "Qu'est-ce qui distingue Agence 3E d'un installateur certifié RGE ?",
-      a: "Notre métier est l'audit et le courtage CEE, pas la pose. La norme NF EN 16247-3 exige que l'auditeur soit indépendant des solutions et installateurs qu'il pourrait recommander. Un installateur RGE qui propose un audit « gratuit » couplé à sa prestation n'est pas conforme à cette exigence. Notre rapport est opposable au PNCEE parce qu'il sort d'une entité dédiée à l'audit (Agence 3E Audit, certifiée OPQIBI 1905).",
+      a: "Notre métier est l'audit et le courtage CEE, pas la pose. La norme NF EN 16247-3 exige que l'auditeur soit indépendant des solutions et installateurs qu'il pourrait recommander. Un installateur RGE qui propose un audit « gratuit » couplé à sa prestation n'est pas conforme à cette exigence. Notre rapport est opposable au PNCEE parce qu'il sort d'un pôle dédié à l'audit (Agence 3E Audit, qualifié OPQIBI 1905), opérationnellement cloisonné de notre activité commerciale CEE.",
     },
     {
       q: "Vous valorisez la prime CEE ou bien c'est nous qui le faisons ?",

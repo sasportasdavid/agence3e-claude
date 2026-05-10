@@ -26,7 +26,7 @@ export function MockupPDF() {
       </div>
       <div className="h-px bg-[var(--color-border-2)] my-3.5 mb-3" />
       <Row label="Conso totale auditée" value="4 218 MWh" />
-      <Row label="Gisement identifié" value="1 248 MWh" />
+      <Row label="Levier identifié" value="1 248 MWh" />
       <Row label="Préconisations" value="7 actions" />
       <div className="mt-3.5 h-8 rounded relative flex items-center px-2.5 bg-[linear-gradient(90deg,#FCE4E4_0%,#FCE4E4_38%,#f3f4f6_38%,#f3f4f6_100%)]">
         <span className="mono text-[9px] text-[var(--color-primary)] font-medium">
@@ -52,35 +52,35 @@ export function MockupTable() {
       <div className="grid grid-cols-[1.4fr_0.7fr_0.8fr_0.7fr] px-[18px] pb-2.5 border-b border-[var(--color-border-2)] mono text-[9px] text-[var(--color-text-3)] tracking-[0.08em] uppercase">
         <span>Fiche · Opération</span>
         <span>kWh cumac</span>
-        <span>Prime CEE</span>
+        <span>Type</span>
         <span>ROI</span>
       </div>
       <TableRow
         refId="IND-UT-117"
         op="Récup. chaleur GF"
         cumac="2 480 000"
-        prime="98,5 k€"
+        type="Process froid"
         roi="2,1 ans"
       />
       <TableRow
         refId="IND-UT-134"
         op="Calorifugeage"
         cumac="620 000"
-        prime="24,8 k€"
+        type="Réseau"
         roi="1,4 ans"
       />
       <TableRow
         refId="IND-UT-103"
         op="Variation vitesse"
         cumac="1 480 000"
-        prime="59,1 k€"
+        type="Motorisation"
         roi="2,9 ans"
       />
       <div className="grid grid-cols-[1.4fr_0.7fr_0.8fr_0.7fr] py-2.5 px-[18px] border-b border-[var(--color-border-2)] text-[11px] font-semibold bg-[var(--color-pastel-blue)]">
         <div>Total programme</div>
         <div>4 580 000</div>
-        <div className="it text-[13px] text-[var(--color-primary)]">182,4 k€</div>
-        <div>2,4 ans</div>
+        <div className="text-[var(--color-text-2)] font-normal">3 opérations</div>
+        <div>2,4 ans moy.</div>
       </div>
     </div>
   );
@@ -90,13 +90,13 @@ function TableRow({
   refId,
   op,
   cumac,
-  prime,
+  type,
   roi,
 }: {
   refId: string;
   op: string;
   cumac: string;
-  prime: string;
+  type: string;
   roi: string;
 }) {
   return (
@@ -108,7 +108,7 @@ function TableRow({
         <div className="text-[10.5px] text-[var(--color-text-2)] mt-0.5">{op}</div>
       </div>
       <div>{cumac}</div>
-      <div className="it text-[var(--color-primary)]">{prime}</div>
+      <div className="text-[var(--color-text-2)]">{type}</div>
       <div>{roi}</div>
     </div>
   );
@@ -125,10 +125,10 @@ export function MockupDash() {
         <span>Archivés</span>
       </div>
       <div className="py-1.5">
-        <DashRow status="live" refId="CASE-001" name="Laiterie Bretagne" prime="98,5 k€" stat="Versée" />
-        <DashRow status="wait" refId="CASE-007" name="Plasturgie Lyon" prime="142 k€" stat="Délég. 3/5" />
-        <DashRow status="done" refId="CASE-012" name="Datacenter IDF" prime="68 k€" stat="Clos" />
-        <DashRow status="live" refId="CASE-018" name="Blanchisserie 13" prime="54,2 k€" stat="Audit" />
+        <DashRow status="live" refId="CASE-001" name="Laiterie Bretagne" stat="Prime versée" />
+        <DashRow status="wait" refId="CASE-007" name="Plasturgie Lyon" stat="Délégataire 3/5" />
+        <DashRow status="done" refId="CASE-012" name="Datacenter IDF" stat="Dossier clos" />
+        <DashRow status="live" refId="CASE-018" name="Blanchisserie 13" stat="Audit en cours" />
       </div>
     </div>
   );
@@ -138,13 +138,11 @@ function DashRow({
   status,
   refId,
   name,
-  prime,
   stat,
 }: {
   status: "live" | "wait" | "done";
   refId: string;
   name: string;
-  prime: string;
   stat: string;
 }) {
   const pillClass =
@@ -154,14 +152,13 @@ function DashRow({
         ? "bg-[var(--color-accent)] shadow-[0_0_0_3px_#fef7d9]"
         : "bg-[var(--color-text-3)]";
   return (
-    <div className="grid grid-cols-[auto_1fr_auto_auto] py-2.5 px-[18px] gap-3 items-center border-b border-[var(--color-border-2)] text-[11px]">
+    <div className="grid grid-cols-[auto_1fr_auto] py-2.5 px-[18px] gap-3 items-center border-b border-[var(--color-border-2)] text-[11px]">
       <span className={`w-2 h-2 rounded-full ${pillClass}`} />
       <div>
         <span className="mono text-[10px] text-[var(--color-primary)]">{refId}</span>
         <div className="text-[var(--color-text)] font-medium">{name}</div>
       </div>
-      <span className="it text-[var(--color-primary)] text-[13px]">{prime}</span>
-      <span className="mono text-[9px] text-[var(--color-text-3)] uppercase tracking-[0.06em]">
+      <span className="mono text-[10px] text-[var(--color-text-2)] tracking-[0.04em]">
         {stat}
       </span>
     </div>

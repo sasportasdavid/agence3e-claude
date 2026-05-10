@@ -62,7 +62,8 @@ export function SiteFooter() {
   return (
     <footer className="bg-[var(--color-primary)] text-white/70 pt-20 pb-8 mt-20 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,var(--color-secondary)_30%,var(--color-accent)_70%,transparent)]" />
-      <div className="container-x">
+      {/* v3 — container max 1440 (cohérent avec header et hero), brief §5.1 */}
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12 mb-16 max-[1100px]:grid-cols-2 max-md:grid-cols-1">
           <div>
             {/* v3 (brand v1.0) — LOGO_CONTRACTUEL négatif en footer
@@ -95,21 +96,22 @@ export function SiteFooter() {
           ))}
         </div>
 
-        {/* v2 — mention juridique reformulée (cf. MENU_ET_HOME_V2.md mod 7) :
-            ton factuel, transparence juridique conservée, sans tonalité
-            défensive. Texte verbatim du livrable. */}
+        {/* v3.6 — mention juridique alignée sur la réalité légale :
+            une seule personne morale (A3E SAS, SIREN 887 859 254) qui
+            structure son activité en deux pôles opérationnels cloisonnés. */}
         <div className="bg-white/[0.04] py-5 px-6 rounded-lg text-xs leading-[1.7] mb-8 text-white/60 italic">
           <strong className="text-white/[0.85] not-italic">
-            Agence 3E — Agence Européenne pour l&apos;Économie d&apos;Énergie.
+            A3E SAS — Agence Européenne pour l&apos;Économie d&apos;Énergie.
           </strong>{" "}
-          Société privée. Aucun lien institutionnel avec une agence publique,
-          l&apos;ADEME, l&apos;AEE (Agence Européenne pour l&apos;Environnement)
-          ou tout organisme communautaire. Notre activité d&apos;audit
-          énergétique et notre activité de courtage CEE sont conduites par
-          deux entités juridiquement distinctes : Agence 3E Audit (audits
-          NF EN 16247) et Agence 3E Solutions (montage et courtage CEE, mise
-          en relation installateurs). Cette séparation respecte
-          l&apos;indépendance professionnelle requise par la norme.
+          Société privée (SIREN 887&nbsp;859&nbsp;254, RCS Paris). Aucun lien
+          institutionnel avec une agence publique, l&apos;ADEME, l&apos;AEE
+          (Agence Européenne pour l&apos;Environnement) ou tout organisme
+          communautaire. Notre activité s&apos;organise en deux pôles
+          opérationnels cloisonnés : Agence 3E Audit (audits NF EN 16247)
+          et Agence 3E Solutions (montage et courtage CEE, mise en relation
+          installateurs). Mandats clients distincts, comptabilité analytique
+          séparée, règles internes de prévention des conflits d&apos;intérêt
+          — détail sur la page Gouvernance et conformité NF EN 16247.
         </div>
 
         <div className="border-t border-white/10 pt-6 flex justify-between flex-wrap gap-4 text-xs text-white/50">

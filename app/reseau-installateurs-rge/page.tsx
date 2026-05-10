@@ -95,6 +95,34 @@ export default function ReseauRGEPage() {
                 </li>
               ))}
             </ul>
+
+            {/* Encart sobre — positionnement neutralité commerciale.
+                Nous ne publions pas la liste des installateurs partenaires
+                pour éviter toute lecture comme prescription ou priorisation
+                publique. Les clients en cours de mission peuvent obtenir
+                une liste anonymisée par région et qualification. */}
+            <div className="mt-10 reveal">
+              <div className="bg-[var(--color-bg-alt,#FAFBFC)] border border-[var(--color-border-2)] rounded-2xl py-7 px-8 max-w-[820px] flex items-start gap-5 max-sm:flex-col max-sm:gap-3">
+                <div
+                  className="mono text-[10.5px] tracking-[0.08em] uppercase text-[var(--color-secondary)] shrink-0 pt-1"
+                  aria-hidden
+                >
+                  Sur demande
+                </div>
+                <div>
+                  <h3 className="text-[16px] font-semibold tracking-[-0.015em] text-[var(--color-primary)] leading-[1.3]">
+                    Liste anonymisée disponible sur demande.
+                  </h3>
+                  <p className="text-[14px] text-[var(--color-text-2)] mt-2 leading-[1.6]">
+                    Nous ne publions pas la liste de nos installateurs
+                    partenaires pour respecter notre engagement de neutralité
+                    commerciale. Une liste anonymisée par région et
+                    qualification peut être communiquée sur demande aux
+                    clients en cours de mission.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

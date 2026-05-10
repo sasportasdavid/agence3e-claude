@@ -250,6 +250,45 @@
   }
 }
 
+/* Topbar — défilement marquee continu R→L des 3 messages.
+   Implémentation : track contient les messages dupliqués 2× ; translation
+   de 0 → -50% boucle exactement sur le 2e set, donc raccord invisible. */
+@keyframes topbar-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.topbar-marquee-track {
+  animation: topbar-marquee 40s linear infinite;
+  will-change: transform;
+}
+.topbar-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Halo de bord — fondu doux des messages aux deux extrémités du wrapper
+   pour éviter le hard-cut sur les caractères tronqués (entrée R, sortie G).
+   On utilise mask-image (le bg navy reste opaque, seul le texte fade). */
+.topbar-marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 56px,
+    black calc(100% - 56px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 56px,
+    black calc(100% - 56px),
+    transparent 100%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.in {
@@ -258,6 +297,9 @@
     transition: none;
   }
   .ddadue-live-dot {
+    animation: none;
+  }
+  .topbar-marquee-track {
     animation: none;
   }
 }

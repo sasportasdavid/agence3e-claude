@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title:
     "Agence 3E — Conformité DDADUE, primes CEE optimisées, travaux pilotés.",
   description:
-    "Audit DDADUE conforme NF EN 16247, montage CEE compétitif, suivi du gisement à la mise en service. Industrie, tertiaire, résidentiel — France métropolitaine et outre-mer.",
+    "Audit DDADUE conforme NF EN 16247, montage CEE compétitif, pilotage des leviers d'économies jusqu'à la mise en service. Industrie, tertiaire, résidentiel — France métropolitaine et outre-mer.",
   metadataBase: new URL("https://agence3e.fr"),
   openGraph: {
     title:

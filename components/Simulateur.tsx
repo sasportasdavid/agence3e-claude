@@ -246,7 +246,7 @@ function Step1({ onPick }: { onPick: (s: Segment) => void }) {
         italic="segment ?"
         lede="Trois univers, trois logiques de prime CEE. Chaque segment ouvre un catalogue de fiches éligibles spécifique."
       />
-      <div className="grid grid-cols-3 gap-4 flex-1 max-sm:grid-cols-1">
+      <div className="grid grid-cols-3 gap-4 max-sm:grid-cols-1">
         {SEGMENTS.map((s) => (
           <button
             type="button"
@@ -283,6 +283,14 @@ function Step1({ onPick }: { onPick: (s: Segment) => void }) {
           </button>
         ))}
       </div>
+
+      {/* v3.1 — Porte de sortie étape 1 : profils mixtes / atypiques.
+          Diagnostic simulateurs §1.1 P0 cul-de-sac #1. */}
+      <EscapeHatch
+        title="Aucun de ces 3 segments ne correspond ?"
+        body="Profil mixte (industrie + tertiaire), foncière, bailleur social, opérateur public, DOM hors résidentiel — décrivez-nous votre cas, notre BE revient sous 24 h ouvrées."
+        href="/contact?source=simulateur&step=1"
+      />
     </>
   );
 }
@@ -353,7 +361,7 @@ function Step2({
         italic="activité."
         lede={lede}
       />
-      <div className="grid grid-cols-2 gap-2.5 flex-1 max-sm:grid-cols-1">
+      <div className="grid grid-cols-2 gap-2.5 max-sm:grid-cols-1">
         {items.map((s, i) => (
           <button
             key={s.name}
@@ -377,6 +385,14 @@ function Step2({
           </button>
         ))}
       </div>
+
+      {/* v3.1 — Porte de sortie étape 2 : sous-secteur non listé. */}
+      <EscapeHatch
+        title="Mon secteur n'est pas dans cette liste."
+        body={`En ${SEG_LABELS[segment]}, on couvre les principaux sous-segments — mais pas tous. Verre, métallurgie spécifique, niche industrielle, segment hybride : décrivez-nous votre activité, on adapte.`}
+        href={`/contact?source=simulateur&step=2&segment=${segment}`}
+        compact
+      />
     </>
   );
 }
@@ -400,7 +416,7 @@ function Step3({
         italic="opération souhaitez-vous valoriser ?"
         lede={lede}
       />
-      <div className="flex flex-col gap-2.5 flex-1">
+      <div className="flex flex-col gap-2.5">
         {items.map((op, i) => (
           <button
             key={op.name}
@@ -447,7 +463,57 @@ function Step3({
           </button>
         ))}
       </div>
+
+      {/* v3.1 — Porte de sortie étape 3 : opération hors catalogue. */}
+      <EscapeHatch
+        title="Aucune de ces opérations ne me correspond."
+        body="Le catalogue CEE compte 218 fiches actives — on n'en affiche que 7-8 par segment ici. Si votre opération n'est pas listée, ou si vous cumulez plusieurs travaux, parlez-nous-en : notre BE ouvre toutes les fiches éligibles."
+        href={`/contact?source=simulateur&step=3&segment=${segment}&subsegment=${encodeURIComponent(subsegment.name)}`}
+        compact
+      />
     </>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────
+ * EscapeHatch — porte de sortie sobre sous chaque étape.
+ * Évite les cul-de-sac UX (cf. diagnostic_simulateurs.md).
+ * ──────────────────────────────────────────────────────────── */
+
+function EscapeHatch({
+  title,
+  body,
+  href,
+  compact = false,
+}: {
+  title: string;
+  body: string;
+  href: string;
+  compact?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`group mt-${compact ? "5" : "7"} flex items-start gap-3.5 py-4 px-[18px] rounded-xl bg-[var(--color-pastel-blue)]/40 border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:bg-[var(--color-pastel-blue)]/60 transition-colors`}
+    >
+      <span
+        className="text-[20px] leading-none mt-px shrink-0"
+        aria-hidden
+      >
+        💬
+      </span>
+      <div className="flex-1 min-w-0">
+        <div className="text-[13.5px] font-semibold text-[var(--color-primary)] tracking-[-0.005em]">
+          {title}
+        </div>
+        <p className="text-[12px] text-[var(--color-text-2)] mt-1 leading-[1.55]">
+          {body}
+        </p>
+      </div>
+      <span className="mono text-[11px] text-[var(--color-primary)] shrink-0 self-center group-hover:translate-x-0.5 transition-transform">
+        Parler à un expert →
+      </span>
+    </Link>
   );
 }
 

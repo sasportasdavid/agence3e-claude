@@ -13,22 +13,26 @@ export const contactPage = {
     sub: "Trois portes d'entrée selon votre profil. Réponse sous 24h ouvrées.",
   },
   coords: {
-    phone: "01 23 45 67 89",
+    /* v3.3 — téléphone retiré (placeholder). À ré-introduire quand
+       David aura un standard pro. En attendant, contact via email
+       ou formulaire avec engagement réponse 24 h ouvrées. */
     email: "contact@agence3e.fr",
-    horaires: "Lundi au vendredi, 9h-18h",
+    horaires: "Réponse sous 24 h ouvrées (Lun-Ven)",
   },
   cards: [
     {
       eyebrow: "Profil 01",
       tone: "green" as const,
+      segment: "industrie" as const,
       title: { lead: "Vous êtes", it: "industriel." },
-      desc: "Audit DDADUE, gisements CEE industriels, ISO 50001.",
+      desc: "Audit DDADUE, leviers CEE industriels, ISO 50001.",
       cta: "Pré-qualifier mon site industriel",
       href: "/pole-industrie",
     },
     {
       eyebrow: "Profil 02",
       tone: "blue" as const,
+      segment: "tertiaire" as const,
       title: { lead: "Vous gérez un", it: "patrimoine tertiaire." },
       desc: "Décret tertiaire, OPERAT, BACS, audit DDADUE tertiaire.",
       cta: "Pré-qualifier mon patrimoine",
@@ -37,6 +41,7 @@ export const contactPage = {
     {
       eyebrow: "Profil 03",
       tone: "rose" as const,
+      segment: "residentiel" as const,
       title: { lead: "Vous êtes particulier", it: "ou syndic." },
       desc: "Audit énergétique, MaPrimeRénov', CEE résidentiel.",
       cta: "Demander un devis",
