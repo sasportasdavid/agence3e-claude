@@ -1,14 +1,15 @@
 /**
  * Home v3 — recomposition complète, cf. brief §3 (sections) + §6.2.
  *
- * Ordre des sections :
+ * Ordre des sections (post mini-sprint repositionnement, Phase 5) — parcours
+ * UX problème → identification → bénéfice → preuves → action → rassurance :
  *   1. HeroV3                 — §3.1 (mockup triple)
  *   2. PilierV3                — §3.2 (3 chiffres DDADUE)
- *   3. SimulateurEncart        — §3.3 (encart vert remonté)
+ *   3. SelecteurPersonas       — §3.5 (3 personas, REMONTÉ pour identification)
  *   4. TriplePromesseV3        — §3.4 (Anticipez / Allégez / Capturez)
- *   5. SelecteurPersonas       — §3.5 (3 personas, REMPLACE PolesSection)
- *   6. EncartDDADUE            — §3.6 (alerte 11 oct 2026, container 880)
- *   7. CasesGrille             — §3.7 (6 cards 3 cols + 4 filtres)
+ *   5. CasesGrille             — §3.7 (6 cards 3 cols + 4 filtres, REMONTÉ — preuves avant CTA)
+ *   6. SimulateurEncart        — §3.3 (encart vert, DESCENDU — action après preuves)
+ *   7. EncartDDADUE            — §3.6 (alerte 11 oct 2026, container 880)
  *   8. HowSection              — §3.8 (timeline 4 étapes, container 880)
  *   9. ResourcesSection        — §3.9 (3 cards aller plus loin)
  *
@@ -43,11 +44,11 @@ export default function Home() {
       <main>
         <HeroV3 />
         <PilierV3 />
-        <SimulateurEncart />
-        <TriplePromesseV3 />
         <SelecteurPersonas />
-        <EncartDDADUE />
+        <TriplePromesseV3 />
         <CasesGrille />
+        <SimulateurEncart />
+        <EncartDDADUE />
         <HowSection />
         <ResourcesSection />
       </main>
