@@ -116,9 +116,9 @@ const QUALITE = [
   },
   {
     eyebrow: "Métrologie",
-    title: "Mesures et instruments calibrés.",
+    title: "Mesures et instruments.",
     body:
-      "Instruments de mesure étalonnés et conformes aux exigences NF EN 16247. Périmètre et incertitudes signalés dans le rapport.",
+      "Instruments de mesure conformes aux exigences NF EN 16247. Périmètre, incertitudes et limites de la modélisation signalés dans le rapport.",
   },
   {
     eyebrow: "Indépendance",
@@ -134,9 +134,13 @@ const ENGAGEMENTS = [
   {
     duration: "4 sem.",
     label: "Visite de site",
-    desc: "Programmée sous 4 semaines après signature",
+    desc: "Programmée généralement sous 4 semaines après signature",
   },
-  { duration: "25 j", label: "Rapport d'audit", desc: "Livré sous 25 jours après visite" },
+  {
+    duration: "25 j",
+    label: "Rapport d'audit",
+    desc: "Livré généralement sous 25 jours après visite",
+  },
   { duration: "—", label: "Dépôt AIDER", desc: "Dans les délais réglementaires" },
 ];
 
