@@ -283,7 +283,7 @@ function renderAckEmail(
             Merci de votre prise de contact. Notre équipe la traite et revient vers vous <strong style="color:#0A2540;">sous 24 heures ouvrées</strong> avec :
           </p>
           <ul style="font-family:Arial,sans-serif;font-size:14.5px;line-height:1.7;color:#425466;margin:0 0 20px;padding-left:22px;">
-            <li>une première lecture chiffrée de votre dossier (estimation primes CEE, gisements identifiables) ;</li>
+            <li>une première lecture chiffrée de votre dossier (estimation primes CEE, leviers d'économies identifiables) ;</li>
             <li>une proposition de créneau pour échanger 20 minutes en visio ou téléphone ;</li>
             <li>les pièces jointes utiles (catalogue 130 fiches CEE industrie, exemple de rapport NF EN 16247).</li>
           </ul>
