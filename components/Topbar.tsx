@@ -67,9 +67,12 @@ export function Topbar() {
   return (
     <div className="bg-[var(--color-primary)] text-white/[0.78] text-[12.5px] tracking-[0.01em] overflow-hidden">
       <div className="flex justify-between items-center gap-4 py-[9px] px-6 lg:px-8 max-w-[1440px] mx-auto">
-        {/* Marquee zone — overflow-hidden, défilement R→L en boucle */}
+        {/* Marquee zone — overflow-hidden, défilement R→L en boucle.
+            La classe `topbar-marquee-mask` applique un fondu doux aux
+            extrémités (mask-image linear-gradient), pour éviter le hard-cut
+            visuel sur les caractères tronqués. */}
         <div
-          className="flex-1 min-w-0 overflow-hidden"
+          className="flex-1 min-w-0 overflow-hidden topbar-marquee-mask"
           aria-label="Messages d'information défilants"
         >
           <div className="topbar-marquee-track inline-flex whitespace-nowrap">
