@@ -16,13 +16,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/partenaires-delegataires-cee" },
 };
 
-const PARTNERS = [
-  {
-    name: "TotalEnergies",
-    role: "Obligé historique, dépose ses propres CEE et rachète ceux de partenaires.",
-  },
-];
-
 export default function PartenairesPage() {
   return (
     <>
@@ -99,48 +92,44 @@ export default function PartenairesPage() {
           </div>
         </section>
 
-        {/* Partenaires actuels */}
+        {/* Partenaires actuels — pas de logos publics par neutralité
+            commerciale (alignement avec /reseau-installateurs-rge) :
+            la liste anonymisée est communiquée aux clients en cours
+            de mission, pas affichée publiquement. */}
         <section className="py-[var(--spacing-block-sm)]">
           <div className="container-x">
-            <span className="eyebrow reveal">Nos partenaires actuels</span>
-            <h2 className="section-title reveal">
-              Notre <span className="it">portefeuille délégataires.</span>
-            </h2>
-            <div className="grid grid-cols-3 gap-6 mt-12 max-[1100px]:grid-cols-1">
-              {PARTNERS.map((p) => (
-                <div
-                  key={p.name}
-                  className="bg-white border border-[var(--color-border)] rounded-2xl p-7 reveal"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-primary)] flex items-center justify-center text-white font-bold text-[14px]">
-                    {p.name
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")
-                      .slice(0, 3)
-                      .toUpperCase()}
-                  </div>
-                  <h3 className="text-[18px] font-semibold tracking-[-0.02em] mt-5 text-[var(--color-primary)]">
-                    {p.name}
-                  </h3>
-                  <p className="text-[14.5px] text-[var(--color-text-2)] mt-3 leading-[1.55]">
-                    {p.role}
-                  </p>
-                </div>
-              ))}
-              {[...Array(4)].map((_, i) => (
-                <div
-                  key={`placeholder-${i}`}
-                  className="bg-[var(--color-pastel-yellow)] border border-dashed border-[var(--color-text-3)] rounded-2xl p-7 reveal flex flex-col justify-center items-center text-center min-h-[200px]"
-                >
-                  <span className="mono text-[10.5px] tracking-[0.08em] uppercase text-[var(--color-text-3)]">
-                    Logo {i + 2}
+            <div className="max-w-[820px]">
+              <span className="eyebrow reveal">Nos partenaires actuels</span>
+              <h2 className="section-title reveal">
+                Une <span className="it">mise en compétition</span>{" "}
+                systématique.
+              </h2>
+              <div className="mt-10 space-y-5 reveal">
+                <p className="text-[17px] text-[var(--color-text-2)] leading-[1.7]">
+                  Nous travaillons avec un portefeuille de délégataires CEE
+                  référencés, sélectionnés pour leur capacité financière,
+                  leur réactivité de versement et la transparence de leurs
+                  prix au cumac. Pour chaque dossier client, nous mettons en
+                  compétition plusieurs délégataires afin d&apos;obtenir le
+                  meilleur prix négocié.
+                </p>
+                <p className="text-[17px] text-[var(--color-text-2)] leading-[1.7]">
+                  Liste des délégataires partenaires actuels disponible sur
+                  demande aux clients en cours de mission.
+                </p>
+              </div>
+
+              {/* Mini badge mono cohérent avec l'encart « Liste anonymisée »
+                  de /reseau-installateurs-rge */}
+              <div className="mt-8 reveal">
+                <div className="inline-flex items-center gap-2 mono text-[10.5px] tracking-[0.08em] uppercase text-[var(--color-secondary)] py-2 px-4 bg-[var(--color-bg-alt,#FAFBFC)] border border-[var(--color-border-2)] rounded-full">
+                  Sur demande
+                  <span aria-hidden className="text-[var(--color-text-3)]">
+                    —
                   </span>
-                  <p className="it text-[15px] text-[var(--color-primary)] mt-3">
-                    À ajouter
-                  </p>
+                  Aucun délégataire nommé publiquement
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>
