@@ -112,7 +112,7 @@ const TONE_BADGE: Record<PromiseCard["tone"], string> = {
 
 export function TriplePromesseV3() {
   return (
-    <section className="py-32 lg:py-40">
+    <section className="py-20 lg:py-28">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <div className="max-w-[760px]">
           <span className="eyebrow reveal">Notre engagement</span>

@@ -82,7 +82,7 @@ const TILES: PersonaTile[] = [
 
 export function SelecteurPersonas() {
   return (
-    <section className="py-32 lg:py-40">
+    <section className="py-20 lg:py-28">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="max-w-[760px]">
           <span className="eyebrow reveal">Trois segments couverts</span>

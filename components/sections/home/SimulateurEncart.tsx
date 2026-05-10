@@ -40,7 +40,7 @@ export function SimulateurEncart() {
   return (
     <section
       id="encart-simulateur"
-      className="py-32 lg:py-40"
+      className="py-20 lg:py-28"
     >
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <div

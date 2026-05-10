@@ -18,7 +18,7 @@ export function EncartDDADUE() {
   return (
     <section
       id="encart-ddadue"
-      className="py-32 lg:py-40"
+      className="py-20 lg:py-28"
     >
       <div className="max-w-[880px] mx-auto px-6 lg:px-12">
         <article

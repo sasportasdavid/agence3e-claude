@@ -43,7 +43,7 @@ const OTHER_CARDS: PilierCard[] = [
 
 export function PilierV3() {
   return (
-    <section className="bg-[var(--color-bg-alt,#FAFBFC)] py-32 lg:py-40">
+    <section className="bg-[var(--color-bg-alt,#FAFBFC)] py-20 lg:py-28">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="max-w-[820px]">
           <span className="eyebrow reveal">DDADUE · 11 octobre 2026</span>
