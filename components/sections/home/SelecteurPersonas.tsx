@@ -2,15 +2,19 @@
  * SelecteurPersonas — section pivot de la conversion (brief §3.5).
  * REMPLACE l'ancienne PolesSection (mosaïque 50/25/25).
  *
- * v3.5 — Refonte design pour cohérence DA générale du site (sobre B2B,
- * cards blanches façon PilierV3 / CaseCard) :
- *  - Cards blanches sur border-2 (fini les aurores saturées qui dominaient
- *    visuellement et écrasaient le contenu).
- *  - Bar accent couleur segment en top (3 px) → différenciation subtile.
- *  - Icônes SVG line custom (factory / building / home) à la place des
- *    emojis 🏭🏢🏡 (consumer-grade, hors DA pro B2B).
+ * v3.5.1 — Refonte design alignée DA générale (sobre B2B + palette pastel
+ * signature du site, comme TriplePromesseV3 rose/mint/blue) :
+ *  - Cards blanches sur border-2 + gradient pastel en top (couleur segment,
+ *    fade vers blanc en bas) — la couleur signe le segment sans dominer.
+ *  - Disque icône pastel saturé (rounded-2xl) + icône SVG line couleur
+ *    segment → impact visuel ciblé, façon Stripe / Linear.
+ *  - Bar accent couleur segment en top (3 px) → différenciation supplémentaire.
+ *  - Tag mono uppercase + bullets dashes en couleur segment.
+ *  - Mapping segment cohérent palette /app/globals.css :
+ *    industrie=pastel-orange/#B45A3D · tertiaire=pastel-blue/primary ·
+ *    résidentiel=pastel-green/#006e46 (sémantique chaud/corporate/nature).
  *  - Liste de 4 services concrets par persona — la promesse est instanciée.
- *  - Hover discret aligné avec PilierV3 (translate-y -4px + shadow primary).
+ *  - Hover discret aligné avec PilierV3 (translate-y -1 + shadow primary).
  *
  * Reprend EXACTEMENT le contenu validé Phase 3 (mini-sprint repositionnement)
  * — découpé en sub court + 4 bullets pour lisibilité.
@@ -88,8 +92,10 @@ function IconHome({ className }: { className?: string }) {
 interface PersonaTile {
   href: string;
   tag: string;
-  /** Couleur d'accent segment (bar top + tag mono + tirets bullets) */
+  /** Couleur d'accent segment (bar top + tag mono + tirets bullets + icône) */
   accent: string;
+  /** Pastel de fond pour le disque icône + gradient top de la card */
+  pastel: string;
   Icon: React.FC<{ className?: string }>;
   h3: string;
   sub: string;
@@ -102,6 +108,7 @@ const TILES: PersonaTile[] = [
     href: "/pole-industrie",
     tag: "Industrie",
     accent: "#B45A3D",
+    pastel: "var(--color-pastel-orange)",
     Icon: IconFactory,
     h3: "Dirigeant industriel.",
     sub: "Pour vos sites de production.",
@@ -117,6 +124,7 @@ const TILES: PersonaTile[] = [
     href: "/pole-tertiaire",
     tag: "Tertiaire",
     accent: "var(--color-primary)",
+    pastel: "var(--color-pastel-blue)",
     Icon: IconBuilding,
     h3: "Gestionnaire tertiaire.",
     sub: "Pour votre parc immobilier.",
@@ -131,7 +139,8 @@ const TILES: PersonaTile[] = [
   {
     href: "/pole-residentiel",
     tag: "Résidentiel",
-    accent: "#1F7A52",
+    accent: "#006e46",
+    pastel: "var(--color-pastel-green)",
     Icon: IconHome,
     h3: "Propriétaire.",
     sub: "Pour votre maison ou copropriété.",
@@ -178,14 +187,26 @@ export function SelecteurPersonas() {
                 className="group relative rounded-3xl overflow-hidden block reveal bg-white border border-[var(--color-border-2)] hover:-translate-y-1 hover:shadow-[0_24px_56px_-16px_rgba(10,37,64,0.16)] hover:border-[var(--color-primary)]/20 transition-all duration-300"
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                {/* Bar accent couleur segment (3 px en top) */}
+                {/* Gradient pastel en top — fade vers white avant la liste.
+                    La couleur signe le segment sans dominer ni écraser le
+                    contenu (alignement DA TriplePromesseV3). */}
                 <div
                   aria-hidden
-                  className="absolute top-0 left-0 right-0 h-[3px]"
+                  className="absolute inset-x-0 top-0 h-[280px] pointer-events-none"
+                  style={{
+                    background: `linear-gradient(180deg, ${t.pastel} 0%, transparent 100%)`,
+                  }}
+                />
+
+                {/* Bar accent couleur segment (3 px en top) — au-dessus du
+                    gradient pour rester visible et net. */}
+                <div
+                  aria-hidden
+                  className="absolute top-0 left-0 right-0 h-[3px] z-[1]"
                   style={{ background: t.accent }}
                 />
 
-                <div className="flex flex-col h-full p-10 lg:p-12 pt-12 lg:pt-14">
+                <div className="relative z-[1] flex flex-col h-full p-10 lg:p-12 pt-12 lg:pt-14">
                   {/* Tag mono uppercase couleur segment */}
                   <span
                     className="mono text-[11px] tracking-[0.08em] uppercase"
@@ -194,12 +215,16 @@ export function SelecteurPersonas() {
                     {t.tag}
                   </span>
 
-                  {/* Icône SVG line custom */}
+                  {/* Icône dans un disque pastel saturé (rounded-2xl) —
+                      impact visuel ciblé, façon Stripe / Linear. La couleur
+                      accent est appliquée via `color` sur le wrapper, héritée
+                      par les SVG via `currentColor`. */}
                   <div
-                    className="mt-6 text-[var(--color-primary)]"
+                    className="mt-6 inline-flex w-14 h-14 rounded-2xl items-center justify-center shrink-0"
+                    style={{ background: t.pastel, color: t.accent }}
                     aria-hidden
                   >
-                    <Icon className="w-10 h-10" />
+                    <Icon className="w-7 h-7" />
                   </div>
 
                   {/* H3 — nom du persona */}
