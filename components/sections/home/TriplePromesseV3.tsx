@@ -32,10 +32,11 @@ const CARDS: PromiseCard[] = [
     h3: "Anticipez l'audit obligatoire.",
     desc: (
       <>
-        Audit énergétique conforme NF EN 16247-3, livraison indicative
-        sous 12 à 16 semaines. Conduit par Agence 3E Audit, certifiée
-        OPQIBI 1905. Périmètre complet : sites industriels, bâtiments
-        tertiaires, points de consommation &gt; 2,75 GWh annuels.
+        Audit énergétique conforme NF EN 16247-3, conduit par Agence 3E
+        Audit (OPQIBI 1905). Nous prenons en charge l&apos;intégralité
+        de la démarche : visite de site, mesures, modélisation, livrable
+        et dépôt sur AIDER. Livraison indicative sous 12 à 16 semaines
+        pour les sites &gt; 2,75 GWh annuels.
       </>
     ),
     stats: [
@@ -55,8 +56,10 @@ const CARDS: PromiseCard[] = [
     desc: (
       <>
         Identification des leviers rentables, hiérarchisation par ROI,
-        plan d&apos;action sur 4 ans. Vous voyez exactement quoi faire,
-        dans quel ordre, pour quel gain — chiffres calibrés site par site.
+        plan d&apos;action priorisé sur 4 ans. Nous coordonnons l&apos;analyse
+        technique, la mise en compétition des solutions et le pilotage de
+        leur mise en œuvre — vous voyez exactement quoi faire, dans quel
+        ordre, pour quel gain. Chiffres calibrés site par site.
       </>
     ),
     stats: [
@@ -75,10 +78,11 @@ const CARDS: PromiseCard[] = [
     h3: "Capturez la valeur CEE.",
     desc: (
       <>
-        Courtage transparent de votre prime CEE auprès de délégataires
-        obligés. Mise en compétition systématique pour optimiser le prix
-        négocié vs marché spot. Mandat écrit, commission affichée en
-        €/MWh cumac, suivi versement dossier par dossier.
+        Montage et courtage transparent de votre prime CEE auprès des
+        délégataires obligés. Nous orchestrons le montage des dossiers,
+        la mise en compétition systématique des délégataires, et le
+        suivi du versement — mandat écrit, commission affichée en €/MWh
+        cumac, dossier par dossier.
       </>
     ),
     stats: [
