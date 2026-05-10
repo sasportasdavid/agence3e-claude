@@ -38,26 +38,22 @@ export function HeroV3() {
             <h1
               className="display reveal mt-7"
               style={{
-                /* v3.5 — H1 plus long que la v3 originale (51 car vs 38).
-                   Pour rester sur 2-3 lignes max sans coupure sauvage en
-                   milieu de mot :
-                   1. Pas de <br> forcé : la moitié inférieure passe en
-                      span italique inline et `text-wrap: balance` répartit
-                      naturellement sur 2-3 lignes selon viewport.
-                   2. Font max 64px (au lieu de 92px de la v3 originale)
-                      — proportionnel à la longueur du H1.
-                   3. line-height 1.08 pour rapprocher visuellement les
-                      lignes wrappées. */
+                /* v3.5.1 — Préservation stricte de l'effet signature
+                   « Inter Tight 600 sur ligne 1 + Source Serif italique
+                   sur ligne 2 ». Approche : 2 spans en `display: block`
+                   pour forcer le retour ligne entre les segments. Sur
+                   viewport étroit, chaque segment peut wrapper en 2
+                   sous-lignes mais TOUJOURS dans la même police (jamais
+                   de mix Inter/italique sur une même ligne). */
                 fontSize: "clamp(36px, 5vw, 64px)",
                 lineHeight: 1.08,
                 letterSpacing: "-0.035em",
                 fontWeight: 600,
-                textWrap: "balance",
               }}
             >
-              Coordonner vos obligations,{" "}
+              <span className="block">Coordonner vos obligations,</span>
               <span
-                className="it text-[var(--color-primary)]"
+                className="it block text-[var(--color-primary)]"
                 style={{ fontWeight: 400, letterSpacing: "-0.02em" }}
               >
                 piloter vos économies.
