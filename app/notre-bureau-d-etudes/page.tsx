@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     "Notre bureau d'études Agence 3E Audit | Auditeur certifié OPQIBI",
   description:
-    "Présentation de notre bureau d'études interne. Auditeur certifié OPQIBI 1905, conformité NF EN 16247, entité juridique distincte (Agence 3E Audit).",
+    "Présentation de notre bureau d'études interne (pôle Agence 3E Audit d'A3E SAS). Qualification OPQIBI 1905, conformité NF EN 16247, pôle opérationnellement cloisonné du pôle Solutions.",
   alternates: { canonical: "/notre-bureau-d-etudes" },
 };
 
