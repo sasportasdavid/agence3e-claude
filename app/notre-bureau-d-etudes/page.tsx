@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { AuroreDefs } from "@/components/AuroreDefs";
 import { RevealRoot } from "@/components/Reveal";
@@ -197,23 +198,19 @@ export default function NotreBureauPage() {
                 </div>
               </div>
 
-              {/* Photo cabinet — placeholder ratio 4/3 prêt pour livraison
-                  visuelle. À remplacer par <Image src="/cabinet/equipe.jpg"
-                  fill ... /> une fois la photo dispo dans /public/cabinet/. */}
+              {/* Photo cabinet — Image Next.js optimisée. Le fichier doit
+                  exister à `public/cabinet/equipe.jpg`. Vue plongeante d'un
+                  ingénieur sur plans techniques (atmosphère bureau d'études). */}
               <div className="reveal">
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[var(--color-pastel-blue)] border border-[var(--color-border-2)]">
-                  <Aurore
-                    variant="ressources"
-                    className="absolute inset-0 w-full h-full opacity-60"
+                  <Image
+                    src="/cabinet/equipe.jpg"
+                    alt="Bureau d'études Agence 3E Audit — vue d'un ingénieur travaillant sur des plans techniques"
+                    fill
+                    sizes="(max-width: 1100px) 100vw, 540px"
+                    className="object-cover"
+                    priority
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <span className="mono text-[10.5px] tracking-[0.1em] uppercase text-[var(--color-text-3)]">
-                      Photo cabinet · à intégrer
-                    </span>
-                    <span className="text-[14px] it text-[var(--color-primary)]/70">
-                      /cabinet/equipe.jpg
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
