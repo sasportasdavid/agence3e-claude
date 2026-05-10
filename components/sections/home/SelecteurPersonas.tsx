@@ -33,7 +33,7 @@ const TILES: PersonaTile[] = [
     h3: "Dirigeant industriel.",
     sub: (
       <>
-        Pour vos sites de production : audit DDADUE conforme, gisements
+        Pour vos sites de production : audit DDADUE conforme, leviers
         CEE hiérarchisés, plan d&apos;action priorisé. 8 secteurs
         couverts, de l&apos;agroalimentaire au verre.
       </>

@@ -231,7 +231,7 @@ export const how = {
       n: 2,
       title: "Audit énergétique DDADUE",
       duration: "Semaines 1–6",
-      desc: "Visite de site, campagne de mesures, modélisation des gisements. Livrable : rapport NF EN 16247-3.",
+      desc: "Visite de site, campagne de mesures, modélisation des leviers. Livrable : rapport NF EN 16247-3.",
     },
     {
       n: 3,

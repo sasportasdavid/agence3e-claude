@@ -26,7 +26,7 @@ export function MockupPDF() {
       </div>
       <div className="h-px bg-[var(--color-border-2)] my-3.5 mb-3" />
       <Row label="Conso totale auditée" value="4 218 MWh" />
-      <Row label="Gisement identifié" value="1 248 MWh" />
+      <Row label="Levier identifié" value="1 248 MWh" />
       <Row label="Préconisations" value="7 actions" />
       <div className="mt-3.5 h-8 rounded relative flex items-center px-2.5 bg-[linear-gradient(90deg,#FCE4E4_0%,#FCE4E4_38%,#f3f4f6_38%,#f3f4f6_100%)]">
         <span className="mono text-[9px] text-[var(--color-primary)] font-medium">

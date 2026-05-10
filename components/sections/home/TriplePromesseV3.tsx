@@ -54,7 +54,7 @@ const CARDS: PromiseCard[] = [
     h3: "Allégez votre facture énergie.",
     desc: (
       <>
-        Identification des gisements rentables, hiérarchisation par ROI,
+        Identification des leviers rentables, hiérarchisation par ROI,
         plan d&apos;action sur 4 ans. Vous voyez exactement quoi faire,
         dans quel ordre, pour quel gain — chiffres calibrés site par site.
       </>

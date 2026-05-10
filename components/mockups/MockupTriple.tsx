@@ -69,7 +69,7 @@ export function MockupTriple() {
  * ───────────────────────────────────────────────────────────── */
 
 function MockupRapportAudit() {
-  const gisements = [
+  const leviers = [
     { ref: "IND-UT-117", label: "Récup. chaleur groupes froids", roi: "1,8 ans" },
     { ref: "IND-UT-103", label: "Variateurs moteurs > 11 kW", roi: "2,4 ans" },
     { ref: "IND-UT-134", label: "Calorifugeage points sing.", roi: "0,9 an" },
@@ -90,13 +90,13 @@ function MockupRapportAudit() {
       </div>
       <div className="px-6 pt-5 pb-6">
         <div className="mono text-[10px] tracking-[0.08em] text-[var(--color-text-3)] uppercase">
-          Chap. 7 — Gisements priorisés ROI · page 24
+          Chap. 7 — Leviers priorisés ROI · page 24
         </div>
         <h4 className="text-[16px] font-semibold text-[var(--color-primary)] mt-2 tracking-[-0.015em] leading-tight">
           Site IAA Bretagne · 4,2 GWh/an
         </h4>
         <div className="mt-4 space-y-2">
-          {gisements.map((g, i) => (
+          {leviers.map((g, i) => (
             <div
               key={g.ref}
               className="flex items-center gap-3 py-2 px-2.5 rounded-lg bg-[#fafbfc] border border-[var(--color-border-2)]"

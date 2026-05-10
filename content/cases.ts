@@ -113,7 +113,7 @@ export const CASES: CaseStudy[] = [
     results: [
       "Conformité DDADUE livrée — audit déposé sur AIDER",
       "7 préconisations priorisées par ROI",
-      "38 % de couverture CEE du gisement identifié",
+      "38 % de couverture CEE du levier identifié",
       "Plan de financement bancable",
     ],
     homeSegment: "industrie",

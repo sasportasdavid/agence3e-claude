@@ -61,7 +61,7 @@ export function HeroV3() {
             </h1>
             <p className="text-[20px] text-[var(--color-text-2)] leading-[1.55] mt-8 max-w-[560px] reveal">
               Cabinet spécialisé dans la conformité réglementaire et la
-              performance énergétique. Nous identifions vos gisements
+              performance énergétique. Nous identifions vos leviers
               d&apos;économies, hiérarchisons les actions par ROI, et
               finançons leur mise en œuvre via les CEE — sites industriels,
               parc tertiaire, copropriétés. Un seul interlocuteur, de
@@ -80,7 +80,7 @@ export function HeroV3() {
                 href="#encart-simulateur"
                 className="btn btn-secondary"
               >
-                Identifier mes gisements
+                Identifier mes leviers
               </Link>
             </div>
 
