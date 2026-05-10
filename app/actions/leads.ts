@@ -51,6 +51,57 @@ const SOURCE_LABEL: Record<LeadSource, string> = {
   "simulateur-cee": "Simulateur CEE — étape 4",
 };
 
+/**
+ * Calcule le subject Resend en fonction de la source d'arrivée.
+ *
+ * Pour `contact-generic`, on regarde le champ hidden `source-detail`
+ * (transmis par /contact à partir des queryparams ?source=...) afin
+ * de différencier le subject :
+ *   - cas-similaire + reference-cas → « Demande cas similaire — case-X — Nom »
+ *   - estimation-cee                → « Demande estimation CEE — Nom »
+ *   - topbar / rappel / rappel-mobile → « Demande de rappel — Nom »
+ *   - persona-mixte                 → « Profil mixte — Nom »
+ *   - défaut                        → « Contact générique — Nom »
+ *
+ * Les autres LeadSource (pole-industrie, pole-residentiel,
+ * simulateur-cee) gardent leur format historique avec ref LEAD- en
+ * tête, qui sert au tri/recherche par référence.
+ */
+function computeSubject(
+  source: LeadSource,
+  ref: string,
+  fields: Record<string, string>,
+): string {
+  const nom = (fields.nom || "").trim();
+  const nomSuffix = nom ? ` — ${nom}` : "";
+
+  if (source === "contact-generic") {
+    const sourceDetail = fields["source-detail"] || "";
+    const referenceCas = fields["reference-cas"] || "";
+
+    if (sourceDetail === "cas-similaire" && referenceCas) {
+      return `[Lead Agence 3E] Demande cas similaire — ${referenceCas}${nomSuffix}`;
+    }
+    if (sourceDetail === "estimation-cee") {
+      return `[Lead Agence 3E] Demande estimation CEE${nomSuffix}`;
+    }
+    if (
+      sourceDetail === "topbar" ||
+      sourceDetail === "rappel" ||
+      sourceDetail === "rappel-mobile"
+    ) {
+      return `[Lead Agence 3E] Demande de rappel${nomSuffix}`;
+    }
+    if (sourceDetail === "persona-mixte") {
+      return `[Lead Agence 3E] Profil mixte${nomSuffix}`;
+    }
+    return `[Lead Agence 3E] Contact générique${nomSuffix}`;
+  }
+
+  // Autres sources : format historique avec ref LEAD-…
+  return `[${ref}] Nouveau lead — ${SOURCE_LABEL[source]}`;
+}
+
 const FROM = process.env.RESEND_FROM ?? "Agence 3E <noreply@agence3e.fr>";
 const TO_INTERNAL =
   process.env.RESEND_TO_INTERNAL ?? "contact@agence3e.fr";
@@ -105,12 +156,14 @@ export async function submitLead(
   }
 
   try {
-    // 1) Notification interne — toujours envoyée
+    // 1) Notification interne — toujours envoyée. Subject différencié
+    //    selon la source (cf. computeSubject : pour contact-generic, on
+    //    lit le champ hidden source-detail issu des queryparams).
     await resend.emails.send({
       from: FROM,
       to: TO_INTERNAL,
       replyTo: fields.email,
-      subject: `[${ref}] Nouveau lead — ${SOURCE_LABEL[source]}`,
+      subject: computeSubject(source, ref, fields),
       html: renderInternalEmail(source, ref, fields),
       text: renderInternalText(source, ref, fields),
     });
