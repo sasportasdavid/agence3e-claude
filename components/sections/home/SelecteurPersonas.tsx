@@ -33,9 +33,10 @@ const TILES: PersonaTile[] = [
     h3: "Dirigeant industriel.",
     sub: (
       <>
-        Pour vos sites de production : audit DDADUE conforme, leviers
-        CEE hiérarchisés, plan d&apos;action priorisé. 8 secteurs
-        couverts, de l&apos;agroalimentaire au verre.
+        Pour vos sites de production : conformité DDADUE, identification
+        des leviers d&apos;économies, financement CEE optimisé, pilotage
+        des travaux. 8 secteurs couverts, de l&apos;agroalimentaire au
+        verre.
       </>
     ),
     stat: "8 secteurs couverts",
@@ -49,8 +50,9 @@ const TILES: PersonaTile[] = [
     h3: "Gestionnaire tertiaire.",
     sub: (
       <>
-        Pour votre parc immobilier : conformité décret tertiaire,
-        déclaration OPERAT, GTB performante, trajectoire 2030. Bureaux,
+        Pour votre parc immobilier : conformité décret tertiaire (DEET),
+        identification des leviers d&apos;efficacité, financement CEE et
+        aides, pilotage GTB et travaux jusqu&apos;en 2030. Bureaux,
         retail, hôtellerie, datacenters et plus.
       </>
     ),
@@ -65,9 +67,10 @@ const TILES: PersonaTile[] = [
     h3: "Propriétaire.",
     sub: (
       <>
-        Pour votre maison ou copropriété : MaPrimeRénov&apos;, prime CEE,
-        éco-PTZ, TVA 5,5 %. Artisans RGE qualifiés, travaux pilotés,
-        devis gratuit.
+        Pour votre maison ou copropriété : audit énergétique,
+        mobilisation des aides (MaPrimeRénov&apos;, prime CEE, éco-PTZ,
+        TVA 5,5 %), pilotage travaux avec artisans RGE qualifiés. Devis
+        gratuit.
       </>
     ),
     stat: "Maisons · Copropriétés · Aides cumulables",
@@ -82,7 +85,7 @@ export function SelecteurPersonas() {
     <section className="py-32 lg:py-40">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="max-w-[760px]">
-          <span className="eyebrow reveal">Trois segments, une méthode</span>
+          <span className="eyebrow reveal">Trois segments couverts</span>
           <h2
             className="display reveal mt-6"
             style={{
@@ -92,11 +95,11 @@ export function SelecteurPersonas() {
               lineHeight: 1.05,
             }}
           >
-            Vous êtes...
+            Selon votre profil.
           </h2>
           <p className="text-[18px] text-[var(--color-text-2)] leading-[1.65] mt-6 reveal">
-            Choisissez votre profil pour voir les solutions adaptées.
-            Méthode commune, exigences spécifiques par segment.
+            Industrie, tertiaire, copropriété — une méthode, trois
+            terrains.
           </p>
         </div>
 
