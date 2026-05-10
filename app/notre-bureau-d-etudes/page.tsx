@@ -62,6 +62,20 @@ const METHODE = [
 ];
 
 const CERTIFS = [
+  {
+    code: "OPQIBI 0604",
+    title: "Évaluation environnementale des activités industrielles",
+  },
+  {
+    code: "OPQIBI 1318",
+    title: "Étude d'installations de froid industriel",
+  },
+  { code: "OPQIBI 1601", title: "Étude en acoustique" },
+  {
+    code: "OPQIBI 1603",
+    title: "Maîtrise d'œuvre en acoustique industrielle",
+  },
+  { code: "OPQIBI 1717", title: "Audit énergétique dans l'industrie" },
   { code: "OPQIBI 1905", title: "Audit énergétique des bâtiments" },
   {
     code: "OPQIBI 1907",
